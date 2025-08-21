@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amogh Goswami — DevOps Engineer</title>
+  <meta name="description" content="DevOps portfolio of Amogh Goswami: AWS, Docker, Kubernetes, Terraform, CI/CD, CloudOps."/>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
+        extend: {
+          colors: { primary: '#0ea5e9' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-zinc-950 text-zinc-100 selection:bg-primary/30">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800/70 bg-zinc-950/70 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <img src="assets/images/logo.svg" class="w-9 h-9" alt="AG">
+        <span class="font-semibold tracking-wide">Amogh</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-primary" href="#about">About</a>
+        <a class="hover:text-primary" href="#mission">Mission</a>
+        <a class="hover:text-primary" href="#projects">Projects</a>
+        <a class="hover:text-primary" href="#tech">Tech</a>
+        <a class="hover:text-primary" href="#contact">Contact</a>
+        <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" href="assets/docs/Amogh_resume.pdf">Download CV</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 rounded-xl border border-zinc-700">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2">
+      <a href="#about" class="block py-2 border-b border-zinc-800">About</a>
+      <a href="#mission" class="block py-2 border-b border-zinc-800">Mission</a>
+      <a href="#projects" class="block py-2 border-b border-zinc-800">Projects</a>
+      <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
+      <a href="#contact" class="block py-2">Contact</a>
+      <a href="assets/docs/Amogh_resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img src="assets/images/bg.jpg" class="w-full h-full object-cover opacity-25" alt="bg" />
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-950"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <p class="text-primary font-semibold">DevOps • Cloud • Platform</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mt-2">hey, I'm Amogh</h1>
+        <p class="mt-4 text-zinc-300 leading-relaxed">
+          DevOps Engineer from Pune, building resilient CI/CD and cloud platforms on AWS.
+          11+ months at HisanLab Pvt. Ltd. Automating infra with Terraform, shipping containers to EKS,
+          and designing observability that keeps systems healthy.
+        </p>
+       <div class="flex flex-wrap gap-3 mt-6 justify-center">
+  <!-- GitHub -->
+  <a href="https://github.com/goswami800" target="_blank"
+     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseGitHub">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-5 h-5">
+    GitHub
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank"
+     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseLinkedIn">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-5 h-5">
+    LinkedIn
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/gordon__lyon" target="_blank"
+     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseInsta">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-5 h-5">
+    Instagram
+  </a>
+
+  <!-- Contact -->
+  <a href="#contact"
+     class="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold hover:scale-105 transition transform shadow animate-pulseEmail">
+    ✉ Contact Me
+  </a>
+</div>
+
+<style>
+  /* Pulse animations in brand colors */
+  @keyframes pulseEmail {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.5); }
+    50% { box-shadow: 0 0 15px 6px rgba(0, 102, 204, 0.6); }
+  }
+  .animate-pulseEmail { animation: pulseEmail 2s infinite; }
+
+  @keyframes pulseLinkedIn {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.5); }
+    50% { box-shadow: 0 0 15px 6px rgba(14, 118, 168, 0.6); }
+  }
+  .animate-pulseLinkedIn { animation: pulseLinkedIn 2s infinite; }
+
+  @keyframes pulseGitHub {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 15px 6px rgba(255, 255, 255, 0.4); }
+  }
+  .animate-pulseGitHub { animation: pulseGitHub 2s infinite; }
+
+  @keyframes pulseInsta {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.5); }
+    50% { box-shadow: 0 0 15px 6px rgba(225, 48, 108, 0.6); }
+  }
+  .animate-pulseInsta { animation: pulseInsta 2s infinite; }
+</style>
+
+        <div class="mt-6 text-sm text-zinc-400">Updated 2025-08-21</div>
+      </div>
+      <div class="md:justify-self-end">
+        <img src="assets/images/hero.png" 
+     class="w-full max-w-md mx-auto rounded-2xl border border-zinc-800 object-contain" 
+     alt="hero" />
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold">About me</h2>
+    <p class="mt-4 text-zinc-300"> My mission is to grow as a DevOps Engineer by designing and automating
+      cloud-native infrastructure that is reliable, scalable, and secure.
+      With hands-on experience in Linux, AWS, Terraform, Docker, Git, and
+      Kubernetes, I aim to streamline deployments, optimize workflows, and
+      build systems that adapt to business needs. I am passionate about
+      continuous learning, from networking fundamentals to advanced cloud
+      services, and committed to delivering solutions that enable innovation,
+      collaboration, and efficiency in every environment I work in.</p>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
+        <h3 class="font-semibold">Highlights</h3>
+        <ul class="mt-3 space-y-2 list-disc list-inside text-zinc-300">
+          <li>IaC: Terraform modules for VPC, EKS, RDS, IAM</li>
+          <li>CI/CD: GitHub Actions with blue/green & rolling</li>
+          <li>Obs: CloudWatch + Prometheus/Grafana</li>
+        </ul>
+      </div>
+      <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
+        <h3 class="font-semibold">Experience</h3>
+        <p class="mt-3 text-zinc-300">DevOps Intern @ HisanLab Pvt. Ltd. for 11 months. Built pipelines, cut costs, hardened security groups and IAM.</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
+        <h3 class="font-semibold">Contact</h3>
+        <p class="mt-3 text-zinc-300">Email: <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a><br/>Phone: <a class="underline" href="tel:+917887918348">+91 7887918348</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold">My Mission</h2>
+    <p class="mt-4 text-zinc-300">Ship faster without breaking things — by baking reliability, security, and automation into every stage of delivery.</p>
+    <!-- QUOTE BOX -->
+<blockquote id="quoteBox" class="mt-6 p-6 rounded-2xl border border-zinc-800 bg-white/5 text-center italic text-lg">
+  Keep moving, don't settle.
+</blockquote>
+
+<script>
+  const quotes = [
+    "Keep moving, don't settle.",
+    "Small steps every day lead to big results.",
+    "Consistency beats motivation.",
+    "Build. Break. Learn. Repeat.",
+    "Dreams don’t work unless you do.",
+    "Progress, not perfection.",
+    "In DevOps, automation is the ultimate superpower.",
+    "Ship fast, fail fast, learn faster.",
+    "CI/CD is not a pipeline, it's a culture.",
+    "Every outage is just another lesson in disguise.",
+    "Measure, monitor, and improve — always.",
+    "Infrastructure as Code is poetry for engineers.",
+    "The best documentation is a reliable pipeline.",
+    "Security is not a feature, it's a mindset.",
+    "Collaboration is the true continuous delivery."
+  ];
+
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const speed = 70;  // typing speed
+  const delay = 2000; // pause before deleting
+
+  function typeEffect() {
+    const quoteBox = document.getElementById("quoteBox");
+    const currentQuote = quotes[index];
+
+    if (!isDeleting) {
+      // typing forward
+      quoteBox.innerText = currentQuote.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === currentQuote.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, delay);
+        return;
+      }
+    } else {
+      // deleting
+      quoteBox.innerText = currentQuote.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        index = (index + 1) % quotes.length;
+      }
+    }
+    setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
+  }
+
+  typeEffect();
+</script>
+
+<style>
+  #quoteBox {
+    min-height: 60px; /* avoid layout shift */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  #quoteBox:hover {
+    color: #1e90ff;   /* glow blue on hover */
+    transform: scale(1.05);
+  }
+</style>
+
+
+  </section>
+  <!-- PROJECTS -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold">Recent Projects</h2>
+    <p class="mt-2 text-zinc-300">A snapshot of my hands-on work. More on my GitHub.</p>
+    <div class="mt-6 grid md:grid-cols-2 gap-6">
+      <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5">
+        <img src="assets/images/p1.png" class="rounded-xl border border-zinc-800" alt="p1">
+        <h3 class="mt-4 font-semibold text-xl">3‑Tier App on EKS (NGINX + Node.js + MySQL)</h3>
+        <p class="mt-2 text-zinc-300">Terraform-provisioned VPC/EKS/RDS, ECR for images, GitHub Actions pipeline, HPA, and zero-downtime deployments.</p>
+        <div class="mt-3 text-sm flex flex-wrap gap-2">
+          <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">GitHub Actions</span>
+        </div>
+      </article>
+      <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5">
+        <img src="assets/images/p2.png" class="rounded-xl border border-zinc-800" alt="p2">
+        <h3 class="mt-4 font-semibold text-xl">Observability Stack & Cost Controls</h3>
+        <p class="mt-2 text-zinc-300">Centralized logging and metrics via CloudWatch + Prometheus. Right-sized EC2, S3 lifecycle & tag policies for cost governance.</p>
+        <div class="mt-3 text-sm flex flex-wrap gap-2">
+          <span class="tag">CloudWatch</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">FinOps</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section id="tech" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold">Technologies I use</h2>
+    <p class="mt-2 text-zinc-300">Core stack I build with day-to-day:</p>
+    <ul class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <li class="tech">AWS: EC2, VPC, S3, IAM, RDS, CloudFront, CloudWatch, Route53, Lambda</li>
+      <li class="tech">Containers: Docker, Kubernetes (EKS)</li>
+      <li class="tech">IaC: Terraform (reusable modules)</li>
+      <li class="tech">CI/CD: GitHub Actions</li>
+      <li class="tech">Langs: Python, Bash</li>
+      <li class="tech">DB/Cache: MySQL, PostgreSQL, Redis (basics)</li>
+      <li class="tech">Monitoring: Prometheus, Grafana</li>
+      <li class="tech">OS: Linux (Ubuntu, CentOS)</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold">Contact me</h2>
+    <p class="mt-2 text-zinc-300">I'm always excited to work on production-grade DevOps challenges.</p>
+    <p class="mt-2 text-zinc-300">Feel free to reach out for collaboration, questions, or just to say hi!</p>
+    <p class="mt-2 text-zinc-300">You can also email me directly at <a class="underline" href="mailto:goswamiamogh@outlook.com">
+    <form action="mailto:goswamiamogh@outlook.com" method="post" enctype="text/plain" class="mt-6 grid gap-4 max-w-xl">
+      <input required placeholder="Name*" class="field" />
+      <input required placeholder="Subject*" class="field" />
+      <input required type="email" placeholder="Email*" class="field" />
+      <textarea required placeholder="Message*" rows="5" class="field"></textarea>
+      <button class="px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold">Send</button>
+    </form>
+   
+<!-- Contact Icons -->
+<div class="mt-6 flex gap-6 justify-center text-center">
+  <!-- Email -->
+  <a href="mailto:goswamiamogh@outlook.com" target="_blank" 
+     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseEmail transition-all duration-300 hover:scale-110">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732223.png" alt="Outlook" class="w-6 h-6" />
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" 
+     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseLinkedIn transition-all duration-300 hover:scale-110">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-6 h-6" />
+  </a>
+
+  <!-- GitHub -->
+  <a href="https://github.com/goswami800" target="_blank" 
+     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseGitHub transition-all duration-300 hover:scale-110">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-6 h-6" />
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/gordon__lyon" target="_blank" 
+     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseInsta transition-all duration-300 hover:scale-110">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-6 h-6" />
+  </a>
+</div>
+
+<!-- Extra Styles -->
+<style>
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Pulse animations in brand colors */
+  @keyframes pulseEmail {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.6); }
+    50% { box-shadow: 0 0 20px 8px rgba(0, 102, 204, 0.6); }
+  }
+  .animate-pulseEmail { animation: pulseEmail 2s infinite; }
+
+  @keyframes pulseLinkedIn {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.6); }
+    50% { box-shadow: 0 0 20px 8px rgba(14, 118, 168, 0.6); }
+  }
+  .animate-pulseLinkedIn { animation: pulseLinkedIn 2s infinite; }
+
+  @keyframes pulseGitHub {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    50% { box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.5); }
+  }
+  .animate-pulseGitHub { animation: pulseGitHub 2s infinite; }
+
+  @keyframes pulseInsta {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.6); }
+    50% { box-shadow: 0 0 20px 8px rgba(225, 48, 108, 0.6); }
+  }
+  .animate-pulseInsta { animation: pulseInsta 2s infinite; }
+</style>
+  </section>
+
+  <footer class="border-t border-zinc-800 py-10">
+    <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 gap-4 text-sm text-zinc-400">
+      <div>© 2025 Amogh Goswami</div>
+      <div class="justify-self-end">Important Links: <a class="underline" href="#home">Home</a> • <a class="underline" href="#projects">My work</a> • <a class="underline" href="#contact">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+<!-- POPUP -->
+<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden z-50">
+  <div id="popupBox" class="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700 rounded-2xl p-8 max-w-sm text-center shadow-2xl transform scale-90 opacity-0 transition-all duration-500">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+         alt="GitHub" class="w-12 h-12 mx-auto mb-4">
+    <h2 class="text-2xl font-bold mb-2">Follow me on GitHub</h2>
+    <p class="text-zinc-300 mb-6">Stay updated with my projects and DevOps work.</p>
+    <a href="https://github.com/goswami800" target="_blank" 
+       class="px-6 py-3 rounded-xl bg-primary text-zinc-900 font-semibold shadow hover:scale-105 transition-transform">
+       ⭐ Follow on GitHub
+    </a>
+    <button id="closePopup" 
+            class="block mt-5 text-sm text-zinc-400 hover:text-zinc-200">Close</button>
+    <p id="countdown" class="mt-2 text-xs text-zinc-500"></p>
+  </div>
+</div>
+
+ <script>
+  // Show popup after 5 seconds
+  setTimeout(() => {
+    const popup = document.getElementById('popup');
+    const popupBox = document.getElementById('popupBox');
+    const countdownEl = document.getElementById('countdown');
+    let timeLeft = 10; // seconds before auto-close
+
+    popup.classList.remove('hidden');
+    popupBox.classList.remove('opacity-0', 'scale-90');
+
+    // Show countdown
+    countdownEl.textContent = `Closing in ${timeLeft}s...`;
+
+    const countdownTimer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = `Closing in ${timeLeft}s...`;
+      if (timeLeft <= 0) {
+        clearInterval(countdownTimer);
+        popup.classList.add('hidden');
+      }
+    }, 1000);
+
+  }, 5000);
+
+  // Close popup manually
+  document.getElementById('closePopup').addEventListener('click', () => {
+    document.getElementById('popup').classList.add('hidden');
+  });
+
+  // Mobile menu toggle
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+
+</body>
+</html>
