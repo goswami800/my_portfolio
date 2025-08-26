@@ -24,54 +24,75 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 selection:bg-primary/30">
   <!-- NAV -->
-  <header class="sticky top-0 z-50 border-b border-zinc-800/70 bg-zinc-950/70 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-3">
-        <img src="assets/images/logo.svg" class="w-9 h-9" alt="AG">
-        <span class="font-semibold tracking-wide">Amogh</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a class="hover:text-primary" href="#about">About</a>
-        <a class="hover:text-primary" href="#mission">Mission</a>
-        <a class="hover:text-primary" href="#projects">Projects</a>
-        <a class="hover:text-primary" href="#tech">Tech</a>
-        <a class="hover:text-primary" href="#contact">Contact</a>
-        <a class="hover:text-primary" href="#jobs">Jobs</a>
-        <a class="hover:text-primary" href="#blog">Blog</a>
-        <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" href="assets/docs/Amogh_resume.pdf">Download CV</a>
-      </nav>
-      <button id="menuBtn" class="md:hidden p-2 rounded-xl border border-zinc-700">☰</button>
-    </div>
-    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2">
-      <a href="#about" class="block py-2 border-b border-zinc-800">About</a>
-      <a href="#mission" class="block py-2 border-b border-zinc-800">Mission</a>
-      <a href="#projects" class="block py-2 border-b border-zinc-800">Projects</a>
-      <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
-      <a href="#contact" class="block py-2">Contact</a>
-      <a href="#jobs" class="block py-2 border-b border-zinc-800">Jobs</a>
-      <a href="#blog" class="block py-2 border-b border-zinc-800">Blog</a>
-      <a href="assets/docs/Amogh_resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
-      <button id="darkToggle" class="px-3 py-1 rounded-lg border border-zinc-600 text-sm">
-  🌙 Dark
-</button>
+<header class="sticky top-0 z-50 border-b border-zinc-800/70 bg-zinc-950/70 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#home" class="flex items-center gap-3">
+      <img src="assets/images/logo.svg" class="w-9 h-9" alt="AG">
+      <span class="font-semibold tracking-wide">Amogh</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a class="hover:text-primary" href="#about">About</a>
+      <a class="hover:text-primary" href="#mission">Mission</a>
+      <a class="hover:text-primary" href="#projects">Projects</a>
+      <a class="hover:text-primary" href="#tech">Tech</a>
+      <a class="hover:text-primary" href="#contact">Contact</a>
+      <a class="hover:text-primary" href="#jobs">Jobs</a>
+      <a class="hover:text-primary" href="#blog">Blog</a>
+      <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" 
+         href="assets/docs/Amogh_resume.pdf">Download CV</a>
+      <!-- Dark Mode -->
+      <button id="darkToggleDesktop" class="px-3 py-1 rounded-lg border border-zinc-600 text-sm">
+        🌙 Dark
+      </button>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="menuBtn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-xl border border-zinc-700">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2">
+    <a href="#about" class="block py-2 border-b border-zinc-800">About</a>
+    <a href="#mission" class="block py-2 border-b border-zinc-800">Mission</a>
+    <a href="#projects" class="block py-2 border-b border-zinc-800">Projects</a>
+    <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
+    <a href="#contact" class="block py-2">Contact</a>
+    <a href="#jobs" class="block py-2 border-b border-zinc-800">Jobs</a>
+    <a href="#blog" class="block py-2 border-b border-zinc-800">Blog</a>
+    <a href="assets/docs/Amogh_resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
+    <!-- Dark Mode -->
+    <button id="darkToggleMobile" class="w-full px-3 py-2 rounded-lg border border-zinc-600 text-sm text-left">
+      🌙 Dark
+    </button>
+  </div>
+</header>
+
+<!-- JS Script -->
 <script>
-  const toggleBtn = document.getElementById("darkToggle");
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light");
-    if (document.body.classList.contains("light")) {
-      toggleBtn.textContent = "🌞 Light";
-      document.body.classList.remove("bg-zinc-950","text-zinc-100");
-      document.body.classList.add("bg-white","text-zinc-900");
-    } else {
-      toggleBtn.textContent = "🌙 Dark";
-      document.body.classList.add("bg-zinc-950","text-zinc-100");
-      document.body.classList.remove("bg-white","text-zinc-900");
-    }
-  });
+function toggleTheme(btn) {
+  document.body.classList.toggle("light");
+  if (document.body.classList.contains("light")) {
+    btn.textContent = "🌞 Light";
+    document.body.classList.remove("bg-zinc-950","text-zinc-100");
+    document.body.classList.add("bg-white","text-zinc-900");
+  } else {
+    btn.textContent = "🌙 Dark";
+    document.body.classList.add("bg-zinc-950","text-zinc-100");
+    document.body.classList.remove("bg-white","text-zinc-900");
+  }
+}
+
+document.getElementById("darkToggleDesktop")?.addEventListener("click", 
+  () => toggleTheme(document.getElementById("darkToggleDesktop")));
+document.getElementById("darkToggleMobile")?.addEventListener("click", 
+  () => toggleTheme(document.getElementById("darkToggleMobile")));
 </script>
 
-    </div>
-  </header>
 
   <!-- HERO -->
   <section id="home" class="relative overflow-hidden">
