@@ -54,18 +54,22 @@
       <button id="darkToggle" class="px-3 py-1 rounded-lg border border-zinc-600 text-sm">
   🌙 Dark
 </button>
-      <script>
-        // Dark mode toggle
-        document.getElementById('darkToggle').addEventListener('click', () => {
-          document.documentElement.classList.toggle('dark');
-          const btn = document.getElementById('darkToggle');
-          if (document.documentElement.classList.contains('dark')) {
-            btn.textContent = '☀ Light';
-          } else {
-            btn.textContent = '🌙 Dark';
-          }
-        });
-      </script>
+<script>
+  const toggleBtn = document.getElementById("darkToggle");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light");
+    if (document.body.classList.contains("light")) {
+      toggleBtn.textContent = "🌞 Light";
+      document.body.classList.remove("bg-zinc-950","text-zinc-100");
+      document.body.classList.add("bg-white","text-zinc-900");
+    } else {
+      toggleBtn.textContent = "🌙 Dark";
+      document.body.classList.add("bg-zinc-950","text-zinc-100");
+      document.body.classList.remove("bg-white","text-zinc-900");
+    }
+  });
+</script>
+
     </div>
   </header>
 
