@@ -67,3 +67,10 @@ button:active {
   transform: scale(0.97);
 }
 }
+html {
+  scroll-behavior: smooth;
+}
+/* scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}

@@ -630,6 +630,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 </script>
+<script>
+// Scroll spy highlight
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("nav a");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove("text-primary", "font-bold"));
+          const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+          if (active) {
+            active.classList.add("text-primary", "font-bold");
+          }
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  sections.forEach(section => observer.observe(section));
+});
+</script>
 
 
 
