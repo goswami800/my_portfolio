@@ -36,6 +36,7 @@
         <a class="hover:text-primary" href="#projects">Projects</a>
         <a class="hover:text-primary" href="#tech">Tech</a>
         <a class="hover:text-primary" href="#contact">Contact</a>
+        <a class="hover:text-primary" href="#jobs">Jobs</a>
         <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" href="assets/docs/Amogh_resume.pdf">Download CV</a>
       </nav>
       <button id="menuBtn" class="md:hidden p-2 rounded-xl border border-zinc-700">☰</button>
@@ -46,6 +47,7 @@
       <a href="#projects" class="block py-2 border-b border-zinc-800">Projects</a>
       <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
       <a href="#contact" class="block py-2">Contact</a>
+      <a href="#jobs" class="block py-2 border-b border-zinc-800">Jobs</a>
       <a href="assets/docs/Amogh_resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
     </div>
   </header>
@@ -277,6 +279,26 @@
       <li class="tech">OS: Linux (Ubuntu, CentOS)</li>
     </ul>
   </section>
+
+    <!-- JOBS -->
+  <section id="jobs" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold">Live DevOps Jobs</h2>
+    <p class="mt-2 text-zinc-300">Here are some real-time DevOps and Cloud opportunities fetched from GitJobs.dev</p>
+    
+    <div class="mt-6 flex justify-center">
+      <iframe id="gitjobs"
+        src="https://gitjobs.dev/embed?kind%5B0%5D=full-time&kind%5B1%5D=internship&seniority=entry&workplace%5B0%5D=remote&limit=10"
+        style="width:100%;max-width:870px;height:600px;display:block;margin:0 auto;border:none;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- optional auto-resizer -->
+  <script type="module">
+    import { initialize } from "https://cdn.jsdelivr.net/npm/@open-iframe-resizer/core@latest/dist/index.js";
+    initialize({}, "#gitjobs");
+  </script>
+
 
   <!-- CONTACT -->
   <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
