@@ -396,7 +396,11 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
     <h2 class="text-3xl font-bold">Contact me</h2>
     <p class="mt-2 text-zinc-300">I'm always excited to work on production-grade DevOps challenges.</p>
     <p class="mt-2 text-zinc-300">Feel free to reach out for collaboration, questions, or just to say hi!</p>
-    <p class="mt-2 text-zinc-300">You can also email me directly at <a class="underline" href="mailto:goswamiamogh@outlook.com">
+   <p class="mt-2 text-zinc-300">
+  You can also email me directly at 
+  <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a>
+</p>
+    <!-- Contact Form -->
     <form action="mailto:goswamiamogh@outlook.com" method="post" enctype="text/plain" class="mt-6 grid gap-4 max-w-xl">
       <input required placeholder="Name*" class="field" />
       <input required placeholder="Subject*" class="field" />
@@ -537,7 +541,7 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   });
 </script>
   <!-- Floating CV Download Button (only on mobile) -->
-  <a href="/Amogh_Goswami_CV.pdf" download
+  <a href="assets/docs/Amogh_resume.pdf" download
      class="fixed bottom-5 right-5 md:hidden px-4 py-3 rounded-full bg-primary text-zinc-900 font-semibold shadow-lg hover:scale-110 transition">
      📄 Resume
   </a>
@@ -583,6 +587,36 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
       });
     });
   </script>
+  <script>
+// Scroll spy for nav highlighting
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remove highlight from all
+          navLinks.forEach((link) => link.classList.remove("text-yellow-400"));
+
+          // Highlight current section link
+          const id = entry.target.getAttribute("id");
+          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add("text-yellow-400");
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.6, // % of section in view before highlighting
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+});
+</script>
 
 
 </body>
