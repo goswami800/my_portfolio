@@ -138,7 +138,32 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   </a>
 </div>
 
+<style>
+  /* Pulse animations in brand colors */
+  @keyframes pulseEmail {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.5); }
+    50% { box-shadow: 0 0 15px 6px rgba(0, 102, 204, 0.6); }
+  }
+  .animate-pulseEmail { animation: pulseEmail 2s infinite; }
 
+  @keyframes pulseLinkedIn {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.5); }
+    50% { box-shadow: 0 0 15px 6px rgba(14, 118, 168, 0.6); }
+  }
+  .animate-pulseLinkedIn { animation: pulseLinkedIn 2s infinite; }
+
+  @keyframes pulseGitHub {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 15px 6px rgba(255, 255, 255, 0.4); }
+  }
+  .animate-pulseGitHub { animation: pulseGitHub 2s infinite; }
+
+  @keyframes pulseInsta {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.5); }
+    50% { box-shadow: 0 0 15px 6px rgba(225, 48, 108, 0.6); }
+  }
+  .animate-pulseInsta { animation: pulseInsta 2s infinite; }
+</style>
 
         <div class="mt-6 text-sm text-zinc-400">Updated 2025-08-21</div>
       </div>
@@ -536,6 +561,13 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   </script>
 </section>
   <script>
+    // Mobile menu toggle
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+  <script>
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -555,7 +587,49 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
       });
     });
   </script>
+  <script>
+// Scroll spy for nav highlighting
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remove highlight from all
+          navLinks.forEach((link) => link.classList.remove("text-yellow-400"));
+
+          // Highlight current section link
+          const id = entry.target.getAttribute("id");
+          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add("text-yellow-400");
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.6, // % of section in view before highlighting
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+});
+</script>
+<script>
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href").substring(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+</script>
 <script>
 // Scroll spy highlight
 document.addEventListener("DOMContentLoaded", () => {
@@ -604,6 +678,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const docHeight = document.body.scrollHeight - window.innerHeight;
     const progress = (scrollTop / docHeight) * 100;
     progressBar.style.width = progress + "%";
+  });
+</script>
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (scrollY >= sectionTop) current = section.getAttribute("id");
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("text-primary", "font-bold");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("text-primary", "font-bold");
+      }
+    });
   });
 </script>
 <script>
