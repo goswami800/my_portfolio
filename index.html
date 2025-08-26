@@ -669,6 +669,51 @@ document.addEventListener("DOMContentLoaded", () => {
   revealOnScroll();
 });
 </script>
+<div id="progressBar" class="fixed top-0 left-0 h-1 bg-primary z-50"></div>
+
+<script>
+  const progressBar = document.getElementById("progressBar");
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.width = progress + "%";
+  });
+</script>
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (scrollY >= sectionTop) current = section.getAttribute("id");
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("text-primary", "font-bold");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("text-primary", "font-bold");
+      }
+    });
+  });
+</script>
+<script>
+  const allSections = document.querySelectorAll("section");
+
+  function revealOnScroll() {
+    allSections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        sec.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+</script>
 
 
 
