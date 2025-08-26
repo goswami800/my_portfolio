@@ -1,103 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Amogh Goswami — DevOps Engineer</title>
-  <meta name="description" content="DevOps portfolio of Amogh Goswami: AWS, Docker, Kubernetes, Terraform, CI/CD, CloudOps."/>
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="DevOps portfolio of Amogh Goswami: AWS, Docker, Kubernetes, Terraform, CI/CD, CloudOps." />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Amogh Goswami — DevOps Engineer" />
+  <meta property="og:description" content="AWS • Docker • Kubernetes • Terraform • CI/CD" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind CDN with dark mode class strategy -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
-        extend: {
-          colors: { primary: '#0ea5e9' }
-        }
+        extend: { colors: { primary: '#0ea5e9' } }
       }
     }
   </script>
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body class="bg-zinc-950 text-zinc-100 selection:bg-primary/30">
-  <!-- NAV -->
-<header class="sticky top-0 z-50 border-b border-zinc-800/70 bg-zinc-950/70 backdrop-blur">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#home" class="flex items-center gap-3">
-      <img src="assets/images/logo.svg" class="w-9 h-9" alt="AG">
-      <span class="font-semibold tracking-wide">Amogh</span>
-    </a>
 
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-6 text-sm">
-      <a class="hover:text-primary" href="#about">About</a>
-      <a class="hover:text-primary" href="#mission">Mission</a>
-      <a class="hover:text-primary" href="#projects">Projects</a>
-      <a class="hover:text-primary" href="#tech">Tech</a>
-      <a class="hover:text-primary" href="#contact">Contact</a>
-      <a class="hover:text-primary" href="#jobs">Jobs</a>
-      <a class="hover:text-primary" href="#blog">Blog</a>
-      <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" 
-         href="assets/docs/Amogh_resume.pdf">Download CV</a>
-      <!-- Dark Mode -->
-      <button id="darkToggleDesktop" class="px-3 py-1 rounded-lg border border-zinc-600 text-sm">
-        🌙 Dark
-      </button>
-    </nav>
+  <!-- Base styles (optional external) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Fallback for .tag and fields if external CSS missing */
+    .tag{display:inline-block;padding:.25rem .6rem;border-radius:.75rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:.75rem}
+    .field{padding:.75rem 1rem;border-radius:.75rem;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05)}
+    section.visible{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+    section{opacity:0;transform:translateY(12px)}
+    /* Glass */
+    .glass{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2)}
+    /* Pulses */
+    @keyframes pulseC{0%,100%{box-shadow:0 0 0 0 rgba(14,165,233,.5)}50%{box-shadow:0 0 20px 8px rgba(14,165,233,.6)}}
+    .animate-pulseEmail{animation:pulseC 2s infinite}
+    @keyframes pulseLinkedIn{0%,100%{box-shadow:0 0 0 0 rgba(14,118,168,.5)}50%{box-shadow:0 0 15px 6px rgba(14,118,168,.6)}}
+    .animate-pulseLinkedIn{animation:pulseLinkedIn 2s infinite}
+    @keyframes pulseGitHub{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.3)}50%{box-shadow:0 0 15px 6px rgba(255,255,255,.4)}}
+    .animate-pulseGitHub{animation:pulseGitHub 2s infinite}
+    @keyframes pulseInsta{0%,100%{box-shadow:0 0 0 0 rgba(225,48,108,.5)}50%{box-shadow:0 0 15px 6px rgba(225,48,108,.6)}}
+    .animate-pulseInsta{animation:pulseInsta 2s infinite}
+    /* Mission typing */
+    #quoteBox{min-height:60px;transition:color .3s,transform .3s}
+    #quoteBox:hover{color:#1e90ff;transform:scale(1.05)}
+  </style>
 
-    <!-- Mobile Menu Button -->
-    <button id="menuBtn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-xl border border-zinc-700">
-      ☰
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2">
-    <a href="#about" class="block py-2 border-b border-zinc-800">About</a>
-    <a href="#mission" class="block py-2 border-b border-zinc-800">Mission</a>
-    <a href="#projects" class="block py-2 border-b border-zinc-800">Projects</a>
-    <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
-    <a href="#contact" class="block py-2">Contact</a>
-    <a href="#jobs" class="block py-2 border-b border-zinc-800">Jobs</a>
-    <a href="#blog" class="block py-2 border-b border-zinc-800">Blog</a>
-    <a href="assets/docs/Amogh_resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
-    <!-- Dark Mode -->
-    <button id="darkToggleMobile" class="w-full px-3 py-2 rounded-lg border border-zinc-600 text-sm text-left">
-      🌙 Dark
-    </button>
-  </div>
-</header>
-
-<!-- JS Script -->
-<script>
-function toggleTheme(btn) {
-  document.body.classList.toggle("light");
-  if (document.body.classList.contains("light")) {
-    btn.textContent = "🌞 Light";
-    document.body.classList.remove("bg-zinc-950","text-zinc-100");
-    document.body.classList.add("bg-white","text-zinc-900");
-  } else {
-    btn.textContent = "🌙 Dark";
-    document.body.classList.add("bg-zinc-950","text-zinc-100");
-    document.body.classList.remove("bg-white","text-zinc-900");
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amogh Goswami",
+    "jobTitle": "DevOps Engineer",
+    "url": "https://example.com/",
+    "image": "assets/images/hero.png",
+    "sameAs": [
+      "https://github.com/goswami800",
+      "https://www.linkedin.com/in/amogh-goswami-783801201/",
+      "https://www.instagram.com/gordon__lyon"
+    ]
   }
-}
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 selection:bg-primary/30 antialiased">
 
-document.getElementById("darkToggleDesktop")?.addEventListener("click", 
-  () => toggleTheme(document.getElementById("darkToggleDesktop")));
-document.getElementById("darkToggleMobile")?.addEventListener("click", 
-  () => toggleTheme(document.getElementById("darkToggleMobile")));
-</script>
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800/70 bg-zinc-950/70 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3" aria-label="Go to home">
+        <img src="assets/images/logo.svg" class="w-9 h-9" alt="AG logo" loading="lazy">
+        <span class="font-semibold tracking-wide">Amogh</span>
+      </a>
 
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-primary" href="#about">About</a>
+        <a class="hover:text-primary" href="#mission">Mission</a>
+        <a class="hover:text-primary" href="#projects">Projects</a>
+        <a class="hover:text-primary" href="#tech">Tech</a>
+        <a class="hover:text-primary" href="#contact">Contact</a>
+        <a class="hover:text-primary" href="#jobs">Jobs</a>
+        <a class="hover:text-primary" href="#blog">Blog</a>
+        <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" href="assets/docs/Amogh_resume.pdf">Download CV</a>
+        <button id="themeToggleDesktop" class="px-3 py-1 rounded-lg border border-zinc-600 text-sm" aria-pressed="false" aria-label="Toggle color theme">🌙 Dark</button>
+      </nav>
+
+      <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden p-2 rounded-xl border border-zinc-700">☰</button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2">
+      <a href="#about" class="block py-2 border-b border-zinc-800">About</a>
+      <a href="#mission" class="block py-2 border-b border-zinc-800">Mission</a>
+      <a href="#projects" class="block py-2 border-zinc-800 border-b">Projects</a>
+      <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
+      <a href="#contact" class="block py-2">Contact</a>
+      <a href="#jobs" class="block py-2 border-b border-zinc-800">Jobs</a>
+      <a href="#blog" class="block py-2 border-b border-zinc-800">Blog</a>
+      <a href="assets/docs/Amogh_resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
+      <button id="themeToggleMobile" class="w-full px-3 py-2 rounded-lg border border-zinc-600 text-sm text-left" aria-pressed="false">🌙 Dark</button>
+    </div>
+  </header>
 
   <!-- HERO -->
   <section id="home" class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10">
-      <img src="assets/images/bg.jpg" class="w-full h-full object-cover opacity-25" alt="bg" />
+      <img src="assets/images/bg.jpg" class="w-full h-full object-cover opacity-25" alt="Abstract dark background" loading="lazy" />
       <div class="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-950"></div>
     </div>
     <div class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-8 items-center">
@@ -109,69 +124,23 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
           11+ months at HisanLab Pvt. Ltd. Automating infra with Terraform, shipping containers to EKS,
           and designing observability that keeps systems healthy.
         </p>
-       <div class="flex flex-wrap gap-3 mt-6 justify-center">
-  <!-- GitHub -->
-  <a href="https://github.com/goswami800" target="_blank"
-     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseGitHub">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-5 h-5">
-    GitHub
-  </a>
-
-  <!-- LinkedIn -->
-  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank"
-     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseLinkedIn">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-5 h-5">
-    LinkedIn
-  </a>
-
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/gordon__lyon" target="_blank"
-     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseInsta">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-5 h-5">
-    Instagram
-  </a>
-
-  <!-- Contact -->
-  <a href="#contact"
-     class="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold hover:scale-105 transition transform shadow animate-pulseEmail">
-    ✉ Contact Me
-  </a>
-</div>
-
-<style>
-  /* Pulse animations in brand colors */
-  @keyframes pulseEmail {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.5); }
-    50% { box-shadow: 0 0 15px 6px rgba(0, 102, 204, 0.6); }
-  }
-  .animate-pulseEmail { animation: pulseEmail 2s infinite; }
-
-  @keyframes pulseLinkedIn {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.5); }
-    50% { box-shadow: 0 0 15px 6px rgba(14, 118, 168, 0.6); }
-  }
-  .animate-pulseLinkedIn { animation: pulseLinkedIn 2s infinite; }
-
-  @keyframes pulseGitHub {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3); }
-    50% { box-shadow: 0 0 15px 6px rgba(255, 255, 255, 0.4); }
-  }
-  .animate-pulseGitHub { animation: pulseGitHub 2s infinite; }
-
-  @keyframes pulseInsta {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.5); }
-    50% { box-shadow: 0 0 15px 6px rgba(225, 48, 108, 0.6); }
-  }
-  .animate-pulseInsta { animation: pulseInsta 2s infinite; }
-</style>
-
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="https://github.com/goswami800" target="_blank" rel="noopener" class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseGitHub" aria-label="GitHub profile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-5 h-5" loading="lazy">GitHub
+          </a>
+          <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" rel="noopener" class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseLinkedIn" aria-label="LinkedIn profile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-5 h-5" loading="lazy">LinkedIn
+          </a>
+          <a href="https://www.instagram.com/gordon__lyon" target="_blank" rel="noopener" class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseInsta" aria-label="Instagram profile">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-5 h-5" loading="lazy">Instagram
+          </a>
+          <a href="#contact" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold hover:scale-105 transition transform shadow animate-pulseEmail">✉ Contact Me</a>
+          <a href="assets/docs/Amogh_resume.pdf" class="flex items-center gap-2 px-5 py-3 rounded-xl border border-primary text-primary font-semibold hover:scale-105 transition transform">📄 Download CV</a>
+        </div>
         <div class="mt-6 text-sm text-zinc-400">Updated 2025-08-21</div>
       </div>
       <div class="md:justify-self-end">
-        <img src="assets/images/hero.png" 
-     class="w-full max-w-md mx-auto rounded-2xl border border-zinc-800 object-contain" 
-     alt="hero" />
-
+        <img src="assets/images/hero.png" class="w-full max-w-md mx-auto rounded-2xl border border-zinc-800 object-contain" alt="Amogh — DevOps Engineer" loading="lazy" />
       </div>
     </div>
   </section>
@@ -197,20 +166,16 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
         </ul>
       </div>
       <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
-  <h3 class="font-semibold">Experience Timeline</h3>
-  <div class="relative border-l border-zinc-700 mt-3 ml-3">
-    <div class="mb-8 ml-6">
-      <div class="absolute -left-3 w-6 h-6 rounded-full bg-primary border-2 border-zinc-900"></div>
-      <h4 class="text-lg font-semibold">2024 – 2025</h4>
-      <p class="text-zinc-300">DevOps Intern @ HisanLab Pvt. Ltd.</p>
-      <p class="text-sm text-zinc-400 mt-1">
-        • Built CI/CD pipelines, automated infra with Terraform, managed IAM.<br>
-        🎯 Outcome → Faster deployments, cost optimization
-      </p>
-    </div>
-  </div>
-</div>
-
+        <h3 class="font-semibold">Experience Timeline</h3>
+        <div class="relative border-l border-zinc-700 mt-3 ml-3">
+          <div class="mb-8 ml-6">
+            <div class="absolute -left-3 w-6 h-6 rounded-full bg-primary border-2 border-zinc-900"></div>
+            <h4 class="text-lg font-semibold">2024 – 2025</h4>
+            <p class="text-zinc-300">DevOps Intern @ HisanLab Pvt. Ltd.</p>
+            <p class="text-sm text-zinc-400 mt-1">• Built CI/CD pipelines, automated infra with Terraform, managed IAM.<br>🎯 Outcome → Faster deployments, cost optimization</p>
+          </div>
+        </div>
+      </div>
       <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
         <h3 class="font-semibold">Contact</h3>
         <p class="mt-3 text-zinc-300">Email: <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a><br/>Phone: <a class="underline" href="tel:+917887918348">+91 7887918348</a></p>
@@ -222,84 +187,16 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   <section id="mission" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold">My Mission</h2>
     <p class="mt-4 text-zinc-300">Ship faster without breaking things — by baking reliability, security, and automation into every stage of delivery.</p>
-    <!-- QUOTE BOX -->
-<blockquote id="quoteBox" class="mt-6 p-6 rounded-2xl border border-zinc-800 bg-white/5 text-center italic text-lg">
-  Keep moving, don't settle.
-</blockquote>
-
-<script>
-  const quotes = [
-    "Keep moving, don't settle.",
-    "Small steps every day lead to big results.",
-    "Consistency beats motivation.",
-    "Build. Break. Learn. Repeat.",
-    "Dreams don’t work unless you do.",
-    "Progress, not perfection.",
-    "In DevOps, automation is the ultimate superpower.",
-    "Ship fast, fail fast, learn faster.",
-    "CI/CD is not a pipeline, it's a culture.",
-    "Every outage is just another lesson in disguise.",
-    "Measure, monitor, and improve — always.",
-    "Infrastructure as Code is poetry for engineers.",
-    "The best documentation is a reliable pipeline.",
-    "Security is not a feature, it's a mindset.",
-    "Collaboration is the true continuous delivery."
-  ];
-
-  let index = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  const speed = 70;  // typing speed
-  const delay = 2000; // pause before deleting
-
-  function typeEffect() {
-    const quoteBox = document.getElementById("quoteBox");
-    const currentQuote = quotes[index];
-
-    if (!isDeleting) {
-      // typing forward
-      quoteBox.innerText = currentQuote.substring(0, charIndex + 1);
-      charIndex++;
-      if (charIndex === currentQuote.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, delay);
-        return;
-      }
-    } else {
-      // deleting
-      quoteBox.innerText = currentQuote.substring(0, charIndex - 1);
-      charIndex--;
-      if (charIndex === 0) {
-        isDeleting = false;
-        index = (index + 1) % quotes.length;
-      }
-    }
-    setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
-  }
-
-  typeEffect();
-</script>
-
-<style>
-  #quoteBox {
-    min-height: 60px; /* avoid layout shift */
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-  }
-  #quoteBox:hover {
-    color: #1e90ff;   /* glow blue on hover */
-    transform: scale(1.05);
-  }
-</style>
-
-
+    <blockquote id="quoteBox" class="mt-6 p-6 rounded-2xl border border-zinc-800 bg-white/5 text-center italic text-lg">Keep moving, don't settle.</blockquote>
   </section>
+
   <!-- PROJECTS -->
   <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold">Recent Projects</h2>
     <p class="mt-2 text-zinc-300">A snapshot of my hands-on work. More on my GitHub.</p>
     <div class="mt-6 grid md:grid-cols-2 gap-6">
       <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5">
-        <img src="assets/images/p1.png" class="rounded-xl border border-zinc-800" alt="p1">
+        <img src="assets/images/p1.png" class="rounded-xl border border-zinc-800" alt="3‑Tier App on EKS: NGINX + Node.js + MySQL" loading="lazy">
         <h3 class="mt-4 font-semibold text-xl">3‑Tier App on EKS (NGINX + Node.js + MySQL)</h3>
         <p class="mt-2 text-zinc-300">Terraform-provisioned VPC/EKS/RDS, ECR for images, GitHub Actions pipeline, HPA, and zero-downtime deployments.</p>
         <div class="mt-3 text-sm flex flex-wrap gap-2">
@@ -307,7 +204,7 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
         </div>
       </article>
       <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5">
-        <img src="assets/images/p2.png" class="rounded-xl border border-zinc-800" alt="p2">
+        <img src="assets/images/p2.png" class="rounded-xl border border-zinc-800" alt="Observability Stack & Cost Controls" loading="lazy">
         <h3 class="mt-4 font-semibold text-xl">Observability Stack & Cost Controls</h3>
         <p class="mt-2 text-zinc-300">Centralized logging and metrics via CloudWatch + Prometheus. Right-sized EC2, S3 lifecycle & tag policies for cost governance.</p>
         <div class="mt-3 text-sm flex flex-wrap gap-2">
@@ -322,162 +219,81 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
     <h2 class="text-3xl font-bold">Technologies I use</h2>
     <p class="mt-2 text-zinc-300">Core stack I build with day-to-day:</p>
     <ul class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <li class="tech">AWS: EC2, VPC, S3, IAM, RDS, CloudFront, CloudWatch, Route53, Lambda</li>
-      <li class="tech">Containers: Docker, Kubernetes (EKS)</li>
-      <li class="tech">IaC: Terraform (reusable modules)</li>
-      <li class="tech">CI/CD: GitHub Actions</li>
-      <li class="tech">Langs: Python, Bash</li>
-      <li class="tech">DB/Cache: MySQL, PostgreSQL, Redis (basics)</li>
-      <li class="tech">Monitoring: Prometheus, Grafana</li>
-      <li class="tech">OS: Linux (Ubuntu, CentOS)</li>
+      <li class="tag">AWS: EC2, VPC, S3, IAM, RDS, CloudFront, CloudWatch, Route53, Lambda</li>
+      <li class="tag">Containers: Docker, Kubernetes (EKS)</li>
+      <li class="tag">IaC: Terraform (reusable modules)</li>
+      <li class="tag">CI/CD: GitHub Actions</li>
+      <li class="tag">Langs: Python, Bash</li>
+      <li class="tag">DB/Cache: MySQL, PostgreSQL, Redis (basics)</li>
+      <li class="tag">Monitoring: Prometheus, Grafana</li>
+      <li class="tag">OS: Linux (Ubuntu, CentOS)</li>
     </ul>
   </section>
 
-   <!-- JOBS SECTION -->
-<section id="jobs" class="max-w-6xl mx-auto px-6 py-16">
-  <h2 class="text-4xl font-bold text-center mb-6">🚀 Latest DevOps Job Openings</h2>
-  <p class="text-center text-gray-400 mb-10">
-    Real-time job listings (updated daily). Filter and explore opportunities best suited for you.
-  </p>
+  <!-- JOBS SECTION -->
+  <section id="jobs" class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-center mb-6">🚀 Latest DevOps Job Openings</h2>
+    <p class="text-center text-gray-400 mb-10">Real-time job listings (updated daily). Filter and explore opportunities best suited for you.</p>
 
-  <!-- Filter Tabs -->
-  <div class="flex justify-center gap-4 mb-6">
-    <button onclick="loadJobs('remote')" class="px-5 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">Remote</button>
-    <button onclick="loadJobs('on-site')" class="px-5 py-2 rounded-full bg-green-600 text-white hover:bg-green-700 transition">On-site</button>
-    <button onclick="loadJobs('hybrid')" class="px-5 py-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition">Hybrid</button>
-    <button onclick="loadJobs('all')" class="px-5 py-2 rounded-full bg-gray-700 text-white hover:bg-gray-800 transition">All</button>
-  </div>
-
-  <!-- Job Frame Wrapper -->
-  <div id="job-container" class="relative w-full max-w-4xl mx-auto">
-    <!-- Loading spinner -->
-    <div id="loading" class="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
-      <div class="w-12 h-12 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+    <!-- Filters -->
+    <div class="flex flex-wrap justify-center gap-3 mb-6">
+      <button data-filter="remote" class="filterBtn px-5 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">Remote</button>
+      <button data-filter="on-site" class="filterBtn px-5 py-2 rounded-full bg-green-600 text-white hover:bg-green-700 transition">On-site</button>
+      <button data-filter="hybrid" class="filterBtn px-5 py-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition">Hybrid</button>
+      <button data-filter="all" class="filterBtn px-5 py-2 rounded-full bg-gray-700 text-white hover:bg-gray-800 transition">All</button>
     </div>
 
-    <!-- Job Listings -->
-    <iframe id="gitjobs"
-      src="https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10"
-      style="width:100%;height:600px;border:none;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.4);display:block;">
-    </iframe>
-  </div>
-</section>
+    <!-- Jobs Container (API Render) -->
+    <div id="jobsApi" class="grid gap-4 max-w-4xl mx-auto"></div>
 
-<!-- Auto resize -->
-<script type="module">
-  import { initialize } from "https://cdn.jsdelivr.net/npm/@open-iframe-resizer/core@latest/dist/index.js";
-  initialize({}, "#gitjobs");
-</script>
-
-<!-- Interactivity -->
-<script>
-  const iframe = document.getElementById("gitjobs");
-  const loader = document.getElementById("loading");
-
-  // Hide loader when iframe loads
-  iframe.addEventListener("load", () => {
-    loader.style.display = "none";
-  });
-
-  // Switch job type filter
-  function loadJobs(type) {
-    loader.style.display = "flex";
-    let baseUrl = "https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10";
-    if (type === "remote") baseUrl += "&workplace%5B0%5D=remote";
-    else if (type === "on-site") baseUrl += "&workplace%5B0%5D=on-site";
-    else if (type === "hybrid") baseUrl += "&workplace%5B0%5D=hybrid";
-    iframe.src = baseUrl;
-  }
-</script>
-
+    <!-- Fallback Iframe Wrapper -->
+    <div id="jobIframeWrap" class="relative w-full max-w-4xl mx-auto mt-6 hidden">
+      <div id="loading" class="absolute inset-0 flex items-center justify-center bg-black/30 rounded-lg">
+        <div class="w-12 h-12 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+      </div>
+      <iframe id="gitjobs" src="https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10" style="width:100%;height:600px;border:none;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.4);"></iframe>
+    </div>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold">Contact me</h2>
     <p class="mt-2 text-zinc-300">I'm always excited to work on production-grade DevOps challenges.</p>
     <p class="mt-2 text-zinc-300">Feel free to reach out for collaboration, questions, or just to say hi!</p>
-   <p class="mt-2 text-zinc-300">
-  You can also email me directly at 
-  <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a>
-</p>
-    <!-- Contact Form -->
+    <p class="mt-2 text-zinc-300">You can also email me directly at <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a></p>
+
+    <!-- Contact Form (uses mailto) -->
     <form action="mailto:goswamiamogh@outlook.com" method="post" enctype="text/plain" class="mt-6 grid gap-4 max-w-xl">
-      <input required placeholder="Name*" class="field" />
-      <input required placeholder="Subject*" class="field" />
-      <input required type="email" placeholder="Email*" class="field" />
-      <textarea required placeholder="Message*" rows="5" class="field"></textarea>
+      <input required placeholder="Name*" class="field" name="name" />
+      <input required placeholder="Subject*" class="field" name="subject" />
+      <input required type="email" placeholder="Email*" class="field" name="email" />
+      <textarea required placeholder="Message*" rows="5" class="field" name="message"></textarea>
       <button class="px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold">Send</button>
     </form>
-   
-<!-- Contact Icons -->
-<div class="mt-6 flex gap-6 justify-center text-center">
-  <!-- Email -->
-  <a href="mailto:goswamiamogh@outlook.com" target="_blank" 
-     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseEmail transition-all duration-300 hover:scale-110">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732223.png" alt="Outlook" class="w-6 h-6" />
-  </a>
 
-  <!-- LinkedIn -->
-  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" 
-     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseLinkedIn transition-all duration-300 hover:scale-110">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-6 h-6" />
-  </a>
-
-  <!-- GitHub -->
-  <a href="https://github.com/goswami800" target="_blank" 
-     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseGitHub transition-all duration-300 hover:scale-110">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-6 h-6" />
-  </a>
-
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/gordon__lyon" target="_blank" 
-     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseInsta transition-all duration-300 hover:scale-110">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-6 h-6" />
-  </a>
-</div>
-
-<!-- Extra Styles -->
-<style>
-  /* Glassmorphism */
-  .glass {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  /* Pulse animations in brand colors */
-  @keyframes pulseEmail {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.6); }
-    50% { box-shadow: 0 0 20px 8px rgba(0, 102, 204, 0.6); }
-  }
-  .animate-pulseEmail { animation: pulseEmail 2s infinite; }
-
-  @keyframes pulseLinkedIn {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.6); }
-    50% { box-shadow: 0 0 20px 8px rgba(14, 118, 168, 0.6); }
-  }
-  .animate-pulseLinkedIn { animation: pulseLinkedIn 2s infinite; }
-
-  @keyframes pulseGitHub {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.5); }
-  }
-  .animate-pulseGitHub { animation: pulseGitHub 2s infinite; }
-
-  @keyframes pulseInsta {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.6); }
-    50% { box-shadow: 0 0 20px 8px rgba(225, 48, 108, 0.6); }
-  }
-  .animate-pulseInsta { animation: pulseInsta 2s infinite; }
-</style>
+    <!-- Contact Icons -->
+    <div class="mt-6 flex gap-6 justify-center text-center">
+      <a href="mailto:goswamiamogh@outlook.com" target="_blank" class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseEmail transition-all duration-300 hover:scale-110" aria-label="Email">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732223.png" alt="Outlook" class="w-6 h-6" loading="lazy" />
+      </a>
+      <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseLinkedIn transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-6 h-6" loading="lazy" />
+      </a>
+      <a href="https://github.com/goswami800" target="_blank" class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseGitHub transition-all duration-300 hover:scale-110" aria-label="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-6 h-6" loading="lazy" />
+      </a>
+      <a href="https://www.instagram.com/gordon__lyon" target="_blank" class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseInsta transition-all duration-300 hover:scale-110" aria-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-6 h-6" loading="lazy" />
+      </a>
+    </div>
   </section>
-<section id="blog" class="max-w-6xl mx-auto px-4 py-16">
-  <h2 class="text-3xl font-bold">Learning Notes</h2>
-  <p class="mt-4 text-zinc-300">
-    I document my DevOps journey and experiments on GitHub.  
-    👉 <a href="https://github.com/goswami800" target="_blank" class="text-primary underline">Check my notes here</a>
-  </p>
-</section>
+
+  <!-- BLOG/NOTES -->
+  <section id="blog" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold">Learning Notes</h2>
+    <p class="mt-4 text-zinc-300">I document my DevOps journey and experiments on GitHub.  👉 <a href="https://github.com/goswami800" target="_blank" class="text-primary underline">Check my notes here</a></p>
+  </section>
+
   <!-- FOOTER -->
   <footer class="border-t border-zinc-800 py-10">
     <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 gap-4 text-sm text-zinc-400">
@@ -486,236 +302,244 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
-<!-- POPUP -->
-<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden z-50">
-  <div id="popupBox" class="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700 rounded-2xl p-8 max-w-sm text-center shadow-2xl transform scale-90 opacity-0 transition-all duration-500">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
-         alt="GitHub" class="w-12 h-12 mx-auto mb-4">
-    <h2 class="text-2xl font-bold mb-2">Follow me on GitHub</h2>
-    <p class="text-zinc-300 mb-6">Stay updated with my projects and DevOps work.</p>
-    <a href="https://github.com/goswami800" target="_blank" 
-       class="px-6 py-3 rounded-xl bg-primary text-zinc-900 font-semibold shadow hover:scale-105 transition-transform">
-       ⭐ Follow on GitHub
-    </a>
-    <button id="closePopup" 
-            class="block mt-5 text-sm text-zinc-400 hover:text-zinc-200">Close</button>
-    <p id="countdown" class="mt-2 text-xs text-zinc-500"></p>
+  <!-- POPUP (hidden by default; appears after 60% scroll or 12s; remembers for 7 days) -->
+  <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden z-50">
+    <div id="popupBox" class="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700 rounded-2xl p-8 max-w-sm text-center shadow-2xl transform scale-90 opacity-0 transition-all duration-500">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-12 h-12 mx-auto mb-4" loading="lazy">
+      <h2 class="text-2xl font-bold mb-2">Follow me on GitHub</h2>
+      <p class="text-zinc-300 mb-6">Stay updated with my projects and DevOps work.</p>
+      <a href="https://github.com/goswami800" target="_blank" class="px-6 py-3 rounded-xl bg-primary text-zinc-900 font-semibold shadow hover:scale-105 transition-transform">⭐ Follow on GitHub</a>
+      <button id="closePopup" class="block mt-5 text-sm text-zinc-400 hover:text-zinc-200">Close</button>
+      <p id="countdown" class="mt-2 text-xs text-zinc-500"></p>
+    </div>
   </div>
-</div>
 
- <script>
-  // Show popup after 5 seconds
-  setTimeout(() => {
-    const popup = document.getElementById('popup');
-    const popupBox = document.getElementById('popupBox');
-    const countdownEl = document.getElementById('countdown');
-    let timeLeft = 10; // seconds before auto-close
+  <!-- Floating CV Download Button (mobile only) -->
+  <a href="assets/docs/Amogh_resume.pdf" download class="fixed bottom-5 right-5 md:hidden px-4 py-3 rounded-full bg-primary text-zinc-900 font-semibold shadow-lg hover:scale-110 transition">📄 Resume</a>
 
-    popup.classList.remove('hidden');
-    popupBox.classList.remove('opacity-0', 'scale-90');
+  <!-- Progress Bar -->
+  <div id="progressBar" class="fixed top-0 left-0 h-1 bg-primary z-50"></div>
 
-    // Show countdown
-    countdownEl.textContent = `Closing in ${timeLeft}s...`;
+  <!-- JS: All interactions consolidated -->
+  <script type="module">
+    // ===== Theme handling (dark/light with persistence) =====
+    const html = document.documentElement;
+    const THEME_KEY = 'theme-preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const getStoredTheme = () => localStorage.getItem(THEME_KEY);
+    const setTheme = (mode) => {
+      if (mode === 'light') html.classList.remove('dark');
+      else html.classList.add('dark');
+      localStorage.setItem(THEME_KEY, mode);
+      updateThemeButtons();
+    };
+    const updateThemeButtons = () => {
+      const isDark = html.classList.contains('dark');
+      [document.getElementById('themeToggleDesktop'), document.getElementById('themeToggleMobile')]
+        .filter(Boolean)
+        .forEach(btn => {
+          btn.textContent = isDark ? '🌙 Dark' : '🌞 Light';
+          btn.setAttribute('aria-pressed', String(isDark));
+        });
+    };
+    // Initialize theme
+    const initTheme = () => {
+      const stored = getStoredTheme();
+      if (stored) setTheme(stored);
+      else setTheme(prefersDark.matches ? 'dark' : 'light');
+    };
+    initTheme();
+    prefersDark.addEventListener('change', e => { if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light'); });
+    document.getElementById('themeToggleDesktop')?.addEventListener('click', () => setTheme(html.classList.contains('dark') ? 'light' : 'dark'));
+    document.getElementById('themeToggleMobile')?.addEventListener('click', () => setTheme(html.classList.contains('dark') ? 'light' : 'dark'));
 
-    const countdownTimer = setInterval(() => {
-      timeLeft--;
-      countdownEl.textContent = `Closing in ${timeLeft}s...`;
-      if (timeLeft <= 0) {
-        clearInterval(countdownTimer);
-        popup.classList.add('hidden');
-      }
-    }, 1000);
-
-  }, 5000);
-
-  // Close popup manually
-  document.getElementById('closePopup').addEventListener('click', () => {
-    document.getElementById('popup').classList.add('hidden');
-  });
-
-  // Mobile menu toggle
-  document.getElementById('menuBtn').addEventListener('click', () => {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
-  });
-</script>
-  <!-- Floating CV Download Button (only on mobile) -->
-  <a href="assets/docs/Amogh_resume.pdf" download
-     class="fixed bottom-5 right-5 md:hidden px-4 py-3 rounded-full bg-primary text-zinc-900 font-semibold shadow-lg hover:scale-110 transition">
-     📄 Resume
-  </a>
-  <script>
-    // Show CV download button only on mobile
-    const cvButton = document.querySelector('a[download]');
-    if (window.innerWidth > 768) {
-      cvButton.style.display = 'none';
-    }
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        cvButton.style.display = 'none';  
-      } else {
-        cvButton.style.display = 'block';
-      }
+    // ===== Mobile menu toggle =====
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isHidden));
     });
-  </script>
-</section>
-  <script>
-    // Mobile menu toggle
-    document.getElementById('menuBtn').addEventListener('click', () => {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
-    });
-  </script>
-  <script>
-    // Smooth scroll for anchor links
+
+    // ===== Smooth scroll for in-page links =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+      anchor.addEventListener('click', e => {
+        const id = anchor.getAttribute('href');
+        const target = document.querySelector(id);
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-          // Close mobile menu after clicking a link
-          const menu = document.getElementById('mobileMenu');
-          if (menu) {
-            menu.classList.add('hidden');
-          }
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          mobileMenu?.classList.add('hidden');
+          menuBtn?.setAttribute('aria-expanded', 'false');
         }
       });
     });
-  </script>
-  <script>
-// Scroll spy for nav highlighting
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Remove highlight from all
-          navLinks.forEach((link) => link.classList.remove("text-yellow-400"));
-
-          // Highlight current section link
-          const id = entry.target.getAttribute("id");
-          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add("text-yellow-400");
-          }
-        }
-      });
-    },
-    {
-      threshold: 0.6, // % of section in view before highlighting
-    }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-});
-</script>
-<script>
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href").substring(1);
-    const target = document.getElementById(targetId);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-});
-</script>
-<script>
-// Scroll spy highlight
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll("nav a");
-
-  const observer = new IntersectionObserver(
-    entries => {
+    // ===== Scroll spy =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    const spy = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          navLinks.forEach(link => link.classList.remove("text-primary", "font-bold"));
+          navLinks.forEach(l => l.classList.remove('text-primary','font-bold'));
           const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-          if (active) {
-            active.classList.add("text-primary", "font-bold");
-          }
+          active?.classList.add('text-primary','font-bold');
         }
       });
-    },
-    { threshold: 0.6 }
-  );
+    }, { threshold: 0.6 });
+    sections.forEach(s => spy.observe(s));
 
-  sections.forEach(section => observer.observe(section));
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section");
-  const revealOnScroll = () => {
-    sections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        sec.classList.add("visible");
+    // ===== Reveal on scroll =====
+    const reveal = () => {
+      document.querySelectorAll('section').forEach(sec => {
+        const r = sec.getBoundingClientRect();
+        if (r.top < innerHeight - 100) sec.classList.add('visible');
+      });
+    };
+    addEventListener('scroll', reveal, { passive: true });
+    reveal();
+
+    // ===== Progress bar =====
+    const progressBar = document.getElementById('progressBar');
+    addEventListener('scroll', () => {
+      const t = scrollY;
+      const d = document.body.scrollHeight - innerHeight;
+      progressBar.style.width = Math.max(0, (t / d) * 100) + '%';
+    }, { passive: true });
+
+    // ===== Mission typing effect =====
+    const quotes = [
+      "Keep moving, don't settle.",
+      "Small steps every day lead to big results.",
+      "Consistency beats motivation.",
+      "Build. Break. Learn. Repeat.",
+      "Dreams don’t work unless you do.",
+      "Progress, not perfection.",
+      "In DevOps, automation is the ultimate superpower.",
+      "Ship fast, fail fast, learn faster.",
+      "CI/CD is not a pipeline, it's a culture.",
+      "Every outage is just another lesson in disguise.",
+      "Measure, monitor, and improve — always.",
+      "Infrastructure as Code is poetry for engineers.",
+      "The best documentation is a reliable pipeline.",
+      "Security is not a feature, it's a mindset.",
+      "Collaboration is the true continuous delivery."
+    ];
+    let qIdx = 0, cIdx = 0, deleting = false;
+    const speed = 70, delay = 2000;
+    const quoteBox = document.getElementById('quoteBox');
+    const type = () => {
+      const q = quotes[qIdx];
+      if (!deleting) {
+        quoteBox.textContent = q.slice(0, ++cIdx);
+        if (cIdx === q.length) { deleting = true; return setTimeout(type, delay); }
+      } else {
+        quoteBox.textContent = q.slice(0, --cIdx);
+        if (cIdx === 0) { deleting = false; qIdx = (qIdx + 1) % quotes.length; }
       }
-    });
-  };
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
-});
-</script>
-<div id="progressBar" class="fixed top-0 left-0 h-1 bg-primary z-50"></div>
+      setTimeout(type, deleting ? speed/2 : speed);
+    };
+    type();
 
-<script>
-  const progressBar = document.getElementById("progressBar");
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = (scrollTop / docHeight) * 100;
-    progressBar.style.width = progress + "%";
-  });
-</script>
-<script>
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
+    // ===== Jobs: API-first rendering with iframe fallback =====
+    const jobsApi = document.getElementById('jobsApi');
+    const iframeWrap = document.getElementById('jobIframeWrap');
+    const iframe = document.getElementById('gitjobs');
+    const loading = document.getElementById('loading');
 
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (scrollY >= sectionTop) current = section.getAttribute("id");
-    });
+    const buildJobCard = (job) => {
+      const wrap = document.createElement('article');
+      wrap.className = 'p-5 rounded-xl border border-zinc-800 bg-white/5';
+      wrap.innerHTML = `
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="text-lg font-semibold">${job.title || 'DevOps Engineer'}</h3>
+            <p class="text-sm text-zinc-400 mt-1">${job.company || ''} ${job.location ? '• ' + job.location : ''}</p>
+          </div>
+          <span class="tag">${(job.workplace || 'N/A').toUpperCase()}</span>
+        </div>
+        <p class="text-sm text-zinc-300 mt-3 line-clamp-3">${job.description || ''}</p>
+        <div class="mt-4 flex flex-wrap gap-2">${(job.keywords||[]).slice(0,6).map(k=>`<span class='tag'>${k}</span>`).join('')}</div>
+        <a href="${job.url}" target="_blank" rel="noopener" class="inline-block mt-4 px-4 py-2 rounded-lg bg-primary text-zinc-900 font-semibold">View</a>
+      `;
+      return wrap;
+    };
 
-    navLinks.forEach(link => {
-      link.classList.remove("text-primary", "font-bold");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("text-primary", "font-bold");
+    async function loadJobs(filter='all'){
+      try{
+        jobsApi.innerHTML = '<div class="text-center text-sm text-zinc-400">Loading jobs…</div>';
+        iframeWrap.classList.add('hidden');
+        const params = new URLSearchParams({ 'date_range':'last3-days', limit:'12' });
+        if (filter !== 'all') params.append('workplace[0]', filter);
+        const res = await fetch(`https://gitjobs.dev/api/search?${params.toString()}`);
+        if (!res.ok) throw new Error('API error');
+        const data = await res.json();
+        jobsApi.innerHTML = '';
+        if (!data?.jobs?.length){
+          jobsApi.innerHTML = '<div class="text-center text-sm text-zinc-400">No jobs found right now. Try switching filters.</div>';
+          return;
+        }
+        data.jobs.forEach(job => jobsApi.appendChild(buildJobCard(job)));
+      } catch(e){
+        // Fallback to iframe
+        jobsApi.innerHTML = '';
+        iframeWrap.classList.remove('hidden');
+        loading.style.display = 'flex';
       }
-    });
-  });
-</script>
-<script>
-  const allSections = document.querySelectorAll("section");
+    }
+    // Initial load
+    loadJobs('all');
 
-  function revealOnScroll() {
-    allSections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        sec.classList.add("visible");
+    // Filter clicks
+    document.querySelectorAll('.filterBtn').forEach(btn => btn.addEventListener('click', () => {
+      const type = btn.dataset.filter;
+      if (iframeWrap.classList.contains('hidden')) loadJobs(type);
+      else {
+        // If using iframe fallback
+        loading.style.display = 'flex';
+        let baseUrl = 'https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10';
+        if (type === 'remote') baseUrl += '&workplace%5B0%5D=remote';
+        else if (type === 'on-site') baseUrl += '&workplace%5B0%5D=on-site';
+        else if (type === 'hybrid') baseUrl += '&workplace%5B0%5D=hybrid';
+        iframe.src = baseUrl;
       }
-    });
-  }
+    }));
+    iframe?.addEventListener('load', () => { loading.style.display = 'none'; });
 
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
-</script>
+    // ===== Popup logic (scroll 60% or 12s; remember for 7 days) =====
+    const POPUP_KEY = 'ag_popup_dismissed_at';
+    const popup = document.getElementById('popup');
+    const popupBox = document.getElementById('popupBox');
+    const closePopupBtn = document.getElementById('closePopup');
+    const countdownEl = document.getElementById('countdown');
 
+    function shouldShowPopup(){
+      const ts = Number(localStorage.getItem(POPUP_KEY) || 0);
+      const days = (Date.now() - ts) / (1000*60*60*24);
+      return days > 7; // show again after 7 days
+    }
+    function showPopup(){
+      if (!shouldShowPopup()) return;
+      popup.classList.remove('hidden');
+      requestAnimationFrame(() => popupBox.classList.remove('opacity-0','scale-90'));
+      let t = 10;
+      countdownEl.textContent = `Closing in ${t}s…`;
+      const timer = setInterval(() => {
+        t--; countdownEl.textContent = `Closing in ${t}s…`;
+        if (t <= 0){ clearInterval(timer); hidePopup(); }
+      }, 1000);
+    }
+    function hidePopup(){ popup.classList.add('hidden'); localStorage.setItem(POPUP_KEY, String(Date.now())); }
+    closePopupBtn.addEventListener('click', hidePopup);
 
-
+    let popupShown = false;
+    const maybeShowOnScroll = () => {
+      if (popupShown) return;
+      const scrolled = (scrollY / (document.body.scrollHeight - innerHeight)) * 100;
+      if (scrolled > 60){ popupShown = true; showPopup(); removeEventListener('scroll', maybeShowOnScroll); }
+    };
+    addEventListener('scroll', maybeShowOnScroll, { passive: true });
+    setTimeout(() => { if (!popupShown) { popupShown = true; showPopup(); } }, 12000);
+  </script>
 </body>
 </html>
