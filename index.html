@@ -539,10 +539,10 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
       }
       closePopupBtn?.addEventListener('click', () => popup?.classList.add('hidden'));
 
-      // Mobile menu toggle
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      menuBtn?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+  // Mobile menu: handled in assets/js/main.js (enhanced, accessible toggle)
+  // Keep simple references here for compatibility
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
 
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
