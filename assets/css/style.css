@@ -1,23 +1,38 @@
 /* Clean Dark Style + Badges */
-.tag { 
-  padding: .25rem .6rem; 
-  border-radius: 9999px; 
-  background: rgb(24 24 27 / .6); 
-  border: 1px solid rgb(63 63 70); 
+:root {
+  --bg: #0d0d0d;
+  --surface: rgba(255,255,255,0.04);
+  --muted-border: rgb(63 63 70);
+  --muted-border-2: rgb(39 39 42);
+  --chip-bg: rgb(24 24 27 / 0.6);
+  --primary: #1e90ff;
+  --primary-700: #1a73e8;
+  --text: #fafafa;
+  --input-bg: #1e1e1e;
+  --input-border: #3c3c3c;
 }
-.tech { 
-  padding: 1rem; 
-  border-radius: 1rem; 
-  border: 1px solid rgb(63 63 70); 
-  background: rgba(255,255,255,.04); 
+
+.tag {
+  padding: .25rem .6rem;
+  border-radius: 9999px;
+  background: var(--chip-bg);
+  border: 1px solid var(--muted-border);
+  color: var(--text);
 }
-.field { 
-  width: 100%; 
-  padding: .75rem 1rem; 
-  border-radius: .75rem; 
-  background: rgb(9 9 11); 
-  border: 1px solid rgb(39 39 42); 
-  color: #fafafa; 
+.tech {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--muted-border);
+  background: var(--surface);
+  color: var(--text);
+}
+.field {
+  width: 100%;
+  padding: .75rem 1rem;
+  border-radius: .75rem;
+  background: rgb(9 9 11);
+  border: 1px solid var(--muted-border-2);
+  color: var(--text);
 }
 
 /* Popup Animation */
@@ -31,37 +46,45 @@
 
 /* Dark Mode */
 body {
-  background-color: #0d0d0d;
-  color: #fafafa;
+  background-color: var(--bg);
+  color: var(--text);
 }
 a { color: #1e90ff; }
 a:hover { color: #1a73e8; }
 
 /* Buttons */
 button {
-  background-color: #1e90ff;
-  color: #fafafa;
+  background-color: var(--primary);
+  color: var(--text);
   border-radius: .5rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 0 rgba(30,144,255, 0.5);
+  transition: all 0.22s ease;
+  box-shadow: 0 2px 6px rgba(30,144,255,0.12);
 }
 button:hover {
-  background-color: #1a73e8;
+  background-color: var(--primary-700);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30,144,255, 0.5);
+  box-shadow: 0 8px 20px rgba(30,144,255,0.18);
 }
 button:active {
   transform: scale(0.97);
 }
 
+/* Visible focus for keyboard users */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(30,144,255,0.18);
+  outline-offset: 3px;
+}
+
 /* Inputs */
 input, textarea {
-  background-color: #1e1e1e;
-  color: #fafafa;
-  border: 1px solid #3c3c3c;
+  background-color: var(--input-bg);
+  color: var(--text);
+  border: 1px solid var(--input-border);
 }
 input:focus, textarea:focus {
-  border-color: #1e90ff;
+  border-color: var(--primary);
   outline: none;
 }
 
@@ -87,13 +110,13 @@ html { scroll-behavior: smooth; }
 /* Scrollbar Styling */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-thumb {
-  background: #1e90ff;
+  background: var(--primary);
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1a73e8;
-  box-shadow: 0 0 8px rgba(30,144,255,0.7);
+  background: var(--primary-700);
+  box-shadow: 0 0 8px rgba(30,144,255,0.55);
 }
 
 /* Nav Active Link */
@@ -105,25 +128,35 @@ nav a.active {
 
 /* Card */
 .card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgb(63 63 70);
+  background: var(--surface);
+  border: 1px solid var(--muted-border);
   border-radius: 1rem;
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(30,144,255,0.25);
-  border-color: #1e90ff;
+  box-shadow: 0 12px 32px rgba(30,144,255,0.12);
+  border-color: var(--primary);
 }
 
 /* Section Animation */
 section {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.7s ease-out;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
