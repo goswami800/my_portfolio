@@ -74,3 +74,38 @@ html {
 ::-webkit-scrollbar {
   width: 8px;
 }
+nav a.active {
+  color: #1e90ff;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(30,144,255,0.7);
+}
+.card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgb(63 63 70);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(30,144,255,0.25);
+  border-color: #1e90ff;
+}
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease-out;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e90ff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a73e8;
+  box-shadow: 0 0 8px rgba(30,144,255,0.7);
+}
