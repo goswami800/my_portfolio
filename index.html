@@ -613,3 +613,30 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
 
 </body>
 </html>
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Launch index.html in Chrome/Edge",
+      "file": "${workspaceFolder}/index.html",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-profile",
+      "runtimeExecutable": "${input:browserChoice}"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "browserChoice",
+      "description": "Select the browser executable to launch (choose the one installed on your system or provide its full path)",
+      "options": [
+        "chrome",
+        "msedge",
+        "chromium",
+        "brave"
+      ]
+    }
+  ]
+}
