@@ -169,8 +169,8 @@ section.visible {
   width: 48px;
   height: 48px;
   border-radius: 9999px;
-  background: var(--primary);
-  color: #0b1220;
+  background: linear-gradient(135deg, var(--primary), var(--primary-700));
+  color: #06111a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,6 +181,49 @@ section.visible {
   z-index: 60;
 }
 .fab-contact:hover { transform: translateY(-4px); }
+
+.fab-contact .fab-icon { display: inline-block; line-height: 1; }
+.fab-contact .fab-label {
+  display: inline-block;
+  margin-left: 10px;
+  background: rgba(0,0,0,0.5);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+.fab-contact:focus-within .fab-label,
+.fab-contact:hover .fab-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* allow explicit expanded state (used on mobile first-tap) */
+.fab-contact.fab-expanded .fab-label {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* entrance animation */
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.fab-contact, #resumeFab {
+  animation: popIn 420ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+/* subtle hover/press feedback for resume button */
+#resumeFab {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+#resumeFab:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(14,122,200,0.16); }
 
 /* Progress bar refinement */
 #progressBar {
@@ -197,6 +240,9 @@ section.visible {
     bottom: 1rem;
     padding: 10px 12px;
     border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-700), var(--primary));
+  color: #07111a;
+  box-shadow: 0 10px 24px rgba(14,122,200,0.14);
   }
   .fab-contact {
     left: 1rem;
@@ -214,6 +260,8 @@ section.visible {
     padding: 9px 10px;
     border-radius: 10px;
     font-size: 14px;
+  background: linear-gradient(135deg, var(--primary-700), var(--primary));
+  color: #07111a;
   }
   .fab-contact {
     left: 0.75rem;

@@ -125,11 +125,36 @@ document.addEventListener('DOMContentLoaded', () => {
 				fab.type = 'button';
 				fab.setAttribute('aria-label', 'Contact');
 				fab.title = 'Contact';
-				fab.innerHTML = '✉';
-				fab.addEventListener('click', () => {
-					const contact = document.getElementById('contact');
-					if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
-				});
+				// icon
+				const icon = document.createElement('span');
+				icon.className = 'fab-icon';
+				icon.textContent = '✉';
+				// label (hidden by default, shown on hover/focus)
+				const label = document.createElement('span');
+				label.className = 'fab-label';
+				label.textContent = 'Contact';
+				label.setAttribute('aria-hidden', 'true');
+				fab.appendChild(icon);
+				fab.appendChild(label);
+					let tappedOnce = false;
+					const activate = () => {
+						const contact = document.getElementById('contact');
+						if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					};
+
+					// For touch devices: first tap expands label, second tap activates
+					fab.addEventListener('click', (e) => {
+						if ('ontouchstart' in window) {
+							if (!tappedOnce) {
+								tappedOnce = true;
+								fab.classList.add('fab-expanded');
+								setTimeout(() => { tappedOnce = false; fab.classList.remove('fab-expanded'); }, 2600);
+								e.preventDefault();
+								return;
+							}
+						}
+						activate();
+					});
 				document.body.appendChild(fab);
 			};
 
