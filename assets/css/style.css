@@ -191,8 +191,16 @@ section.visible {
 }
 /* On small screens, shift the FAB left to avoid overlap with the resume floating button */
 @media (max-width: 480px) {
+  /* stack the resume button and FAB vertically on very small screens */
+  #resumeFab {
+    right: 1rem;
+    bottom: 1rem;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
   .fab-contact {
-    right: 4.5rem; /* leave space for the resume button at bottom-right */
+    right: 1rem;
+    bottom: 4.75rem; /* above the resume button */
     width: 44px;
     height: 44px;
     font-size: 16px;
@@ -200,8 +208,16 @@ section.visible {
 }
 
 @media (max-width: 360px) {
+  #resumeFab {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    padding: 9px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
   .fab-contact {
-    right: 5.5rem;
+    right: 0.75rem;
+    bottom: 4.5rem;
     width: 40px;
     height: 40px;
     font-size: 15px;
