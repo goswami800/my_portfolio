@@ -48,4 +48,87 @@ document.addEventListener('DOMContentLoaded', () => {
 			closeMenu();
 		}
 	});
+
+		// -----------------------------
+		// Theme persistence + toggles
+		// -----------------------------
+		const applyTheme = (theme) => {
+			const desktop = document.getElementById('darkToggleDesktop');
+			const mobile = document.getElementById('darkToggleMobile');
+			if (theme === 'light') {
+				document.body.classList.add('light');
+				document.body.classList.remove('bg-zinc-950','text-zinc-100');
+				document.body.classList.add('bg-white','text-zinc-900');
+				if (desktop) desktop.textContent = '🌞 Light';
+				if (mobile) mobile.textContent = '🌞 Light';
+			} else {
+				document.body.classList.remove('light');
+				document.body.classList.add('bg-zinc-950','text-zinc-100');
+				document.body.classList.remove('bg-white','text-zinc-900');
+				if (desktop) desktop.textContent = '🌙 Dark';
+				if (mobile) mobile.textContent = '🌙 Dark';
+			}
+		};
+
+		// init theme from localStorage or prefers-color-scheme
+		const saved = localStorage.getItem('theme');
+		if (saved) applyTheme(saved);
+		else {
+			const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+			applyTheme(prefersLight ? 'light' : 'dark');
+		}
+
+		const toggleAndSave = (btnEl) => {
+			// reuse inline toggle if present, otherwise use applyTheme
+			if (typeof window.toggleTheme === 'function') {
+				window.toggleTheme(btnEl);
+				// detect current body.light
+				const now = document.body.classList.contains('light') ? 'light' : 'dark';
+				localStorage.setItem('theme', now);
+			} else {
+				const now = document.body.classList.contains('light') ? 'dark' : 'light';
+				applyTheme(now);
+				localStorage.setItem('theme', now);
+			}
+		};
+
+		document.getElementById('darkToggleDesktop')?.addEventListener('click', () => toggleAndSave(document.getElementById('darkToggleDesktop')));
+		document.getElementById('darkToggleMobile')?.addEventListener('click', () => toggleAndSave(document.getElementById('darkToggleMobile')));
+
+		// -----------------------------
+		// Popup: close on backdrop click + Escape
+		// -----------------------------
+		const popup = document.getElementById('popup');
+		const popupBox = document.getElementById('popupBox');
+		document.addEventListener('click', (e) => {
+			if (!popup || popup.classList.contains('hidden')) return;
+			if (popupBox && !popupBox.contains(e.target)) {
+				popup.classList.add('hidden');
+			}
+		});
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && popup && !popup.classList.contains('hidden')) {
+				popup.classList.add('hidden');
+			}
+		});
+
+		// -----------------------------
+		// Floating Contact FAB (inject for nicer UI)
+		// -----------------------------
+		const createFab = () => {
+			if (document.getElementById('fab-contact')) return;
+			const fab = document.createElement('button');
+			fab.id = 'fab-contact';
+			fab.className = 'fab-contact';
+			fab.type = 'button';
+			fab.setAttribute('aria-label', 'Contact');
+			fab.title = 'Contact';
+			fab.innerHTML = '✉';
+			fab.addEventListener('click', () => {
+				const contact = document.getElementById('contact');
+				if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+			document.body.appendChild(fab);
+		};
+		createFab();
 });

@@ -160,3 +160,32 @@ section.visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* Floating contact FAB */
+.fab-contact {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: #0b1220;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(30,144,255,0.18);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 60;
+}
+.fab-contact:hover { transform: translateY(-4px); }
+
+/* Progress bar refinement */
+#progressBar {
+  background: linear-gradient(90deg, var(--primary), var(--primary-700));
+  height: 4px;
+  width: 0%;
+  transition: width 120ms linear;
+}
