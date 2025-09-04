@@ -115,20 +115,32 @@ document.addEventListener('DOMContentLoaded', () => {
 		// -----------------------------
 		// Floating Contact FAB (inject for nicer UI)
 		// -----------------------------
-		const createFab = () => {
-			if (document.getElementById('fab-contact')) return;
-			const fab = document.createElement('button');
-			fab.id = 'fab-contact';
-			fab.className = 'fab-contact';
-			fab.type = 'button';
-			fab.setAttribute('aria-label', 'Contact');
-			fab.title = 'Contact';
-			fab.innerHTML = '✉';
-			fab.addEventListener('click', () => {
-				const contact = document.getElementById('contact');
-				if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			const shouldShowFab = () => window.innerWidth <= 768;
+
+			const createFab = () => {
+				if (document.getElementById('fab-contact')) return;
+				const fab = document.createElement('button');
+				fab.id = 'fab-contact';
+				fab.className = 'fab-contact';
+				fab.type = 'button';
+				fab.setAttribute('aria-label', 'Contact');
+				fab.title = 'Contact';
+				fab.innerHTML = '✉';
+				fab.addEventListener('click', () => {
+					const contact = document.getElementById('contact');
+					if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				});
+				document.body.appendChild(fab);
+			};
+
+			const removeFab = () => {
+				const existing = document.getElementById('fab-contact');
+				if (existing) existing.remove();
+			};
+
+			// create only on small screens, and update on resize
+			if (shouldShowFab()) createFab();
+			window.addEventListener('resize', () => {
+				if (shouldShowFab()) createFab(); else removeFab();
 			});
-			document.body.appendChild(fab);
-		};
-		createFab();
 });

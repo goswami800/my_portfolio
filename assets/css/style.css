@@ -189,3 +189,21 @@ section.visible {
   width: 0%;
   transition: width 120ms linear;
 }
+/* On small screens, shift the FAB left to avoid overlap with the resume floating button */
+@media (max-width: 480px) {
+  .fab-contact {
+    right: 4.5rem; /* leave space for the resume button at bottom-right */
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .fab-contact {
+    right: 5.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+}
