@@ -12,6 +12,32 @@
   --input-border: #3c3c3c;
 }
 
+/* Light theme overrides when JS adds `light` class to body */
+body.light {
+  --bg: #ffffff;
+  --text: #07111a; /* dark text */
+  --surface: rgba(2,6,23,0.03);
+  --muted-border: rgba(15,23,42,0.08);
+  --muted-border-2: rgba(15,23,42,0.06);
+  --chip-bg: rgba(15,23,42,0.04);
+  --input-bg: #f5f7fa;
+  --input-border: #e6e9ef;
+  /* keep primary similar but slightly darker for contrast on light bg */
+  --primary: #0ea5e9;
+  --primary-700: #0b84c7;
+}
+
+/* Force background/text when Tailwind utility classes exist on body (increase specificity) */
+html body, body.light {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Also ensure elements using the utility classes receive appropriate color on light theme */
+body.light a { color: var(--primary) !important; }
+body.light .field { background-color: var(--input-bg) !important; color: var(--text) !important; }
+body.light .card, body.light .tech { background: var(--surface) !important; }
+
 .tag {
   padding: .25rem .6rem;
   border-radius: 9999px;
@@ -170,7 +196,7 @@ section.visible {
   height: 48px;
   border-radius: 9999px;
   background: linear-gradient(135deg, var(--primary), var(--primary-700));
-  color: #06111a;
+  color: var(--text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -240,9 +266,9 @@ section.visible {
     bottom: 1rem;
     padding: 10px 12px;
     border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary-700), var(--primary));
-  color: #07111a;
-  box-shadow: 0 10px 24px rgba(14,122,200,0.14);
+    background: linear-gradient(135deg, var(--primary-700), var(--primary));
+    color: var(--text);
+    box-shadow: 0 10px 24px rgba(14,122,200,0.14);
   }
   .fab-contact {
     left: 1rem;
@@ -260,8 +286,8 @@ section.visible {
     padding: 9px 10px;
     border-radius: 10px;
     font-size: 14px;
-  background: linear-gradient(135deg, var(--primary-700), var(--primary));
-  color: #07111a;
+    background: linear-gradient(135deg, var(--primary-700), var(--primary));
+    color: var(--text);
   }
   .fab-contact {
     left: 0.75rem;
