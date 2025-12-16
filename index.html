@@ -21,6 +21,13 @@
     }
   </script>
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    #gitjobs {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+  </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100 selection:bg-primary/30">
   <!-- NAV -->
@@ -44,7 +51,7 @@
       <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" 
          href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf">Download CV</a>
       <!-- Dark Mode -->
-      <button id="darkToggleDesktop" class="px-3 py-1 rounded-lg border border-zinc-600 text-sm">
+      <button id="darkToggleDesktop" type="button" class="px-3 py-1 rounded-lg border border-zinc-600 text-sm">
         🌙 Dark
       </button>
     </nav>
@@ -66,7 +73,7 @@
     <a href="#contact" class="block py-2">Contact</a>
     <a href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
     <!-- Dark Mode -->
-    <button id="darkToggleMobile" class="w-full px-3 py-2 rounded-lg border border-zinc-600 text-sm text-left">
+    <button id="darkToggleMobile" type="button" class="w-full px-3 py-2 rounded-lg border border-zinc-600 text-sm text-left">
       🌙 Dark
     </button>
   </div>
@@ -111,21 +118,21 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
         </p>
        <div class="flex flex-wrap gap-3 mt-6 justify-center">
   <!-- GitHub -->
-  <a href="https://github.com/goswami800" target="_blank"
+  <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer"
      class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseGitHub">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-5 h-5">
     GitHub
   </a>
 
   <!-- LinkedIn -->
-  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank"
+  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" rel="noopener noreferrer"
      class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseLinkedIn">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-5 h-5">
     LinkedIn
   </a>
 
   <!-- Instagram -->
-  <a href="https://www.instagram.com/gordon__lyon" target="_blank"
+  <a href="https://www.instagram.com/gordon__lyon" target="_blank" rel="noopener noreferrer"
      class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseInsta">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-5 h-5">
     Instagram
@@ -342,10 +349,10 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
 
   <!-- Filter Tabs -->
   <div class="flex justify-center gap-2 mb-6 flex-wrap">
-    <button onclick="loadJobs('remote')" class="px-4 py-1.5 rounded-full bg-blue-600 text-white text-sm hover:bg-blue-700 transition">Remote</button>
-    <button onclick="loadJobs('on-site')" class="px-4 py-1.5 rounded-full bg-green-600 text-white text-sm hover:bg-green-700 transition">On-site</button>
-    <button onclick="loadJobs('hybrid')" class="px-4 py-1.5 rounded-full bg-purple-600 text-white text-sm hover:bg-purple-700 transition">Hybrid</button>
-    <button onclick="loadJobs('all')" class="px-4 py-1.5 rounded-full bg-gray-700 text-white text-sm hover:bg-gray-800 transition">All</button>
+    <button type="button" onclick="loadJobs('remote')" class="px-4 py-1.5 rounded-full bg-blue-600 text-white text-sm hover:bg-blue-700 transition">Remote</button>
+    <button type="button" onclick="loadJobs('on-site')" class="px-4 py-1.5 rounded-full bg-green-600 text-white text-sm hover:bg-green-700 transition">On-site</button>
+    <button type="button" onclick="loadJobs('hybrid')" class="px-4 py-1.5 rounded-full bg-purple-600 text-white text-sm hover:bg-purple-700 transition">Hybrid</button>
+    <button type="button" onclick="loadJobs('all')" class="px-4 py-1.5 rounded-full bg-gray-700 text-white text-sm hover:bg-gray-800 transition">All</button>
   </div>
 
   <!-- Job Frame Wrapper -->
@@ -356,9 +363,8 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
     </div>
 
     <!-- Job Listings -->
-    <iframe id="gitjobs"
-      src="https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10"
-      style="width:100%;height:450px;border:none;">
+    <iframe id="gitjobs" title="DevOps Job Listings"
+      src="https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10">
     </iframe>
   </div>
 </section>
@@ -404,31 +410,31 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
       <input required placeholder="Subject*" class="field" />
       <input required type="email" placeholder="Email*" class="field" />
       <textarea required placeholder="Message*" rows="5" class="field"></textarea>
-      <button class="px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold">Send</button>
+      <button type="submit" class="px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold">Send</button>
     </form>
    
 <!-- Contact Icons -->
 <div class="mt-6 flex gap-6 justify-center text-center">
   <!-- Email -->
-  <a href="mailto:goswamiamogh@outlook.com" target="_blank" 
+  <a href="mailto:goswamiamogh@outlook.com" target="_blank" rel="noopener noreferrer"
      class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseEmail transition-all duration-300 hover:scale-110">
     <img src="https://cdn-icons-png.flaticon.com/512/732/732223.png" alt="Outlook" class="w-6 h-6" />
   </a>
 
   <!-- LinkedIn -->
-  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" 
+  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" rel="noopener noreferrer"
      class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseLinkedIn transition-all duration-300 hover:scale-110">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-6 h-6" />
   </a>
 
   <!-- GitHub -->
-  <a href="https://github.com/goswami800" target="_blank" 
+  <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer"
      class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseGitHub transition-all duration-300 hover:scale-110">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-6 h-6" />
   </a>
 
   <!-- Instagram -->
-  <a href="https://www.instagram.com/gordon__lyon" target="_blank" 
+  <a href="https://www.instagram.com/gordon__lyon" target="_blank" rel="noopener noreferrer"
      class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseInsta transition-all duration-300 hover:scale-110">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-6 h-6" />
   </a>
@@ -439,8 +445,15 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   /* Glassmorphism */
   .glass {
     background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  #gitjobs {
+    width: 100%;
+    height: 450px;
+    border: none;
   }
 
   /* Pulse animations in brand colors */
@@ -473,7 +486,7 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   <h2 class="text-3xl font-bold">Learning Notes</h2>
   <p class="mt-4 text-zinc-300">
     I document my DevOps journey and experiments on GitHub.  
-    👉 <a href="https://github.com/goswami800" target="_blank" class="text-primary underline">Check my notes here</a>
+    👉 <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer" class="text-primary underline">Check my notes here</a>
   </p>
 </section>
   <!-- FOOTER -->
@@ -492,7 +505,7 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
          alt="GitHub" class="w-12 h-12 mx-auto mb-4">
     <h2 class="text-2xl font-bold mb-2">Follow me on GitHub</h2>
     <p class="text-zinc-300 mb-6">Stay updated with my projects and DevOps work.</p>
-    <a href="https://github.com/goswami800" target="_blank" 
+    <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer"
        class="px-6 py-3 rounded-xl bg-primary text-zinc-900 font-semibold shadow hover:scale-105 transition-transform">
        ⭐ Follow on GitHub
     </a>
