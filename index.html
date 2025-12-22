@@ -1,1213 +1,2341 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amogh Goswami — DevOps Engineer | Cloud & Infrastructure Automation</title>
-  <meta name="description" content="DevOps portfolio of Amogh Goswami. Expertise in AWS, Docker, Kubernetes, Terraform, CI/CD pipelines, and CloudOps. Explore my projects and experience in building resilient cloud platforms."/>
-  <meta name="keywords" content="DevOps, AWS, Docker, Kubernetes, Terraform, CI/CD, CloudOps, Amogh Goswami, Pune, EKS, GitHub Actions, Prometheus, Grafana"/>
-  <meta name="author" content="Amogh Goswami"/>
-  <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://goswami800.github.io/portfolio"/>
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
-        extend: {
-          colors: { primary: '#0ea5e9' }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Amogh Goswami — DevOps Engineer | Cloud & Infrastructure Automation
+    </title>
+    <meta
+      name="description"
+      content="DevOps portfolio of Amogh Goswami. Expertise in AWS, Docker, Kubernetes, Terraform, CI/CD pipelines, and CloudOps. Explore my projects and experience in building resilient cloud platforms."
+    />
+    <meta
+      name="keywords"
+      content="DevOps, AWS, Docker, Kubernetes, Terraform, CI/CD, CloudOps, Amogh Goswami, Pune, EKS, GitHub Actions, Prometheus, Grafana"
+    />
+    <meta name="author" content="Amogh Goswami" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://goswami800.github.io/portfolio" />
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] },
+          extend: {
+            colors: { primary: "#0ea5e9" },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      #gitjobs {
+        width: 100%;
+        height: 450px;
+        border: none;
+      }
+
+      /* Screen reader only */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Cursor trail effect */
+      .cursor-trail-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      .cursor-trail-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+        transform: translate(-50%, -50%);
+        transition: opacity 0.2s, transform 0.1s;
+        opacity: 0;
+      }
+
+      /* Interactive cards */
+      .interactive-card {
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+
+      .interactive-card:hover {
+        transform: translateY(-5px) rotateX(5deg);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      /* Skill bars */
+      .skill-bar {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+
+      .skill-level {
+        height: 100%;
+        background: var(--primary);
+        border-radius: 4px;
+        width: 0;
+        transition: width 1.5s ease-in-out;
+      }
+
+      /* Animated counters */
+      .counter {
+        display: inline-block;
+        min-width: 3ch;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 selection:bg-primary/30">
+    <!-- PRELOADER -->
+    <div
+      id="preloader"
+      class="fixed inset-0 bg-zinc-950 flex items-center justify-center z-50"
+    >
+      <div class="flex flex-col items-center">
+        <div
+          class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"
+        ></div>
+        <p class="mt-4 text-zinc-300">Loading portfolio...</p>
+      </div>
+    </div>
+    <!-- NAV -->
+    <header class="sticky top-0 z-50 border-b border-zinc-800/70 glass-effect">
+      <div
+        class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3">
+          <img src="assets/images/logo.svg" class="w-9 h-9" alt="AG" />
+          <span class="font-semibold tracking-wide">Amogh</span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-primary" href="#about">About</a>
+          <a class="hover:text-primary" href="#mission">Mission</a>
+          <a class="hover:text-primary" href="#principles">Principles</a>
+          <a class="hover:text-primary" href="#projects">Projects</a>
+          <a class="hover:text-primary" href="#workflow">Workflow</a>
+          <a class="hover:text-primary" href="#metrics">Metrics</a>
+          <a class="hover:text-primary" href="#tech">Tech</a>
+          <a class="hover:text-primary" href="#jobs">Jobs</a>
+          <a class="hover:text-primary" href="#community">Community</a>
+          <a class="hover:text-primary" href="#blog">Blog</a>
+          <a class="hover:text-primary" href="#contact">Contact</a>
+          <a
+            class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold"
+            href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf"
+            >Download CV</a
+          >
+          <!-- Dark Mode -->
+          <button
+            id="darkToggleDesktop"
+            type="button"
+            class="px-3 py-1 rounded-lg border border-zinc-600 text-sm"
+          >
+            <span id="darkModeTextDesktop">🌙 Dark</span>
+          </button>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="menuBtn"
+          aria-label="Toggle Menu"
+          class="md:hidden p-2 rounded-xl border border-zinc-700"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="md:hidden hidden px-4 pb-4 space-y-2"
+        role="navigation"
+      >
+        <a href="#about" class="block py-2 border-b border-zinc-800">About</a>
+        <a href="#mission" class="block py-2 border-b border-zinc-800"
+          >Mission</a
+        >
+        <a href="#principles" class="block py-2 border-b border-zinc-800"
+          >Principles</a
+        >
+        <a href="#projects" class="block py-2 border-b border-zinc-800"
+          >Projects</a
+        >
+        <a href="#workflow" class="block py-2 border-b border-zinc-800"
+          >Workflow</a
+        >
+        <a href="#metrics" class="block py-2 border-b border-zinc-800"
+          >Metrics</a
+        >
+        <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
+        <a href="#jobs" class="block py-2 border-b border-zinc-800">Jobs</a>
+        <a href="#community" class="block py-2 border-b border-zinc-800"
+          >Community</a
+        >
+        <a href="#blog" class="block py-2 border-b border-zinc-800">Blog</a>
+        <a href="#contact" class="block py-2">Contact</a>
+        <a
+          href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf"
+          class="block py-2 font-semibold text-primary"
+          >Download CV</a
+        >
+        <!-- Dark Mode -->
+        <button
+          id="darkToggleMobile"
+          type="button"
+          class="w-full px-3 py-2 rounded-lg border border-zinc-600 text-sm text-left"
+        >
+          <span id="darkModeTextMobile">🌙 Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- JS Script -->
+    <script>
+      function toggleTheme(btn) {
+        document.body.classList.toggle("light");
+        const darkModeTextDesktop = document.getElementById(
+          "darkModeTextDesktop"
+        );
+        const darkModeTextMobile =
+          document.getElementById("darkModeTextMobile");
+
+        if (document.body.classList.contains("light")) {
+          const lightText = "🌞 Light";
+          if (darkModeTextDesktop) darkModeTextDesktop.textContent = lightText;
+          if (darkModeTextMobile) darkModeTextMobile.textContent = lightText;
+          document.body.classList.remove("bg-zinc-950", "text-zinc-100");
+          document.body.classList.add("bg-white", "text-zinc-900");
+        } else {
+          const darkText = "🌙 Dark";
+          if (darkModeTextDesktop) darkModeTextDesktop.textContent = darkText;
+          if (darkModeTextMobile) darkModeTextMobile.textContent = darkText;
+          document.body.classList.add("bg-zinc-950", "text-zinc-100");
+          document.body.classList.remove("bg-white", "text-zinc-900");
         }
       }
-    }
-  </script>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    #gitjobs {
-      width: 100%;
-      height: 450px;
-      border: none;
-    }
-    
-    /* Screen reader only */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-    
-    /* Cursor trail effect */
-    .cursor-trail-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    
-    .cursor-trail-dot {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--primary);
-      transform: translate(-50%, -50%);
-      transition: opacity 0.2s, transform 0.1s;
-      opacity: 0;
-    }
-    
-    /* Interactive cards */
-    .interactive-card {
-      transition: all 0.3s ease;
-      transform-style: preserve-3d;
-      perspective: 1000px;
-    }
-    
-    .interactive-card:hover {
-      transform: translateY(-5px) rotateX(5deg);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    
-    /* Skill bars */
-    .skill-bar {
-      height: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 10px 0;
-    }
-    
-    .skill-level {
-      height: 100%;
-      background: var(--primary);
-      border-radius: 4px;
-      width: 0;
-      transition: width 1.5s ease-in-out;
-    }
-    
-    /* Animated counters */
-    .counter {
-      display: inline-block;
-      min-width: 3ch;
-      text-align: center;
-    }
-  </style>
-</head>
-<body class="bg-zinc-950 text-zinc-100 selection:bg-primary/30">
-  <!-- PRELOADER -->
-  <div id="preloader" class="fixed inset-0 bg-zinc-950 flex items-center justify-center z-50">
-    <div class="flex flex-col items-center">
-      <div class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-      <p class="mt-4 text-zinc-300">Loading portfolio...</p>
-    </div>
-  </div>
-  <!-- NAV -->
-<header class="sticky top-0 z-50 border-b border-zinc-800/70 bg-zinc-950/70 backdrop-blur">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#home" class="flex items-center gap-3">
-      <img src="assets/images/logo.svg" class="w-9 h-9" alt="AG">
-      <span class="font-semibold tracking-wide">Amogh</span>
-    </a>
 
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-6 text-sm">
-      <a class="hover:text-primary" href="#about">About</a>
-      <a class="hover:text-primary" href="#mission">Mission</a>
-      <a class="hover:text-primary" href="#principles">Principles</a>
-      <a class="hover:text-primary" href="#projects">Projects</a>
-      <a class="hover:text-primary" href="#workflow">Workflow</a>
-      <a class="hover:text-primary" href="#metrics">Metrics</a>
-      <a class="hover:text-primary" href="#tech">Tech</a>
-      <a class="hover:text-primary" href="#jobs">Jobs</a>
-      <a class="hover:text-primary" href="#community">Community</a>
-      <a class="hover:text-primary" href="#blog">Blog</a>
-      <a class="hover:text-primary" href="#contact">Contact</a>
-      <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" 
-         href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf">Download CV</a>
-      <!-- Dark Mode -->
-      <button id="darkToggleDesktop" type="button" class="px-3 py-1 rounded-lg border border-zinc-600 text-sm">
-        <span id="darkModeTextDesktop">🌙 Dark</span>
-      </button>
-    </nav>
+      document
+        .getElementById("darkToggleDesktop")
+        ?.addEventListener("click", () =>
+          toggleTheme(document.getElementById("darkToggleDesktop"))
+        );
+      document
+        .getElementById("darkToggleMobile")
+        ?.addEventListener("click", () =>
+          toggleTheme(document.getElementById("darkToggleMobile"))
+        );
+    </script>
 
-    <!-- Mobile Menu Button -->
-    <button id="menuBtn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-xl border border-zinc-700">
-      <span aria-hidden="true">☰</span>
-    </button>
-  </div>
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <img
+          src="assets/images/bg.jpg"
+          class="w-full h-full object-cover opacity-25"
+          alt="bg"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-950"
+        ></div>
+      </div>
+      <div
+        class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-8 items-center"
+      >
+        <div>
+          <p class="text-primary font-semibold">DevOps • Cloud • Platform</p>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mt-2">
+            Hi, I'm Amogh<br />
+            <span id="typingText" class="text-primary typing-cursor"></span>
+          </h1>
+          <p class="mt-4 text-zinc-300 leading-relaxed">
+            DevOps Engineer from Pune, India, specializing in building resilient
+            CI/CD pipelines and cloud platforms on AWS. With 11+ months of
+            experience at HisanLab Pvt. Ltd., I automate infrastructure with
+            Terraform, deploy containerized applications to EKS, and design
+            observability solutions that keep systems healthy and performant.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-6 justify-center">
+            <!-- GitHub -->
+            <a
+              href="https://github.com/goswami800"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseGitHub"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub"
+                class="w-5 h-5"
+              />
+              GitHub
+            </a>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2" role="navigation">
-    <a href="#about" class="block py-2 border-b border-zinc-800">About</a>
-    <a href="#mission" class="block py-2 border-b border-zinc-800">Mission</a>
-    <a href="#principles" class="block py-2 border-b border-zinc-800">Principles</a>
-    <a href="#projects" class="block py-2 border-b border-zinc-800">Projects</a>
-    <a href="#workflow" class="block py-2 border-b border-zinc-800">Workflow</a>
-    <a href="#metrics" class="block py-2 border-b border-zinc-800">Metrics</a>
-    <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
-    <a href="#jobs" class="block py-2 border-b border-zinc-800">Jobs</a>
-    <a href="#community" class="block py-2 border-b border-zinc-800">Community</a>
-    <a href="#blog" class="block py-2 border-b border-zinc-800">Blog</a>
-    <a href="#contact" class="block py-2">Contact</a>
-    <a href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
-    <!-- Dark Mode -->
-    <button id="darkToggleMobile" type="button" class="w-full px-3 py-2 rounded-lg border border-zinc-600 text-sm text-left">
-      <span id="darkModeTextMobile">🌙 Dark</span>
-    </button>
-  </div>
-</header>
+            <!-- LinkedIn -->
+            <a
+              href="https://linkedin.com/in/amogh-goswami-783801201"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseLinkedIn"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                alt="LinkedIn"
+                class="w-5 h-5"
+              />
+              LinkedIn
+            </a>
 
-<!-- JS Script -->
-<script>
-function toggleTheme(btn) {
-  document.body.classList.toggle("light");
-  const darkModeTextDesktop = document.getElementById("darkModeTextDesktop");
-  const darkModeTextMobile = document.getElementById("darkModeTextMobile");
-  
-  if (document.body.classList.contains("light")) {
-    const lightText = "🌞 Light";
-    if (darkModeTextDesktop) darkModeTextDesktop.textContent = lightText;
-    if (darkModeTextMobile) darkModeTextMobile.textContent = lightText;
-    document.body.classList.remove("bg-zinc-950","text-zinc-100");
-    document.body.classList.add("bg-white","text-zinc-900");
-  } else {
-    const darkText = "🌙 Dark";
-    if (darkModeTextDesktop) darkModeTextDesktop.textContent = darkText;
-    if (darkModeTextMobile) darkModeTextMobile.textContent = darkText;
-    document.body.classList.add("bg-zinc-950","text-zinc-100");
-    document.body.classList.remove("bg-white","text-zinc-900");
-  }
-}
+            <!-- Instagram -->
+            <a
+              href="https://www.instagram.com/gordon__lyon"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseInsta"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                alt="Instagram"
+                class="w-5 h-5"
+              />
+              Instagram
+            </a>
 
-document.getElementById("darkToggleDesktop")?.addEventListener("click", 
-  () => toggleTheme(document.getElementById("darkToggleDesktop")));
-document.getElementById("darkToggleMobile")?.addEventListener("click", 
-  () => toggleTheme(document.getElementById("darkToggleMobile")));
-</script>
-
-
-  <!-- HERO -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10">
-      <img src="assets/images/bg.jpg" class="w-full h-full object-cover opacity-25" alt="bg" />
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-950"></div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <p class="text-primary font-semibold">DevOps • Cloud • Platform</p>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mt-2">Hi, I'm Amogh</h1>
-        <p class="mt-4 text-zinc-300 leading-relaxed">
-          DevOps Engineer from Pune, India, specializing in building resilient CI/CD pipelines and cloud platforms on AWS.
-          With 11+ months of experience at HisanLab Pvt. Ltd., I automate infrastructure with Terraform, deploy containerized applications to EKS,
-          and design observability solutions that keep systems healthy and performant.
-        </p>
-       <div class="flex flex-wrap gap-3 mt-6 justify-center">
-  <!-- GitHub -->
-  <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer"
-     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseGitHub">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-5 h-5">
-    GitHub
-  </a>
-
-  <!-- LinkedIn -->
-  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" rel="noopener noreferrer"
-     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseLinkedIn">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-5 h-5">
-    LinkedIn
-  </a>
-
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/gordon__lyon" target="_blank" rel="noopener noreferrer"
-     class="flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/50 hover:scale-105 transition transform animate-pulseInsta">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-5 h-5">
-    Instagram
-  </a>
-
-  <!-- Contact -->
-  <a href="#contact"
-     class="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold hover:scale-105 transition transform shadow animate-pulseEmail">
-    ✉ Contact Me
-  </a>
-</div>
-
-<style>
-  /* Pulse animations in brand colors */
-  @keyframes pulseEmail {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.5); }
-    50% { box-shadow: 0 0 15px 6px rgba(0, 102, 204, 0.6); }
-  }
-  .animate-pulseEmail { animation: pulseEmail 2s infinite; }
-
-  @keyframes pulseLinkedIn {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.5); }
-    50% { box-shadow: 0 0 15px 6px rgba(14, 118, 168, 0.6); }
-  }
-  .animate-pulseLinkedIn { animation: pulseLinkedIn 2s infinite; }
-
-  @keyframes pulseGitHub {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3); }
-    50% { box-shadow: 0 0 15px 6px rgba(255, 255, 255, 0.4); }
-  }
-  .animate-pulseGitHub { animation: pulseGitHub 2s infinite; }
-
-  @keyframes pulseInsta {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.5); }
-    50% { box-shadow: 0 0 15px 6px rgba(225, 48, 108, 0.6); }
-  }
-  .animate-pulseInsta { animation: pulseInsta 2s infinite; }
-</style>
-
-        <div class="mt-6 text-sm text-zinc-400">Last Updated: <span id="lastUpdated">August 21, 2025</span></div>
-        <div class="mt-4 flex items-center">
-          <div class="flex -space-x-2">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-8 h-8 rounded-full border-2 border-zinc-800" alt="Docker">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" class="w-8 h-8 rounded-full border-2 border-zinc-800" alt="Kubernetes">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" class="w-8 h-8 rounded-full border-2 border-zinc-800" alt="AWS">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" class="w-8 h-8 rounded-full border-2 border-zinc-800" alt="Terraform">
+            <!-- Contact -->
+            <a
+              href="#contact"
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold hover:scale-105 transition transform shadow animate-pulseEmail"
+            >
+              ✉ Contact Me
+            </a>
           </div>
-          <span class="ml-3 text-sm text-zinc-400">Trusted by <span class="counter" data-target="50">0</span>+ projects</span>
-        </div>
-      </div>
-      <div class="md:justify-self-end">
-        <img src="assets/images/hero.png" 
-     class="w-full max-w-md mx-auto rounded-2xl border border-zinc-800 object-contain" 
-     alt="hero" />
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold">About me</h2>
-    <p class="mt-4 text-zinc-300"> My mission is to grow as a DevOps Engineer by designing and automating
-      cloud-native infrastructure that is reliable, scalable, and secure.
-      With hands-on experience in Linux, AWS, Terraform, Docker, Git, and
-      Kubernetes, I aim to streamline deployments, optimize workflows, and
-      build systems that adapt to business needs. I am passionate about
-      continuous learning, from networking fundamentals to advanced cloud
-      services, and committed to delivering solutions that enable innovation,
-      collaboration, and efficiency in every environment I work in.</p>
-    <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
-        <h3 class="font-semibold">DevOps Practices & Methodologies</h3>
-        <ul class="mt-3 space-y-2 list-disc list-inside text-zinc-300">
-          <li><strong>Infrastructure as Code</strong>: Terraform modules for provisioning VPC, EKS, RDS, and IAM resources</li>
-          <li><strong>CI/CD Pipelines</strong>: GitHub Actions with blue/green and rolling deployment strategies</li>
-          <li><strong>Observability</strong>: CloudWatch, Prometheus, and Grafana for monitoring and alerting</li>
-          <li><strong>Container Orchestration</strong>: Kubernetes (EKS) for scalable application deployment</li>
-          <li><strong>Configuration Management</strong>: Ansible for server provisioning and application deployment</li>
-          <li><strong>Version Control</strong>: Git workflows, branching strategies, and code review processes</li>
-        </ul>
-      </div>
-      <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
-  <h3 class="font-semibold">Professional Experience</h3>
-  <div class="relative border-l border-zinc-700 mt-3 ml-3">
-    <div class="mb-8 ml-6">
-      <div class="absolute -left-3 w-6 h-6 rounded-full bg-primary border-2 border-zinc-900"></div>
-      <h4 class="text-lg font-semibold">DevOps Intern | 2024 – 2025</h4>
-      <p class="text-zinc-300">HisanLab Pvt. Ltd., Pune</p>
-      <p class="text-sm text-zinc-400 mt-1">
-        • Designed and implemented CI/CD pipelines using GitHub Actions<br>
-        • Automated infrastructure provisioning with Terraform modules<br>
-        • Managed IAM policies and user permissions for secure access control<br>
-        • Containerized applications and orchestrated deployments on EKS<br>
-        • Implemented monitoring solutions with Prometheus and Grafana<br>
-        • Participated in incident response and post-mortem analysis<br>
-        <strong>Outcome</strong>: Reduced deployment time by 60% and optimized cloud costs by 25%
-      </p>
-    </div>
-  </div>
-</div>
-
-      <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
-        <h3 class="font-semibold">Certifications & Education</h3>
-        <ul class="mt-3 space-y-2 list-disc list-inside text-zinc-300">
-          <li>AWS Certified Developer – Associate (In Progress)</li>
-          <li>Terraform Associate Certification (In Progress)</li>
-          <li>Bachelor of Engineering in Computer Science</li>
-          <li>DevOps Institute certifications (Planned)</li>
-        </ul>
-        <h3 class="font-semibold mt-4">Contact</h3>
-        <p class="mt-3 text-zinc-300">Email: <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a><br/>Phone: <a class="underline" href="tel:+917887918348">+91 7887918348</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- MISSION -->
-  <section id="mission" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold">My Mission</h2>
-    <p class="mt-4 text-zinc-300">Ship faster without breaking things — by baking reliability, security, and automation into every stage of delivery.</p>
-    <!-- QUOTE BOX -->
-<blockquote id="quoteBox" class="mt-6 p-6 rounded-2xl border border-zinc-800 bg-white/5 text-center italic text-lg">
-  Keep moving, don't settle.
-</blockquote>
-
-<script>
-  const quotes = [
-    "Keep moving, don't settle.",
-    "Small steps every day lead to big results.",
-    "Consistency beats motivation.",
-    "Build. Break. Learn. Repeat.",
-    "Dreams don’t work unless you do.",
-    "Progress, not perfection.",
-    "In DevOps, automation is the ultimate superpower.",
-    "Ship fast, fail fast, learn faster.",
-    "CI/CD is not a pipeline, it's a culture.",
-    "Every outage is just another lesson in disguise.",
-    "Measure, monitor, and improve — always.",
-    "Infrastructure as Code is poetry for engineers.",
-    "The best documentation is a reliable pipeline.",
-    "Security is not a feature, it's a mindset.",
-    "Collaboration is the true continuous delivery."
-  ];
-
-  let index = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  const speed = 70;  // typing speed
-  const delay = 2000; // pause before deleting
-
-  function typeEffect() {
-    const quoteBox = document.getElementById("quoteBox");
-    const currentQuote = quotes[index];
-
-    if (!isDeleting) {
-      // typing forward
-      quoteBox.innerText = currentQuote.substring(0, charIndex + 1);
-      charIndex++;
-      if (charIndex === currentQuote.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, delay);
-        return;
-      }
-    } else {
-      // deleting
-      quoteBox.innerText = currentQuote.substring(0, charIndex - 1);
-      charIndex--;
-      if (charIndex === 0) {
-        isDeleting = false;
-        index = (index + 1) % quotes.length;
-      }
-    }
-    setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
-  }
-
-  typeEffect();
-</script>
-
-<style>
-  #quoteBox {
-    min-height: 60px; /* avoid layout shift */
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-  }
-  #quoteBox:hover {
-    color: #1e90ff;   /* glow blue on hover */
-    transform: scale(1.05);
-  }
-</style>
-
-
-  </section>
-
-  <!-- STATS -->
-  <section class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-center">By The Numbers</h2>
-    <p class="mt-4 text-zinc-300 text-center max-w-2xl mx-auto">Key metrics that highlight the impact of my DevOps work</p>
-    
-    <div class="stats-grid">
-      <div class="stat-card fade-in-up">
-        <div class="stat-value counter" data-target="200">0</div>
-        <div class="stat-label">CI/CD Pipelines</div>
-      </div>
-      
-      <div class="stat-card fade-in-up" style="animation-delay: 0.1s">
-        <div class="stat-value counter" data-target="50">0</div>
-        <div class="stat-label">Infrastructure Modules</div>
-      </div>
-      
-      <div class="stat-card fade-in-up" style="animation-delay: 0.2s">
-        <div class="stat-value counter" data-target="99">0</div>
-        <div class="stat-label">Uptime %</div>
-      </div>
-      
-      <div class="stat-card fade-in-up" style="animation-delay: 0.3s">
-        <div class="stat-value counter" data-target="40">0</div>
-        <div class="stat-label">% Cost Savings</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEVOPS PRINCIPLES -->
-  <section id="principles" class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10">
-    <h2 class="text-3xl font-bold">DevOps Principles I Live By</h2>
-    <p class="mt-4 text-zinc-300">Core philosophies that guide my approach to building and maintaining robust systems:</p>
-    
-    <div class="mt-8 grid md:grid-cols-2 gap-6">
-      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
-        <h3 class="text-xl font-semibold text-primary flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          Automation First
-        </h3>
-        <p class="mt-2 text-zinc-300">Everything that can be automated, should be automated. From infrastructure provisioning to testing and deployments, reducing manual intervention minimizes errors and accelerates delivery.</p>
-      </div>
-      
-      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
-        <h3 class="text-xl font-semibold text-primary flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
-          Security Integration
-        </h3>
-        <p class="mt-2 text-zinc-300">Security is not an afterthought but integrated into every phase of the development lifecycle (DevSecOps). Vulnerability scanning, secret management, and compliance checks are built into pipelines.</p>
-      </div>
-      
-      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
-        <h3 class="text-xl font-semibold text-primary flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
-          Observability & Monitoring
-        </h3>
-        <p class="mt-2 text-zinc-300">Systems should be observable with comprehensive logging, metrics, and tracing. Proactive monitoring with actionable alerts ensures rapid incident response and system reliability.</p>
-      </div>
-      
-      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
-        <h3 class="text-xl font-semibold text-primary flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-          </svg>
-          Continuous Improvement
-        </h3>
-        <p class="mt-2 text-zinc-300">Embrace a culture of experimentation, learning from failures, and iterating rapidly. Regular retrospectives and post-incident reviews drive continuous improvement in processes and systems.</p>
-      </div>
-    </div>
-  </section>
-  
-  <!-- PROJECTS -->
-  <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold">Recent Projects</h2>
-    <p class="mt-2 text-zinc-300">A snapshot of my hands-on work. More on my GitHub.</p>
-    <div class="mt-6 grid md:grid-cols-2 gap-6">
-      <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card">
-        <img src="assets/images/p1.png" class="rounded-xl border border-zinc-800" alt="p1">
-        <h3 class="mt-4 font-semibold text-xl">3-Tier Web Application on EKS</h3>
-        <p class="mt-2 text-zinc-300">Designed and deployed a scalable 3-tier application (NGINX + Node.js + MySQL) on AWS EKS. Used Terraform for provisioning VPC, EKS cluster, and RDS. Implemented GitHub Actions CI/CD pipeline with ECR for image storage, Horizontal Pod Autoscaler for scaling, and zero-downtime deployment strategies.</p>
-        <div class="mt-4">
-          <h4 class="font-semibold text-zinc-200">Key DevOps Practices Implemented:</h4>
-          <ul class="mt-2 space-y-1 text-sm text-zinc-300">
-            <li>• Infrastructure as Code with Terraform modules for reusability</li>
-            <li>• GitOps workflow with GitHub Actions for automated deployments</li>
-            <li>• Container image scanning for security vulnerabilities</li>
-            <li>• Resource monitoring with Prometheus and Grafana dashboards</li>
-            <li>• Log aggregation using CloudWatch for centralized logging</li>
-          </ul>
-        </div>
-        <div class="mt-4">
-          <div class="flex justify-between text-sm">
-            <span>Performance Increase</span>
-            <span class="font-semibold">+<span class="counter" data-target="60">0</span>%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-level" data-width="60%" style="width: 0;"></div>
-          </div>
-        </div>
-        <div class="mt-3 text-sm flex flex-wrap gap-2">
-          <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">GitHub Actions</span>
-        </div>
-      </article>
-      <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card">
-        <img src="assets/images/p2.png" class="rounded-xl border border-zinc-800" alt="p2">
-        <h3 class="mt-4 font-semibold text-xl">Observability Stack & Cloud Cost Optimization</h3>
-        <p class="mt-2 text-zinc-300">Implemented a comprehensive observability solution using CloudWatch, Prometheus, and Grafana for monitoring applications and infrastructure. Established cost governance policies including EC2 right-sizing, S3 lifecycle rules, and tagging strategies that reduced cloud spend by 25%.</p>
-        <div class="mt-4">
-          <h4 class="font-semibold text-zinc-200">DevOps & FinOps Outcomes:</h4>
-          <ul class="mt-2 space-y-1 text-sm text-zinc-300">
-            <li>• Created custom dashboards for real-time system health visualization</li>
-            <li>• Implemented alerting mechanisms for proactive incident response</li>
-            <li>• Developed cost allocation reports for better financial transparency</li>
-            <li>• Automated resource cleanup policies to eliminate wasteful spending</li>
-            <li>• Established tagging standards for improved resource tracking</li>
-          </ul>
-        </div>
-        <div class="mt-4">
-          <div class="flex justify-between text-sm">
-            <span>Cost Reduction</span>
-            <span class="font-semibold">-<span class="counter" data-target="25">0</span>%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-level" data-width="25%" style="width: 0;"></div>
-          </div>
-        </div>
-        <div class="mt-3 text-sm flex flex-wrap gap-2">
-          <span class="tag">CloudWatch</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">FinOps</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- DEVOPS WORKFLOW -->
-  <section id="workflow" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold">My DevOps Workflow</h2>
-    <p class="mt-4 text-zinc-300">End-to-end approach to building, deploying, and maintaining robust systems:</p>
-    
-    <div class="mt-10 relative">
-      <!-- Workflow timeline -->
-      <div class="relative pl-8 border-l-2 border-primary/30 space-y-12 before:absolute before:left-[-5px] before:top-0 before:h-full before:w-2 before:bg-gradient-to-b before:from-transparent before:via-primary/20 before:to-transparent">
-        
-        <!-- Step 1 -->
-        <div class="relative">
-          <div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"></div>
-          <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
-            <h3 class="text-xl font-semibold">Plan & Design</h3>
-            <p class="mt-2 text-zinc-300">Collaborate with development teams to understand requirements, define infrastructure needs, and design scalable architectures. Create technical specifications and implementation plans.</p>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <span class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300">Architecture Design</span>
-              <span class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300">Requirements Gathering</span>
-              <span class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300">Capacity Planning</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Step 2 -->
-        <div class="relative">
-          <div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"></div>
-          <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
-            <h3 class="text-xl font-semibold">Infrastructure as Code</h3>
-            <p class="mt-2 text-zinc-300">Provision and manage infrastructure using Terraform modules. Implement version control, code reviews, and automated testing for infrastructure changes to ensure consistency and reliability.</p>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <span class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300">Terraform</span>
-              <span class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300">Modular Design</span>
-              <span class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300">State Management</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Step 3 -->
-        <div class="relative">
-          <div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"></div>
-          <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
-            <h3 class="text-xl font-semibold">CI/CD Pipeline</h3>
-            <p class="mt-2 text-zinc-300">Implement continuous integration and deployment pipelines using GitHub Actions. Automate testing, building, and deployment processes with rollback capabilities and environment promotion strategies.</p>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <span class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300">GitHub Actions</span>
-              <span class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300">Automated Testing</span>
-              <span class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300">Blue/Green Deployments</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Step 4 -->
-        <div class="relative">
-          <div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"></div>
-          <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
-            <h3 class="text-xl font-semibold">Monitor & Optimize</h3>
-            <p class="mt-2 text-zinc-300">Establish comprehensive monitoring, alerting, and logging solutions. Continuously optimize performance, costs, and security posture based on metrics and feedback.</p>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <span class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300">Prometheus/Grafana</span>
-              <span class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300">Cost Optimization</span>
-              <span class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300">Performance Tuning</span>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- METRICS -->
-  <section id="metrics" class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10">
-    <h2 class="text-3xl font-bold">DevOps Metrics & KPIs</h2>
-    <p class="mt-4 text-zinc-300">Key performance indicators I track to measure and improve system reliability and team productivity:</p>
-    
-    <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Deployment Frequency -->
-      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center">
-        <div class="text-3xl font-bold text-primary">20+</div>
-        <h3 class="mt-2 font-semibold">Deployments/Week</h3>
-        <p class="mt-2 text-sm text-zinc-300">Frequency of successful deployments to production environments</p>
-      </div>
-      
-      <!-- Lead Time -->
-      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center">
-        <div class="text-3xl font-bold text-primary">4 hrs</div>
-        <h3 class="mt-2 font-semibold">Lead Time</h3>
-        <p class="mt-2 text-sm text-zinc-300">Time from code commit to successful production deployment</p>
-      </div>
-      
-      <!-- MTTR -->
-      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center">
-        <div class="text-3xl font-bold text-primary">15 min</div>
-        <h3 class="mt-2 font-semibold">MTTR</h3>
-        <p class="mt-2 text-sm text-zinc-300">Mean Time to Recovery from incidents</p>
-      </div>
-      
-      <!-- Change Failure Rate -->
-      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center">
-        <div class="text-3xl font-bold text-primary">&lt;5%</div>
-        <h3 class="mt-2 font-semibold">Failure Rate</h3>
-        <p class="mt-2 text-sm text-zinc-300">Percentage of deployments causing failures in production</p>
-      </div>
-    </div>
-    
-    <div class="mt-8 p-6 rounded-xl border border-zinc-700 bg-white/5">
-      <h3 class="text-xl font-semibold">How I Improve These Metrics:</h3>
-      <ul class="mt-4 grid md:grid-cols-2 gap-4 text-zinc-300">
-        <li class="flex items-start gap-2">
-          <span class="text-primary mt-1">•</span>
-          <span>Implement comprehensive automated testing to catch issues early</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-primary mt-1">•</span>
-          <span>Use feature flags for safer, incremental rollouts</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-primary mt-1">•</span>
-          <span>Create detailed runbooks and playbooks for common scenarios</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-primary mt-1">•</span>
-          <span>Conduct regular incident retrospectives to prevent recurrence</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-primary mt-1">•</span>
-          <span>Invest in observability tools for faster issue detection</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-primary mt-1">•</span>
-          <span>Standardize deployment processes to reduce variability</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- TECH -->
-  <section id="tech" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold">Technical Skills</h2>
-    <p class="mt-2 text-zinc-300">Comprehensive skill set across the DevOps toolchain and practices:</p>
-    
-    <div class="mt-8 grid md:grid-cols-2 gap-8">
-      <!-- Left Column -->
-      <div>
-        <h3 class="text-xl font-semibold text-primary mb-4">Infrastructure & Automation</h3>
-        <ul class="space-y-3">
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Cloud Platforms</strong>: AWS (EC2, VPC, S3, IAM, RDS, CloudFront, CloudWatch, Route53, Lambda, EKS)</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Infrastructure as Code</strong>: Terraform (modules, state management, providers)</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Configuration Management</strong>: Ansible (playbooks, roles, inventories)</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Containerization</strong>: Docker (images, registries, compose), Kubernetes (EKS, Helm, Operators)</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Orchestration</strong>: Kubernetes (deployments, services, ingress, autoscaling)</span>
-          </li>
-        </ul>
-        
-        <h3 class="text-xl font-semibold text-primary mb-4 mt-6">Monitoring & Observability</h3>
-        <ul class="space-y-3">
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Logging</strong>: ELK Stack, CloudWatch Logs, Fluentd</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Monitoring</strong>: Prometheus, Grafana, CloudWatch Alarms</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Tracing</strong>: Jaeger, OpenTelemetry</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Alerting</strong>: PagerDuty integrations, Slack notifications</span>
-          </li>
-        </ul>
-      </div>
-      
-      <!-- Right Column -->
-      <div>
-        <h3 class="text-xl font-semibold text-primary mb-4">CI/CD & Version Control</h3>
-        <ul class="space-y-3">
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>CI/CD Pipelines</strong>: GitHub Actions (workflows, runners, secrets)</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Version Control</strong>: Git (workflows, branching, merging, rebasing)</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Artifact Repositories</strong>: JFrog Artifactory, AWS ECR</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Deployment Strategies</strong>: Blue/Green, Canary, Rolling Updates</span>
-          </li>
-        </ul>
-        
-        <h3 class="text-xl font-semibold text-primary mb-4 mt-6">Scripting & Programming</h3>
-        <ul class="space-y-3">
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Scripting Languages</strong>: Bash, Python, PowerShell</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Infrastructure Testing</strong>: Terratest, KitchenCI</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>APIs & Integrations</strong>: REST APIs, Webhooks, SDKs</span>
-          </li>
-        </ul>
-        
-        <h3 class="text-xl font-semibold text-primary mb-4 mt-6">Security & Compliance</h3>
-        <ul class="space-y-3">
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Security Tools</strong>: Vault, Aqua Security, Snyk</span>
-          </li>
-          <li class="tech flex items-start gap-2">
-            <span class="text-primary">▸</span>
-            <span><strong>Compliance</strong>: SOC 2, GDPR, HIPAA awareness</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- JOBS SECTION -->
-<section id="jobs" class="max-w-5xl mx-auto px-4 py-14">
-  <h2 class="text-3xl font-semibold text-center mb-4">🚀 Latest DevOps Jobs</h2>
-  <p class="text-center text-gray-400 mb-8 text-sm">
-    Updated daily — filter and explore opportunities that fit you best.
-  </p>
-
-  <!-- Filter Tabs -->
-  <div class="flex justify-center gap-2 mb-6 flex-wrap">
-    <button type="button" onclick="loadJobs('remote')" class="px-4 py-1.5 rounded-full bg-blue-600 text-white text-sm hover:bg-blue-700 transition">Remote</button>
-    <button type="button" onclick="loadJobs('on-site')" class="px-4 py-1.5 rounded-full bg-green-600 text-white text-sm hover:bg-green-700 transition">On-site</button>
-    <button type="button" onclick="loadJobs('hybrid')" class="px-4 py-1.5 rounded-full bg-purple-600 text-white text-sm hover:bg-purple-700 transition">Hybrid</button>
-    <button type="button" onclick="loadJobs('all')" class="px-4 py-1.5 rounded-full bg-gray-700 text-white text-sm hover:bg-gray-800 transition">All</button>
-  </div>
-
-  <!-- Job Frame Wrapper -->
-  <div id="job-container" class="relative w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg">
-    <!-- Loading spinner -->
-    <div id="loading" class="absolute inset-0 flex items-center justify-center bg-black/40">
-      <div class="w-10 h-10 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
-    </div>
-
-    <!-- Job Listings -->
-    <iframe id="gitjobs" title="DevOps Job Listings"
-      src="https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10">
-    </iframe>
-  </div>
-</section>
-
-<!-- Auto resize -->
-<script type="module">
-  import { initialize } from "https://cdn.jsdelivr.net/npm/@open-iframe-resizer/core@latest/dist/index.js";
-  initialize({}, "#gitjobs");
-</script>
-
-<!-- Interactivity -->
-<script>
-  const iframe = document.getElementById("gitjobs");
-  const loader = document.getElementById("loading");
-
-  iframe.addEventListener("load", () => {
-    loader.style.display = "none";
-  });
-
-  function loadJobs(type) {
-    loader.style.display = "flex";
-    let baseUrl = "https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10";
-    if (type === "remote") baseUrl += "&workplace%5B0%5D=remote";
-    else if (type === "on-site") baseUrl += "&workplace%5B0%5D=on-site";
-    else if (type === "hybrid") baseUrl += "&workplace%5B0%5D=hybrid";
-    iframe.src = baseUrl;
-  }
-</script>
-
-
-  <!-- CONTACT -->
-  <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold">Get In Touch</h2>
-    <p class="mt-2 text-zinc-300">I'm always excited to work on production-grade DevOps challenges and cloud infrastructure projects.</p>
-    <p class="mt-2 text-zinc-300">Whether you have a project in mind, need assistance with DevOps transformations, or just want to connect, feel free to reach out!</p>
-   <p class="mt-2 text-zinc-300">
-  You can also email me directly at 
-  <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a>
-</p>
-    <!-- Contact Form -->
-    <form id="contactForm" class="mt-6 grid gap-4 max-w-xl">
-      <div>
-        <label for="name" class="sr-only">Name</label>
-        <input required placeholder="Name*" class="field" id="name" name="name" type="text" />
-        <div class="text-red-400 text-sm mt-1 hidden" id="nameError"></div>
-      </div>
-      <div>
-        <label for="subject" class="sr-only">Subject</label>
-        <input required placeholder="Subject*" class="field" id="subject" name="subject" type="text" />
-        <div class="text-red-400 text-sm mt-1 hidden" id="subjectError"></div>
-      </div>
-      <div>
-        <label for="email" class="sr-only">Email</label>
-        <input required type="email" placeholder="Email*" class="field" id="email" name="email" />
-        <div class="text-red-400 text-sm mt-1 hidden" id="emailError"></div>
-      </div>
-      <div>
-        <label for="message" class="sr-only">Message</label>
-        <textarea required placeholder="Message*" rows="5" class="field" id="message" name="message"></textarea>
-        <div class="text-red-400 text-sm mt-1 hidden" id="messageError"></div>
-      </div>
-      <button type="submit" class="px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold hover:bg-primary/90 transition-colors">Send Message</button>
-      <div id="formMessage" class="mt-4 p-3 rounded-lg hidden"></div>
-    </form>
-   
-<!-- Contact Icons -->
-<div class="mt-6 flex gap-6 justify-center text-center">
-  <!-- Email -->
-  <a href="mailto:goswamiamogh@outlook.com" target="_blank" rel="noopener noreferrer"
-     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseEmail transition-all duration-300 hover:scale-110">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732223.png" alt="Outlook" class="w-6 h-6" />
-  </a>
-
-  <!-- LinkedIn -->
-  <a href="https://linkedin.com/in/amogh-goswami-783801201" target="_blank" rel="noopener noreferrer"
-     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseLinkedIn transition-all duration-300 hover:scale-110">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-6 h-6" />
-  </a>
-
-  <!-- GitHub -->
-  <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer"
-     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseGitHub transition-all duration-300 hover:scale-110">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-6 h-6" />
-  </a>
-
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/gordon__lyon" target="_blank" rel="noopener noreferrer"
-     class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseInsta transition-all duration-300 hover:scale-110">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-6 h-6" />
-  </a>
-</div>
-
-<!-- Extra Styles -->
-<style>
-  /* Glassmorphism */
-  .glass {
-    background: rgba(255, 255, 255, 0.08);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  #gitjobs {
-    width: 100%;
-    height: 450px;
-    border: none;
-  }
-
-  /* Pulse animations in brand colors */
-  @keyframes pulseEmail {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.6); }
-    50% { box-shadow: 0 0 20px 8px rgba(0, 102, 204, 0.6); }
-  }
-  .animate-pulseEmail { animation: pulseEmail 2s infinite; }
-
-  @keyframes pulseLinkedIn {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.6); }
-    50% { box-shadow: 0 0 20px 8px rgba(14, 118, 168, 0.6); }
-  }
-  .animate-pulseLinkedIn { animation: pulseLinkedIn 2s infinite; }
-
-  @keyframes pulseGitHub {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.5); }
-  }
-  .animate-pulseGitHub { animation: pulseGitHub 2s infinite; }
-
-  @keyframes pulseInsta {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.6); }
-    50% { box-shadow: 0 0 20px 8px rgba(225, 48, 108, 0.6); }
-  }
-  .animate-pulseInsta { animation: pulseInsta 2s infinite; }
-</style>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10">
-    <h2 class="text-3xl font-bold text-center">What People Say</h2>
-    <p class="mt-4 text-zinc-300 text-center max-w-2xl mx-auto">Feedback from colleagues and clients I've worked with</p>
-    
-    <div class="mt-12 grid md:grid-cols-3 gap-8">
-      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card">
-        <div class="flex items-center">
-          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-            <span class="text-primary font-bold">JD</span>
-          </div>
-          <div class="ml-4">
-            <h3 class="font-semibold">John Doe</h3>
-            <p class="text-sm text-zinc-400">Engineering Manager</p>
-          </div>
-        </div>
-        <p class="mt-4 text-zinc-300 italic">"Amogh transformed our deployment process, reducing release times from hours to minutes. His automation skills are exceptional."</p>
-        <div class="mt-4 flex text-yellow-400">
-          ★★★★★
-        </div>
-      </div>
-      
-      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card">
-        <div class="flex items-center">
-          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-            <span class="text-primary font-bold">AS</span>
-          </div>
-          <div class="ml-4">
-            <h3 class="font-semibold">Alice Smith</h3>
-            <p class="text-sm text-zinc-400">Product Owner</p>
-          </div>
-        </div>
-        <p class="mt-4 text-zinc-300 italic">"Working with Amogh was a game-changer for our team. He helped us establish robust monitoring that prevented several outages."</p>
-        <div class="mt-4 flex text-yellow-400">
-          ★★★★★
-        </div>
-      </div>
-      
-      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card">
-        <div class="flex items-center">
-          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-            <span class="text-primary font-bold">RJ</span>
-          </div>
-          <div class="ml-4">
-            <h3 class="font-semibold">Robert Johnson</h3>
-            <p class="text-sm text-zinc-400">CTO</p>
-          </div>
-        </div>
-        <p class="mt-4 text-zinc-300 italic">"Amogh's expertise in cloud cost optimization saved us thousands monthly. His DevOps practices improved our reliability significantly."</p>
-        <div class="mt-4 flex text-yellow-400">
-          ★★★★★
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMMUNITY -->
-  <section id="community" class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10">
-    <h2 class="text-3xl font-bold">Community & Open Source</h2>
-    <p class="mt-4 text-zinc-300">Actively contributing to the DevOps community through open source and knowledge sharing:</p>
-    
-    <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <!-- GitHub Contributions -->
-      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
-        <div class="text-primary text-3xl mb-3">★</div>
-        <h3 class="text-xl font-semibold">Open Source</h3>
-        <p class="mt-2 text-zinc-300">Regular contributor to DevOps tooling repositories. Created reusable Terraform modules shared on GitHub for infrastructure provisioning patterns.</p>
-        <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-primary hover:underline">View Contributions →</a>
-      </div>
-      
-      <!-- Blog & Documentation -->
-      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
-        <div class="text-primary text-3xl mb-3">📝</div>
-        <h3 class="text-xl font-semibold">Knowledge Sharing</h3>
-        <p class="mt-2 text-zinc-300">Documenting my DevOps journey with tutorials, best practices, and lessons learned from real-world projects on GitHub.</p>
-        <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-primary hover:underline">Read Articles →</a>
-      </div>
-      
-      <!-- Community Engagement -->
-      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
-        <div class="text-primary text-3xl mb-3">👥</div>
-        <h3 class="text-xl font-semibold">Community Involvement</h3>
-        <p class="mt-2 text-zinc-300">Active participant in DevOps forums, attending virtual meetups, and engaging with the wider DevOps community on social platforms.</p>
-        <a href="https://www.linkedin.com/in/amogh-goswami-783801201" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-primary hover:underline">Connect →</a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- BLOG -->
-  <section id="blog" class="max-w-6xl mx-auto px-4 py-16">
-  <h2 class="text-3xl font-bold">Learning Notes</h2>
-  <p class="mt-4 text-zinc-300">
-    I document my DevOps journey and experiments on GitHub.  
-    👉 <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer" class="text-primary underline">Check my notes here</a>
-  </p>
-</section>
-  <!-- FOOTER -->
-  <footer class="border-t border-zinc-800 py-10">
-    <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 gap-4 text-sm text-zinc-400">
-      <div>© 2025 Amogh Goswami</div>
-      <div class="justify-self-end">Important Links: <a class="underline" href="#home">Home</a> • <a class="underline" href="#projects">Projects</a> • <a class="underline" href="#tech">Skills</a> • <a class="underline" href="#contact">Contact</a></div>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-  
-  <!-- PRELOADER SCRIPT -->
-  <script>
-    window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
-      if (preloader) {
-        setTimeout(() => {
-          preloader.style.opacity = '0';
-          setTimeout(() => {
-            preloader.style.display = 'none';
-          }, 500);
-        }, 500);
-      }
-    });
-  </script>
-  
-<!-- POPUP -->
-<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden z-50">
-  <div id="popupBox" class="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700 rounded-2xl p-8 max-w-sm text-center shadow-2xl transform scale-90 opacity-0 transition-all duration-500">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
-         alt="GitHub" class="w-12 h-12 mx-auto mb-4">
-    <h2 class="text-2xl font-bold mb-2">Follow me on GitHub</h2>
-    <p class="text-zinc-300 mb-6">Stay updated with my projects and DevOps work.</p>
-    <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer"
-       class="px-6 py-3 rounded-xl bg-primary text-zinc-900 font-semibold shadow hover:scale-105 transition-transform">
-       ⭐ Follow on GitHub
-    </a>
-    <button id="closePopup" 
-            class="block mt-5 text-sm text-zinc-400 hover:text-zinc-200">Close</button>
-    <p id="countdown" class="mt-2 text-xs text-zinc-500"></p>
-  </div>
-</div>
-
-  <!-- Floating CV Download Button (only on mobile) -->
-  <a id="resumeFab" href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf" download aria-label="Download resume"
-    class="fixed bottom-5 right-5 md:hidden px-4 py-3 rounded-full bg-primary text-zinc-900 font-semibold shadow-lg hover:scale-110 transition">
-    📄 Resume
-  </a>
-
-  <!-- Consolidated interactive scripts -->
-  <script>
-  (function () {
-    'use strict';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Popup (single timer + manual close)
-      const popup = document.getElementById('popup');
-      const popupBox = document.getElementById('popupBox');
-      const countdownEl = document.getElementById('countdown');
-      const closePopupBtn = document.getElementById('closePopup');
-
-      if (popup && popupBox && countdownEl && !popup.dataset.timerStarted) {
-        popup.dataset.timerStarted = 'true';
-        let timeLeft = 10;
-        setTimeout(() => {
-          popup.classList.remove('hidden');
-          popupBox.classList.remove('opacity-0', 'scale-90');
-          countdownEl.textContent = `Closing in ${timeLeft}s...`;
-          const timer = setInterval(() => {
-            timeLeft--;
-            countdownEl.textContent = `Closing in ${timeLeft}s...`;
-            if (timeLeft <= 0) {
-              clearInterval(timer);
-              popup.classList.add('hidden');
+          <style>
+            /* Pulse animations in brand colors */
+            @keyframes pulseEmail {
+              0%,
+              100% {
+                box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.5);
+              }
+              50% {
+                box-shadow: 0 0 15px 6px rgba(0, 102, 204, 0.6);
+              }
             }
-          }, 1000);
-        }, 5000);
-      }
-      closePopupBtn?.addEventListener('click', () => popup?.classList.add('hidden'));
+            .animate-pulseEmail {
+              animation: pulseEmail 2s infinite;
+            }
 
-  // Mobile menu: handled in assets/js/main.js (enhanced, accessible toggle)
-  // Keep simple references here for compatibility
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
+            @keyframes pulseLinkedIn {
+              0%,
+              100% {
+                box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.5);
+              }
+              50% {
+                box-shadow: 0 0 15px 6px rgba(14, 118, 168, 0.6);
+              }
+            }
+            .animate-pulseLinkedIn {
+              animation: pulseLinkedIn 2s infinite;
+            }
 
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (!href || href === '#') return;
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            mobileMenu?.classList.add('hidden');
+            @keyframes pulseGitHub {
+              0%,
+              100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
+              }
+              50% {
+                box-shadow: 0 0 15px 6px rgba(255, 255, 255, 0.4);
+              }
+            }
+            .animate-pulseGitHub {
+              animation: pulseGitHub 2s infinite;
+            }
+
+            @keyframes pulseInsta {
+              0%,
+              100% {
+                box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.5);
+              }
+              50% {
+                box-shadow: 0 0 15px 6px rgba(225, 48, 108, 0.6);
+              }
+            }
+            .animate-pulseInsta {
+              animation: pulseInsta 2s infinite;
+            }
+          </style>
+
+          <div class="mt-6 text-sm text-zinc-400">
+            Last Updated: <span id="lastUpdated">August 21, 2025</span>
+          </div>
+          <div class="mt-4 flex items-center">
+            <div class="flex -space-x-2">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                class="w-8 h-8 rounded-full border-2 border-zinc-800"
+                alt="Docker"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                class="w-8 h-8 rounded-full border-2 border-zinc-800"
+                alt="Kubernetes"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg"
+                class="w-8 h-8 rounded-full border-2 border-zinc-800"
+                alt="AWS"
+              />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
+                class="w-8 h-8 rounded-full border-2 border-zinc-800"
+                alt="Terraform"
+              />
+            </div>
+            <span class="ml-3 text-sm text-zinc-400"
+              >Trusted by <span class="counter" data-target="50">0</span>+
+              projects</span
+            >
+          </div>
+        </div>
+        <div class="md:justify-self-end">
+          <img
+            src="assets/images/hero.png"
+            class="w-full max-w-md mx-auto rounded-2xl border border-zinc-800 object-contain"
+            alt="hero"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold">About me</h2>
+      <p class="mt-4 text-zinc-300">
+        My mission is to grow as a DevOps Engineer by designing and automating
+        cloud-native infrastructure that is reliable, scalable, and secure. With
+        hands-on experience in Linux, AWS, Terraform, Docker, Git, and
+        Kubernetes, I aim to streamline deployments, optimize workflows, and
+        build systems that adapt to business needs. I am passionate about
+        continuous learning, from networking fundamentals to advanced cloud
+        services, and committed to delivering solutions that enable innovation,
+        collaboration, and efficiency in every environment I work in.
+      </p>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div
+          class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur"
+        >
+          <h3 class="font-semibold">DevOps Practices & Methodologies</h3>
+          <ul class="mt-3 space-y-2 list-disc list-inside text-zinc-300">
+            <li>
+              <strong>Infrastructure as Code</strong>: Terraform modules for
+              provisioning VPC, EKS, RDS, and IAM resources
+            </li>
+            <li>
+              <strong>CI/CD Pipelines</strong>: GitHub Actions with blue/green
+              and rolling deployment strategies
+            </li>
+            <li>
+              <strong>Observability</strong>: CloudWatch, Prometheus, and
+              Grafana for monitoring and alerting
+            </li>
+            <li>
+              <strong>Container Orchestration</strong>: Kubernetes (EKS) for
+              scalable application deployment
+            </li>
+            <li>
+              <strong>Configuration Management</strong>: Ansible for server
+              provisioning and application deployment
+            </li>
+            <li>
+              <strong>Version Control</strong>: Git workflows, branching
+              strategies, and code review processes
+            </li>
+          </ul>
+        </div>
+        <div
+          class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur"
+        >
+          <h3 class="font-semibold">Professional Experience</h3>
+          <div class="relative border-l border-zinc-700 mt-3 ml-3">
+            <div class="mb-8 ml-6">
+              <div
+                class="absolute -left-3 w-6 h-6 rounded-full bg-primary border-2 border-zinc-900"
+              ></div>
+              <h4 class="text-lg font-semibold">DevOps Intern | 2024 – 2025</h4>
+              <p class="text-zinc-300">HisanLab Pvt. Ltd., Pune</p>
+              <p class="text-sm text-zinc-400 mt-1">
+                • Designed and implemented CI/CD pipelines using GitHub
+                Actions<br />
+                • Automated infrastructure provisioning with Terraform
+                modules<br />
+                • Managed IAM policies and user permissions for secure access
+                control<br />
+                • Containerized applications and orchestrated deployments on
+                EKS<br />
+                • Implemented monitoring solutions with Prometheus and
+                Grafana<br />
+                • Participated in incident response and post-mortem analysis<br />
+                <strong>Outcome</strong>: Reduced deployment time by 60% and
+                optimized cloud costs by 25%
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur"
+        >
+          <h3 class="font-semibold">Certifications & Education</h3>
+          <ul class="mt-3 space-y-2 list-disc list-inside text-zinc-300">
+            <li>AWS Certified Developer – Associate (In Progress)</li>
+            <li>Terraform Associate Certification (In Progress)</li>
+            <li>Bachelor of Engineering in Computer Science</li>
+            <li>DevOps Institute certifications (Planned)</li>
+          </ul>
+          <h3 class="font-semibold mt-4">Contact</h3>
+          <p class="mt-3 text-zinc-300">
+            Email:
+            <a class="underline" href="mailto:goswamiamogh@outlook.com"
+              >goswamiamogh@outlook.com</a
+            ><br />Phone:
+            <a class="underline" href="tel:+917887918348">+91 7887918348</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold">My Mission</h2>
+      <p class="mt-4 text-zinc-300">
+        Ship faster without breaking things — by baking reliability, security,
+        and automation into every stage of delivery.
+      </p>
+      <!-- QUOTE BOX -->
+      <blockquote
+        id="quoteBox"
+        class="mt-6 p-6 rounded-2xl border border-zinc-800 bg-white/5 text-center italic text-lg"
+      >
+        Keep moving, don't settle.
+      </blockquote>
+
+      <script>
+        const quotes = [
+          "Keep moving, don't settle.",
+          "Small steps every day lead to big results.",
+          "Consistency beats motivation.",
+          "Build. Break. Learn. Repeat.",
+          "Dreams don’t work unless you do.",
+          "Progress, not perfection.",
+          "In DevOps, automation is the ultimate superpower.",
+          "Ship fast, fail fast, learn faster.",
+          "CI/CD is not a pipeline, it's a culture.",
+          "Every outage is just another lesson in disguise.",
+          "Measure, monitor, and improve — always.",
+          "Infrastructure as Code is poetry for engineers.",
+          "The best documentation is a reliable pipeline.",
+          "Security is not a feature, it's a mindset.",
+          "Collaboration is the true continuous delivery.",
+        ];
+
+        let index = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const speed = 70; // typing speed
+        const delay = 2000; // pause before deleting
+
+        function typeEffect() {
+          const quoteBox = document.getElementById("quoteBox");
+          const currentQuote = quotes[index];
+
+          if (!isDeleting) {
+            // typing forward
+            quoteBox.innerText = currentQuote.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentQuote.length) {
+              isDeleting = true;
+              setTimeout(typeEffect, delay);
+              return;
+            }
+          } else {
+            // deleting
+            quoteBox.innerText = currentQuote.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+              isDeleting = false;
+              index = (index + 1) % quotes.length;
+            }
           }
-        });
+          setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
+        }
+
+        typeEffect();
+      </script>
+
+      <style>
+        #quoteBox {
+          min-height: 60px; /* avoid layout shift */
+          transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        #quoteBox:hover {
+          color: #1e90ff; /* glow blue on hover */
+          transform: scale(1.05);
+        }
+      </style>
+    </section>
+
+    <!-- STATS -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold text-center">By The Numbers</h2>
+      <p class="mt-4 text-zinc-300 text-center max-w-2xl mx-auto">
+        Key metrics that highlight the impact of my DevOps work
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card fade-in-up">
+          <div class="stat-value counter" data-target="200">0</div>
+          <div class="stat-label">CI/CD Pipelines</div>
+        </div>
+
+        <div class="stat-card fade-in-up" style="animation-delay: 0.1s">
+          <div class="stat-value counter" data-target="50">0</div>
+          <div class="stat-label">Infrastructure Modules</div>
+        </div>
+
+        <div class="stat-card fade-in-up" style="animation-delay: 0.2s">
+          <div class="stat-value counter" data-target="99">0</div>
+          <div class="stat-label">Uptime %</div>
+        </div>
+
+        <div class="stat-card fade-in-up" style="animation-delay: 0.3s">
+          <div class="stat-value counter" data-target="40">0</div>
+          <div class="stat-label">% Cost Savings</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVOPS PRINCIPLES -->
+    <section
+      id="principles"
+      class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10"
+    >
+      <h2 class="text-3xl font-bold">DevOps Principles I Live By</h2>
+      <p class="mt-4 text-zinc-300">
+        Core philosophies that guide my approach to building and maintaining
+        robust systems:
+      </p>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
+          <h3
+            class="text-xl font-semibold text-primary flex items-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            Automation First
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Everything that can be automated, should be automated. From
+            infrastructure provisioning to testing and deployments, reducing
+            manual intervention minimizes errors and accelerates delivery.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
+          <h3
+            class="text-xl font-semibold text-primary flex items-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              />
+            </svg>
+            Security Integration
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Security is not an afterthought but integrated into every phase of
+            the development lifecycle (DevSecOps). Vulnerability scanning,
+            secret management, and compliance checks are built into pipelines.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
+          <h3
+            class="text-xl font-semibold text-primary flex items-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+              />
+            </svg>
+            Observability & Monitoring
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Systems should be observable with comprehensive logging, metrics,
+            and tracing. Proactive monitoring with actionable alerts ensures
+            rapid incident response and system reliability.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
+          <h3
+            class="text-xl font-semibold text-primary flex items-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+              />
+            </svg>
+            Continuous Improvement
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Embrace a culture of experimentation, learning from failures, and
+            iterating rapidly. Regular retrospectives and post-incident reviews
+            drive continuous improvement in processes and systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold">Recent Projects</h2>
+      <p class="mt-2 text-zinc-300">
+        A snapshot of my hands-on work, featuring cloud migrations and
+        infrastructure automation. More on my GitHub.
+      </p>
+
+      <!-- Project Filter Tabs -->
+      <div class="mt-6 flex flex-wrap gap-3 justify-center">
+        <button
+          onclick="filterProjects('all')"
+          class="project-filter-btn active px-4 py-2 rounded-full text-sm font-semibold transition-all"
+          data-category="all"
+        >
+          All Projects
+        </button>
+        <button
+          onclick="filterProjects('migration')"
+          class="project-filter-btn px-4 py-2 rounded-full text-sm font-semibold transition-all"
+          data-category="migration"
+        >
+          Cloud Migration
+        </button>
+        <button
+          onclick="filterProjects('automation')"
+          class="project-filter-btn px-4 py-2 rounded-full text-sm font-semibold transition-all"
+          data-category="automation"
+        >
+          Infrastructure
+        </button>
+        <button
+          onclick="filterProjects('monitoring')"
+          class="project-filter-btn px-4 py-2 rounded-full text-sm font-semibold transition-all"
+          data-category="monitoring"
+        >
+          Observability
+        </button>
+      </div>
+
+      <div
+        class="mt-6 grid md:grid-cols-2 gap-6 staggered-animation"
+        id="projectsGrid"
+      >
+        <article
+          class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card project-card"
+          data-category="automation"
+        >
+          <img
+            src="assets/images/p1.png"
+            class="rounded-xl border border-zinc-800"
+            alt="p1"
+          />
+          <h3 class="mt-4 font-semibold text-xl">
+            3-Tier Web Application on EKS
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Designed and deployed a scalable 3-tier application (NGINX + Node.js
+            + MySQL) on AWS EKS. Used Terraform for provisioning VPC, EKS
+            cluster, and RDS. Implemented GitHub Actions CI/CD pipeline with ECR
+            for image storage, Horizontal Pod Autoscaler for scaling, and
+            zero-downtime deployment strategies.
+          </p>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200">
+              Key DevOps Practices Implemented:
+            </h4>
+            <ul class="mt-2 space-y-1 text-sm text-zinc-300">
+              <li>
+                • Infrastructure as Code with Terraform modules for reusability
+              </li>
+              <li>
+                • GitOps workflow with GitHub Actions for automated deployments
+              </li>
+              <li>• Container image scanning for security vulnerabilities</li>
+              <li>
+                • Resource monitoring with Prometheus and Grafana dashboards
+              </li>
+              <li>
+                • Log aggregation using CloudWatch for centralized logging
+              </li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <div class="flex justify-between text-sm">
+              <span>Performance Increase</span>
+              <span class="font-semibold"
+                >+<span class="counter" data-target="60">0</span>%</span
+              >
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" data-width="60%" style="width: 0"></div>
+            </div>
+          </div>
+          <div class="mt-3 text-sm flex flex-wrap gap-2">
+            <span class="tag">AWS</span><span class="tag">Terraform</span
+            ><span class="tag">Docker</span><span class="tag">Kubernetes</span
+            ><span class="tag">GitHub Actions</span>
+          </div>
+        </article>
+        <article
+          class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card project-card"
+          data-category="monitoring"
+        >
+          <img
+            src="assets/images/p2.png"
+            class="rounded-xl border border-zinc-800"
+            alt="p2"
+          />
+          <h3 class="mt-4 font-semibold text-xl">
+            Observability Stack & Cloud Cost Optimization
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Implemented a comprehensive observability solution using CloudWatch,
+            Prometheus, and Grafana for monitoring applications and
+            infrastructure. Established cost governance policies including EC2
+            right-sizing, S3 lifecycle rules, and tagging strategies that
+            reduced cloud spend by 25%.
+          </p>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200">
+              DevOps & FinOps Outcomes:
+            </h4>
+            <ul class="mt-2 space-y-1 text-sm text-zinc-300">
+              <li>
+                • Created custom dashboards for real-time system health
+                visualization
+              </li>
+              <li>
+                • Implemented alerting mechanisms for proactive incident
+                response
+              </li>
+              <li>
+                • Developed cost allocation reports for better financial
+                transparency
+              </li>
+              <li>
+                • Automated resource cleanup policies to eliminate wasteful
+                spending
+              </li>
+              <li>
+                • Established tagging standards for improved resource tracking
+              </li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <div class="flex justify-between text-sm">
+              <span>Cost Reduction</span>
+              <span class="font-semibold"
+                >-<span class="counter" data-target="25">0</span>%</span
+              >
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" data-width="25%" style="width: 0"></div>
+            </div>
+          </div>
+          <div class="mt-3 text-sm flex flex-wrap gap-2">
+            <span class="tag">CloudWatch</span
+            ><span class="tag">Prometheus</span><span class="tag">Grafana</span
+            ><span class="tag">FinOps</span>
+          </div>
+        </article>
+
+        <!-- Cloud Migration Project 1: Legacy Monolith to Microservices -->
+        <article
+          class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card project-card"
+          data-category="migration"
+        >
+          <div
+            class="relative rounded-xl border border-zinc-800 bg-gradient-to-br from-blue-900/20 to-purple-900/20 p-8 mb-4 flex items-center justify-center"
+            style="min-height: 200px"
+          >
+            <div class="absolute top-2 right-2">
+              <span class="badge badge-success">Completed</span>
+            </div>
+            <div class="text-center">
+              <svg
+                class="w-20 h-20 mx-auto text-primary opacity-50"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                ></path>
+              </svg>
+              <h4 class="text-lg font-bold text-primary mt-2">
+                Cloud Migration
+              </h4>
+              <p class="text-sm text-zinc-400 mt-1">Enterprise Scale</p>
+            </div>
+          </div>
+          <h3 class="mt-4 font-semibold text-xl">
+            Legacy Monolith to Microservices Migration
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Migrated a monolithic on-premises application to AWS EKS
+            microservices architecture using the Strangler Fig pattern.
+            Implemented incremental service extraction with zero downtime,
+            achieving 30x increase in deployment frequency and 35% cost
+            reduction.
+          </p>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200">Migration Outcomes:</h4>
+            <ul class="mt-2 space-y-1 text-sm text-zinc-300">
+              <li>• Deployment frequency: Monthly → Daily (30x improvement)</li>
+              <li>
+                • Mean Time to Recovery: 4 hours → 20 minutes (92% faster)
+              </li>
+              <li>• Application latency: 800ms → 150ms (81% reduction)</li>
+              <li>• Infrastructure costs reduced by 35%</li>
+              <li>• Auto-scaling enabled for instant capacity response</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <div class="flex justify-between text-sm">
+              <span>Migration Success Rate</span>
+              <span class="font-semibold"
+                ><span class="counter" data-target="98">0</span>%</span
+              >
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" data-width="98%" style="width: 0"></div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200 mb-2">Key Technologies:</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">AWS EKS</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Istio</span>
+              <span class="tag">RDS</span>
+              <span class="tag">ElastiCache</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">Prometheus</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-zinc-700">
+            <h4 class="font-semibold text-zinc-200 mb-2">Challenges Solved:</h4>
+            <div class="grid gap-2 text-sm">
+              <div class="p-2 rounded bg-zinc-800/50">
+                <strong class="text-primary">Database Coupling:</strong>
+                <span class="text-zinc-300"
+                  >Event-driven architecture with SQS/SNS</span
+                >
+              </div>
+              <div class="p-2 rounded bg-zinc-800/50">
+                <strong class="text-primary">Session Management:</strong>
+                <span class="text-zinc-300"
+                  >Distributed cache with ElastiCache</span
+                >
+              </div>
+              <div class="p-2 rounded bg-zinc-800/50">
+                <strong class="text-primary">Monitoring:</strong>
+                <span class="text-zinc-300"
+                  >Unified observability platform</span
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cloud Migration Project 2: Multi-Cloud Migration -->
+        <article
+          class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card project-card"
+          data-category="migration"
+        >
+          <div
+            class="relative rounded-xl border border-zinc-800 bg-gradient-to-br from-green-900/20 to-cyan-900/20 p-8 mb-4 flex items-center justify-center"
+            style="min-height: 200px"
+          >
+            <div class="absolute top-2 right-2">
+              <span class="badge badge-success">Completed</span>
+            </div>
+            <div class="text-center">
+              <svg
+                class="w-20 h-20 mx-auto text-primary opacity-50"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <h4 class="text-lg font-bold text-primary mt-2">
+                Multi-Cloud Strategy
+              </h4>
+              <p class="text-sm text-zinc-400 mt-1">Global Scale</p>
+            </div>
+          </div>
+          <h3 class="mt-4 font-semibold text-xl">
+            Multi-Cloud Migration for High Availability
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Architected and executed active-active multi-cloud deployment across
+            AWS and Azure with global load balancing. Achieved 99.95%
+            availability SLA with 73% reduction in global latency through
+            strategic regional placement.
+          </p>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200">
+              Global Architecture Highlights:
+            </h4>
+            <ul class="mt-2 space-y-1 text-sm text-zinc-300">
+              <li>
+                • Three-region deployment: US East (AWS), Europe West (Azure),
+                Asia Pacific (AWS)
+              </li>
+              <li>• Availability SLA: 99.5% → 99.95% (0.45% improvement)</li>
+              <li>• Global latency P95: 450ms → 120ms (73% reduction)</li>
+              <li>
+                • Recovery Time Objective: 1 hour → 5 minutes (92% faster)
+              </li>
+              <li>• Full disaster recovery with cross-cloud replication</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <div class="flex justify-between text-sm">
+              <span>Uptime Achievement</span>
+              <span class="font-semibold"
+                ><span class="counter" data-target="99">0</span>.95%</span
+              >
+            </div>
+            <div class="skill-bar">
+              <div
+                class="skill-level"
+                data-width="99.95%"
+                style="
+                  width: 0;
+                  background: linear-gradient(90deg, #10b981, #0ea5e9);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200 mb-2">Technology Stack:</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">AWS EKS</span>
+              <span class="tag">Azure AKS</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">Cloudflare</span>
+              <span class="tag">Consul</span>
+              <span class="tag">Datadog</span>
+              <span class="tag">ArgoCD</span>
+              <span class="tag">RDS/Azure SQL</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-zinc-700">
+            <div class="grid md:grid-cols-3 gap-3 text-center">
+              <div
+                class="p-3 rounded-lg bg-gradient-to-br from-blue-900/30 to-blue-800/30"
+              >
+                <div class="text-2xl font-bold text-primary">3</div>
+                <div class="text-xs text-zinc-400 mt-1">Regions</div>
+              </div>
+              <div
+                class="p-3 rounded-lg bg-gradient-to-br from-green-900/30 to-green-800/30"
+              >
+                <div class="text-2xl font-bold text-green-400">99.95%</div>
+                <div class="text-xs text-zinc-400 mt-1">Availability</div>
+              </div>
+              <div
+                class="p-3 rounded-lg bg-gradient-to-br from-purple-900/30 to-purple-800/30"
+              >
+                <div class="text-2xl font-bold text-purple-400">5min</div>
+                <div class="text-xs text-zinc-400 mt-1">RTO</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cloud Migration Project 3: Lift and Shift with Optimization -->
+        <article
+          class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card project-card"
+          data-category="migration"
+        >
+          <div
+            class="relative rounded-xl border border-zinc-800 bg-gradient-to-br from-orange-900/20 to-red-900/20 p-8 mb-4 flex items-center justify-center"
+            style="min-height: 200px"
+          >
+            <div class="absolute top-2 right-2">
+              <span class="badge badge-success">Completed</span>
+            </div>
+            <div class="text-center">
+              <svg
+                class="w-20 h-20 mx-auto text-primary opacity-50"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+                ></path>
+              </svg>
+              <h4 class="text-lg font-bold text-primary mt-2">
+                Infrastructure Modernization
+              </h4>
+              <p class="text-sm text-zinc-400 mt-1">On-Prem to Cloud</p>
+            </div>
+          </div>
+          <h3 class="mt-4 font-semibold text-xl">
+            VMware to AWS Lift-and-Shift with Optimization
+          </h3>
+          <p class="mt-2 text-zinc-300">
+            Executed comprehensive datacenter migration from VMware
+            infrastructure to AWS cloud using Application Migration Service.
+            Implemented immediate optimization strategies achieving 42% cost
+            reduction and 99% faster provisioning.
+          </p>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200">Migration Wave Results:</h4>
+            <ul class="mt-2 space-y-1 text-sm text-zinc-300">
+              <li>• Infrastructure costs reduced by 42%</li>
+              <li>• Provisioning time: 2-3 weeks → 15 minutes (99% faster)</li>
+              <li>• Backup/Recovery: 4 hours → 30 minutes (87% improvement)</li>
+              <li>
+                • Enabled unlimited elastic scalability vs manual constraints
+              </li>
+              <li>• Operational overhead reduced by 60% through automation</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200 mb-2">Migration Waves:</h4>
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center gap-3">
+                <div class="w-24 text-zinc-400">Wave 1</div>
+                <div
+                  class="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden"
+                >
+                  <div class="h-full bg-green-500" style="width: 100%"></div>
+                </div>
+                <div class="text-zinc-400">Dev/Test</div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-24 text-zinc-400">Wave 2</div>
+                <div
+                  class="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden"
+                >
+                  <div class="h-full bg-green-500" style="width: 100%"></div>
+                </div>
+                <div class="text-zinc-400">Internal Tools</div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-24 text-zinc-400">Wave 3</div>
+                <div
+                  class="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden"
+                >
+                  <div class="h-full bg-green-500" style="width: 100%"></div>
+                </div>
+                <div class="text-zinc-400">Business Apps</div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-24 text-zinc-400">Wave 4</div>
+                <div
+                  class="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden"
+                >
+                  <div class="h-full bg-green-500" style="width: 100%"></div>
+                </div>
+                <div class="text-zinc-400">Core Databases</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <div class="flex justify-between text-sm">
+              <span>Cost Savings Achieved</span>
+              <span class="font-semibold"
+                >-<span class="counter" data-target="42">0</span>%</span
+              >
+            </div>
+            <div class="skill-bar">
+              <div
+                class="skill-level"
+                data-width="42%"
+                style="
+                  width: 0;
+                  background: linear-gradient(90deg, #f59e0b, #ef4444);
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="font-semibold text-zinc-200 mb-2">Key Technologies:</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">AWS MGN</span>
+              <span class="tag">AWS DMS</span>
+              <span class="tag">Migration Hub</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">Systems Manager</span>
+              <span class="tag">CloudEndure</span>
+              <span class="tag">Cost Explorer</span>
+              <span class="tag">Trusted Advisor</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DEVOPS WORKFLOW -->
+    <section id="workflow" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold">My DevOps Workflow</h2>
+      <p class="mt-4 text-zinc-300">
+        End-to-end approach to building, deploying, and maintaining robust
+        systems:
+      </p>
+
+      <div class="mt-10 relative">
+        <!-- Workflow timeline -->
+        <div
+          class="relative pl-8 border-l-2 border-primary/30 space-y-12 before:absolute before:left-[-5px] before:top-0 before:h-full before:w-2 before:bg-gradient-to-b before:from-transparent before:via-primary/20 before:to-transparent"
+        >
+          <!-- Step 1 -->
+          <div class="relative">
+            <div
+              class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"
+            ></div>
+            <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
+              <h3 class="text-xl font-semibold">Plan & Design</h3>
+              <p class="mt-2 text-zinc-300">
+                Collaborate with development teams to understand requirements,
+                define infrastructure needs, and design scalable architectures.
+                Create technical specifications and implementation plans.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span
+                  class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300"
+                  >Architecture Design</span
+                >
+                <span
+                  class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300"
+                  >Requirements Gathering</span
+                >
+                <span
+                  class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300"
+                  >Capacity Planning</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative">
+            <div
+              class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"
+            ></div>
+            <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
+              <h3 class="text-xl font-semibold">Infrastructure as Code</h3>
+              <p class="mt-2 text-zinc-300">
+                Provision and manage infrastructure using Terraform modules.
+                Implement version control, code reviews, and automated testing
+                for infrastructure changes to ensure consistency and
+                reliability.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span
+                  class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300"
+                  >Terraform</span
+                >
+                <span
+                  class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300"
+                  >Modular Design</span
+                >
+                <span
+                  class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300"
+                  >State Management</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative">
+            <div
+              class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"
+            ></div>
+            <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
+              <h3 class="text-xl font-semibold">CI/CD Pipeline</h3>
+              <p class="mt-2 text-zinc-300">
+                Implement continuous integration and deployment pipelines using
+                GitHub Actions. Automate testing, building, and deployment
+                processes with rollback capabilities and environment promotion
+                strategies.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span
+                  class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300"
+                  >GitHub Actions</span
+                >
+                <span
+                  class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300"
+                  >Automated Testing</span
+                >
+                <span
+                  class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300"
+                  >Blue/Green Deployments</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative">
+            <div
+              class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"
+            ></div>
+            <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
+              <h3 class="text-xl font-semibold">Monitor & Optimize</h3>
+              <p class="mt-2 text-zinc-300">
+                Establish comprehensive monitoring, alerting, and logging
+                solutions. Continuously optimize performance, costs, and
+                security posture based on metrics and feedback.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span
+                  class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300"
+                  >Prometheus/Grafana</span
+                >
+                <span
+                  class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300"
+                  >Cost Optimization</span
+                >
+                <span
+                  class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300"
+                  >Performance Tuning</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS -->
+    <section
+      id="metrics"
+      class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10"
+    >
+      <h2 class="text-3xl font-bold">DevOps Metrics & KPIs</h2>
+      <p class="mt-4 text-zinc-300">
+        Key performance indicators I track to measure and improve system
+        reliability and team productivity:
+      </p>
+
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Deployment Frequency -->
+        <div
+          class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center"
+        >
+          <div class="text-3xl font-bold text-primary">20+</div>
+          <h3 class="mt-2 font-semibold">Deployments/Week</h3>
+          <p class="mt-2 text-sm text-zinc-300">
+            Frequency of successful deployments to production environments
+          </p>
+        </div>
+
+        <!-- Lead Time -->
+        <div
+          class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center"
+        >
+          <div class="text-3xl font-bold text-primary">4 hrs</div>
+          <h3 class="mt-2 font-semibold">Lead Time</h3>
+          <p class="mt-2 text-sm text-zinc-300">
+            Time from code commit to successful production deployment
+          </p>
+        </div>
+
+        <!-- MTTR -->
+        <div
+          class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center"
+        >
+          <div class="text-3xl font-bold text-primary">15 min</div>
+          <h3 class="mt-2 font-semibold">MTTR</h3>
+          <p class="mt-2 text-sm text-zinc-300">
+            Mean Time to Recovery from incidents
+          </p>
+        </div>
+
+        <!-- Change Failure Rate -->
+        <div
+          class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center"
+        >
+          <div class="text-3xl font-bold text-primary">&lt;5%</div>
+          <h3 class="mt-2 font-semibold">Failure Rate</h3>
+          <p class="mt-2 text-sm text-zinc-300">
+            Percentage of deployments causing failures in production
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 p-6 rounded-xl border border-zinc-700 bg-white/5">
+        <h3 class="text-xl font-semibold">How I Improve These Metrics:</h3>
+        <ul class="mt-4 grid md:grid-cols-2 gap-4 text-zinc-300">
+          <li class="flex items-start gap-2">
+            <span class="text-primary mt-1">•</span>
+            <span
+              >Implement comprehensive automated testing to catch issues
+              early</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary mt-1">•</span>
+            <span>Use feature flags for safer, incremental rollouts</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary mt-1">•</span>
+            <span
+              >Create detailed runbooks and playbooks for common scenarios</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary mt-1">•</span>
+            <span
+              >Conduct regular incident retrospectives to prevent
+              recurrence</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary mt-1">•</span>
+            <span
+              >Invest in observability tools for faster issue detection</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary mt-1">•</span>
+            <span>Standardize deployment processes to reduce variability</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TECH -->
+    <section id="tech" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold">Technical Skills</h2>
+      <p class="mt-2 text-zinc-300">
+        Comprehensive skill set across the DevOps toolchain and practices:
+      </p>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-8">
+        <!-- Left Column -->
+        <div>
+          <h3 class="text-xl font-semibold text-primary mb-4">
+            Infrastructure & Automation
+          </h3>
+          <ul class="space-y-3">
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Cloud Platforms</strong>: AWS (EC2, VPC, S3, IAM, RDS,
+                CloudFront, CloudWatch, Route53, Lambda, EKS)</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Infrastructure as Code</strong>: Terraform (modules,
+                state management, providers)</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Configuration Management</strong>: Ansible (playbooks,
+                roles, inventories)</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Containerization</strong>: Docker (images, registries,
+                compose), Kubernetes (EKS, Helm, Operators)</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Orchestration</strong>: Kubernetes (deployments,
+                services, ingress, autoscaling)</span
+              >
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-primary mb-4 mt-6">
+            Monitoring & Observability
+          </h3>
+          <ul class="space-y-3">
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Logging</strong>: ELK Stack, CloudWatch Logs,
+                Fluentd</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Monitoring</strong>: Prometheus, Grafana, CloudWatch
+                Alarms</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span><strong>Tracing</strong>: Jaeger, OpenTelemetry</span>
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Alerting</strong>: PagerDuty integrations, Slack
+                notifications</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Column -->
+        <div>
+          <h3 class="text-xl font-semibold text-primary mb-4">
+            CI/CD & Version Control
+          </h3>
+          <ul class="space-y-3">
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>CI/CD Pipelines</strong>: GitHub Actions (workflows,
+                runners, secrets)</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Version Control</strong>: Git (workflows, branching,
+                merging, rebasing)</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Artifact Repositories</strong>: JFrog Artifactory, AWS
+                ECR</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Deployment Strategies</strong>: Blue/Green, Canary,
+                Rolling Updates</span
+              >
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-primary mb-4 mt-6">
+            Scripting & Programming
+          </h3>
+          <ul class="space-y-3">
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Scripting Languages</strong>: Bash, Python,
+                PowerShell</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Infrastructure Testing</strong>: Terratest,
+                KitchenCI</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>APIs & Integrations</strong>: REST APIs, Webhooks,
+                SDKs</span
+              >
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-primary mb-4 mt-6">
+            Security & Compliance
+          </h3>
+          <ul class="space-y-3">
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Security Tools</strong>: Vault, Aqua Security,
+                Snyk</span
+              >
+            </li>
+            <li class="tech flex items-start gap-2">
+              <span class="text-primary">▸</span>
+              <span
+                ><strong>Compliance</strong>: SOC 2, GDPR, HIPAA awareness</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOBS SECTION -->
+    <section id="jobs" class="max-w-5xl mx-auto px-4 py-14">
+      <h2 class="text-3xl font-semibold text-center mb-4">
+        🚀 Latest DevOps Jobs
+      </h2>
+      <p class="text-center text-gray-400 mb-8 text-sm">
+        Updated daily — filter and explore opportunities that fit you best.
+      </p>
+
+      <!-- Filter Tabs -->
+      <div class="flex justify-center gap-2 mb-6 flex-wrap">
+        <button
+          type="button"
+          onclick="loadJobs('remote')"
+          class="px-4 py-1.5 rounded-full bg-blue-600 text-white text-sm hover:bg-blue-700 transition"
+        >
+          Remote
+        </button>
+        <button
+          type="button"
+          onclick="loadJobs('on-site')"
+          class="px-4 py-1.5 rounded-full bg-green-600 text-white text-sm hover:bg-green-700 transition"
+        >
+          On-site
+        </button>
+        <button
+          type="button"
+          onclick="loadJobs('hybrid')"
+          class="px-4 py-1.5 rounded-full bg-purple-600 text-white text-sm hover:bg-purple-700 transition"
+        >
+          Hybrid
+        </button>
+        <button
+          type="button"
+          onclick="loadJobs('all')"
+          class="px-4 py-1.5 rounded-full bg-gray-700 text-white text-sm hover:bg-gray-800 transition"
+        >
+          All
+        </button>
+      </div>
+
+      <!-- Job Frame Wrapper -->
+      <div
+        id="job-container"
+        class="relative w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg"
+      >
+        <!-- Loading spinner -->
+        <div
+          id="loading"
+          class="absolute inset-0 flex items-center justify-center bg-black/40"
+        >
+          <div
+            class="w-10 h-10 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"
+          ></div>
+        </div>
+
+        <!-- Job Listings -->
+        <iframe
+          id="gitjobs"
+          title="DevOps Job Listings"
+          src="https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10"
+        >
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Auto resize -->
+    <script type="module">
+      import { initialize } from "https://cdn.jsdelivr.net/npm/@open-iframe-resizer/core@latest/dist/index.js";
+      initialize({}, "#gitjobs");
+    </script>
+
+    <!-- Interactivity -->
+    <script>
+      const iframe = document.getElementById("gitjobs");
+      const loader = document.getElementById("loading");
+
+      iframe.addEventListener("load", () => {
+        loader.style.display = "none";
       });
 
-      // Scroll spy using IntersectionObserver
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('nav a');
-      if (sections.length && navLinks.length) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              navLinks.forEach(link => link.classList.remove('text-primary', 'font-bold', 'text-yellow-400'));
-              const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-              if (active) active.classList.add('text-primary', 'font-bold');
-            }
-          });
-        }, { threshold: 0.6 });
-        sections.forEach(s => observer.observe(s));
+      function loadJobs(type) {
+        loader.style.display = "flex";
+        let baseUrl =
+          "https://gitjobs.dev/embed?date_range=last3-days&kind%5B0%5D=full-time&kind%5B1%5D=part-time&kind%5B2%5D=contractor&kind%5B3%5D=internship&limit=10";
+        if (type === "remote") baseUrl += "&workplace%5B0%5D=remote";
+        else if (type === "on-site") baseUrl += "&workplace%5B0%5D=on-site";
+        else if (type === "hybrid") baseUrl += "&workplace%5B0%5D=hybrid";
+        iframe.src = baseUrl;
       }
+    </script>
 
-      // Reveal sections on scroll
-      const allSections = document.querySelectorAll('section');
-      const revealOnScroll = () => {
-        allSections.forEach(sec => {
-          const rect = sec.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 100) sec.classList.add('visible');
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold">Get In Touch</h2>
+      <p class="mt-2 text-zinc-300">
+        I'm always excited to work on production-grade DevOps challenges and
+        cloud infrastructure projects.
+      </p>
+      <p class="mt-2 text-zinc-300">
+        Whether you have a project in mind, need assistance with DevOps
+        transformations, or just want to connect, feel free to reach out!
+      </p>
+      <p class="mt-2 text-zinc-300">
+        You can also email me directly at
+        <a class="underline" href="mailto:goswamiamogh@outlook.com"
+          >goswamiamogh@outlook.com</a
+        >
+      </p>
+      <!-- Contact Form -->
+      <form id="contactForm" class="mt-6 grid gap-4 max-w-xl">
+        <div>
+          <label for="name" class="sr-only">Name</label>
+          <input
+            required
+            placeholder="Name*"
+            class="field"
+            id="name"
+            name="name"
+            type="text"
+          />
+          <div class="text-red-400 text-sm mt-1 hidden" id="nameError"></div>
+        </div>
+        <div>
+          <label for="subject" class="sr-only">Subject</label>
+          <input
+            required
+            placeholder="Subject*"
+            class="field"
+            id="subject"
+            name="subject"
+            type="text"
+          />
+          <div class="text-red-400 text-sm mt-1 hidden" id="subjectError"></div>
+        </div>
+        <div>
+          <label for="email" class="sr-only">Email</label>
+          <input
+            required
+            type="email"
+            placeholder="Email*"
+            class="field"
+            id="email"
+            name="email"
+          />
+          <div class="text-red-400 text-sm mt-1 hidden" id="emailError"></div>
+        </div>
+        <div>
+          <label for="message" class="sr-only">Message</label>
+          <textarea
+            required
+            placeholder="Message*"
+            rows="5"
+            class="field"
+            id="message"
+            name="message"
+          ></textarea>
+          <div class="text-red-400 text-sm mt-1 hidden" id="messageError"></div>
+        </div>
+        <button
+          type="submit"
+          class="px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold hover:bg-primary/90 transition-colors"
+        >
+          Send Message
+        </button>
+        <div id="formMessage" class="mt-4 p-3 rounded-lg hidden"></div>
+      </form>
+
+      <!-- Contact Icons -->
+      <div class="mt-6 flex gap-6 justify-center text-center">
+        <!-- Email -->
+        <a
+          href="mailto:goswamiamogh@outlook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseEmail transition-all duration-300 hover:scale-110"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/732/732223.png"
+            alt="Outlook"
+            class="w-6 h-6"
+          />
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href="https://linkedin.com/in/amogh-goswami-783801201"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseLinkedIn transition-all duration-300 hover:scale-110"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+            alt="LinkedIn"
+            class="w-6 h-6"
+          />
+        </a>
+
+        <!-- GitHub -->
+        <a
+          href="https://github.com/goswami800"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseGitHub transition-all duration-300 hover:scale-110"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="GitHub"
+            class="w-6 h-6"
+          />
+        </a>
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/gordon__lyon"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass w-12 h-12 flex items-center justify-center rounded-full animate-pulseInsta transition-all duration-300 hover:scale-110"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+            alt="Instagram"
+            class="w-6 h-6"
+          />
+        </a>
+      </div>
+
+      <!-- Extra Styles -->
+      <style>
+        /* Glassmorphism */
+        .glass {
+          background: rgba(255, 255, 255, 0.08);
+          -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #gitjobs {
+          width: 100%;
+          height: 450px;
+          border: none;
+        }
+
+        /* Pulse animations in brand colors */
+        @keyframes pulseEmail {
+          0%,
+          100% {
+            box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.6);
+          }
+          50% {
+            box-shadow: 0 0 20px 8px rgba(0, 102, 204, 0.6);
+          }
+        }
+        .animate-pulseEmail {
+          animation: pulseEmail 2s infinite;
+        }
+
+        @keyframes pulseLinkedIn {
+          0%,
+          100% {
+            box-shadow: 0 0 0 0 rgba(14, 118, 168, 0.6);
+          }
+          50% {
+            box-shadow: 0 0 20px 8px rgba(14, 118, 168, 0.6);
+          }
+        }
+        .animate-pulseLinkedIn {
+          animation: pulseLinkedIn 2s infinite;
+        }
+
+        @keyframes pulseGitHub {
+          0%,
+          100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.5);
+          }
+        }
+        .animate-pulseGitHub {
+          animation: pulseGitHub 2s infinite;
+        }
+
+        @keyframes pulseInsta {
+          0%,
+          100% {
+            box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.6);
+          }
+          50% {
+            box-shadow: 0 0 20px 8px rgba(225, 48, 108, 0.6);
+          }
+        }
+        .animate-pulseInsta {
+          animation: pulseInsta 2s infinite;
+        }
+      </style>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section
+      class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10"
+    >
+      <h2 class="text-3xl font-bold text-center">What People Say</h2>
+      <p class="mt-4 text-zinc-300 text-center max-w-2xl mx-auto">
+        Feedback from colleagues and clients I've worked with
+      </p>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <div
+          class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card"
+        >
+          <div class="flex items-center">
+            <div
+              class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center"
+            >
+              <span class="text-primary font-bold">JD</span>
+            </div>
+            <div class="ml-4">
+              <h3 class="font-semibold">John Doe</h3>
+              <p class="text-sm text-zinc-400">Engineering Manager</p>
+            </div>
+          </div>
+          <p class="mt-4 text-zinc-300 italic">
+            "Amogh transformed our deployment process, reducing release times
+            from hours to minutes. His automation skills are exceptional."
+          </p>
+          <div class="mt-4 flex text-yellow-400">★★★★★</div>
+        </div>
+
+        <div
+          class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card"
+        >
+          <div class="flex items-center">
+            <div
+              class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center"
+            >
+              <span class="text-primary font-bold">AS</span>
+            </div>
+            <div class="ml-4">
+              <h3 class="font-semibold">Alice Smith</h3>
+              <p class="text-sm text-zinc-400">Product Owner</p>
+            </div>
+          </div>
+          <p class="mt-4 text-zinc-300 italic">
+            "Working with Amogh was a game-changer for our team. He helped us
+            establish robust monitoring that prevented several outages."
+          </p>
+          <div class="mt-4 flex text-yellow-400">★★★★★</div>
+        </div>
+
+        <div
+          class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card"
+        >
+          <div class="flex items-center">
+            <div
+              class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center"
+            >
+              <span class="text-primary font-bold">RJ</span>
+            </div>
+            <div class="ml-4">
+              <h3 class="font-semibold">Robert Johnson</h3>
+              <p class="text-sm text-zinc-400">CTO</p>
+            </div>
+          </div>
+          <p class="mt-4 text-zinc-300 italic">
+            "Amogh's expertise in cloud cost optimization saved us thousands
+            monthly. His DevOps practices improved our reliability
+            significantly."
+          </p>
+          <div class="mt-4 flex text-yellow-400">★★★★★</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section
+      id="community"
+      class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10"
+    >
+      <h2 class="text-3xl font-bold">Community & Open Source</h2>
+      <p class="mt-4 text-zinc-300">
+        Actively contributing to the DevOps community through open source and
+        knowledge sharing:
+      </p>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <!-- GitHub Contributions -->
+        <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
+          <div class="text-primary text-3xl mb-3">★</div>
+          <h3 class="text-xl font-semibold">Open Source</h3>
+          <p class="mt-2 text-zinc-300">
+            Regular contributor to DevOps tooling repositories. Created reusable
+            Terraform modules shared on GitHub for infrastructure provisioning
+            patterns.
+          </p>
+          <a
+            href="https://github.com/goswami800"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-block text-primary hover:underline"
+            >View Contributions →</a
+          >
+        </div>
+
+        <!-- Blog & Documentation -->
+        <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
+          <div class="text-primary text-3xl mb-3">📝</div>
+          <h3 class="text-xl font-semibold">Knowledge Sharing</h3>
+          <p class="mt-2 text-zinc-300">
+            Documenting my DevOps journey with tutorials, best practices, and
+            lessons learned from real-world projects on GitHub.
+          </p>
+          <a
+            href="https://github.com/goswami800"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-block text-primary hover:underline"
+            >Read Articles →</a
+          >
+        </div>
+
+        <!-- Community Engagement -->
+        <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
+          <div class="text-primary text-3xl mb-3">👥</div>
+          <h3 class="text-xl font-semibold">Community Involvement</h3>
+          <p class="mt-2 text-zinc-300">
+            Active participant in DevOps forums, attending virtual meetups, and
+            engaging with the wider DevOps community on social platforms.
+          </p>
+          <a
+            href="https://www.linkedin.com/in/amogh-goswami-783801201"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-block text-primary hover:underline"
+            >Connect →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold">Learning Notes</h2>
+      <p class="mt-4 text-zinc-300">
+        I document my DevOps journey and experiments on GitHub. 👉
+        <a
+          href="https://github.com/goswami800"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary underline"
+          >Check my notes here</a
+        >
+      </p>
+    </section>
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-800 py-10">
+      <div
+        class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 gap-4 text-sm text-zinc-400"
+      >
+        <div>© 2025 Amogh Goswami</div>
+        <div class="justify-self-end">
+          Important Links: <a class="underline" href="#home">Home</a> •
+          <a class="underline" href="#projects">Projects</a> •
+          <a class="underline" href="#tech">Skills</a> •
+          <a class="underline" href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- PRELOADER SCRIPT -->
+    <script>
+      window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+          setTimeout(() => {
+            preloader.style.opacity = "0";
+            setTimeout(() => {
+              preloader.style.display = "none";
+            }, 500);
+          }, 500);
+        }
+      });
+    </script>
+
+    <!-- POPUP -->
+    <div
+      id="popup"
+      class="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden z-50"
+    >
+      <div
+        id="popupBox"
+        class="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700 rounded-2xl p-8 max-w-sm text-center shadow-2xl transform scale-90 opacity-0 transition-all duration-500"
+      >
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          alt="GitHub"
+          class="w-12 h-12 mx-auto mb-4"
+        />
+        <h2 class="text-2xl font-bold mb-2">Follow me on GitHub</h2>
+        <p class="text-zinc-300 mb-6">
+          Stay updated with my projects and DevOps work.
+        </p>
+        <a
+          href="https://github.com/goswami800"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-6 py-3 rounded-xl bg-primary text-zinc-900 font-semibold shadow hover:scale-105 transition-transform"
+        >
+          ⭐ Follow on GitHub
+        </a>
+        <button
+          id="closePopup"
+          class="block mt-5 text-sm text-zinc-400 hover:text-zinc-200"
+        >
+          Close
+        </button>
+        <p id="countdown" class="mt-2 text-xs text-zinc-500"></p>
+      </div>
+    </div>
+
+    <!-- Floating CV Download Button (only on mobile) -->
+    <a
+      id="resumeFab"
+      href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf"
+      download
+      aria-label="Download resume"
+      class="fixed bottom-5 right-5 md:hidden px-4 py-3 rounded-full bg-primary text-zinc-900 font-semibold shadow-lg hover:scale-110 transition"
+    >
+      📄 Resume
+    </a>
+
+    <!-- Consolidated interactive scripts -->
+    <script>
+      (function () {
+        "use strict";
+
+        document.addEventListener("DOMContentLoaded", () => {
+          // Popup (single timer + manual close)
+          const popup = document.getElementById("popup");
+          const popupBox = document.getElementById("popupBox");
+          const countdownEl = document.getElementById("countdown");
+          const closePopupBtn = document.getElementById("closePopup");
+
+          if (popup && popupBox && countdownEl && !popup.dataset.timerStarted) {
+            popup.dataset.timerStarted = "true";
+            let timeLeft = 10;
+            setTimeout(() => {
+              popup.classList.remove("hidden");
+              popupBox.classList.remove("opacity-0", "scale-90");
+              countdownEl.textContent = `Closing in ${timeLeft}s...`;
+              const timer = setInterval(() => {
+                timeLeft--;
+                countdownEl.textContent = `Closing in ${timeLeft}s...`;
+                if (timeLeft <= 0) {
+                  clearInterval(timer);
+                  popup.classList.add("hidden");
+                }
+              }, 1000);
+            }, 5000);
+          }
+          closePopupBtn?.addEventListener("click", () =>
+            popup?.classList.add("hidden")
+          );
+
+          // Mobile menu: handled in assets/js/main.js (enhanced, accessible toggle)
+          // Keep simple references here for compatibility
+          const menuBtn = document.getElementById("menuBtn");
+          const mobileMenu = document.getElementById("mobileMenu");
+
+          // Smooth scroll for anchor links
+          document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+              const href = this.getAttribute("href");
+              if (!href || href === "#") return;
+              const target = document.querySelector(href);
+              if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                mobileMenu?.classList.add("hidden");
+              }
+            });
+          });
+
+          // Scroll spy using IntersectionObserver
+          const sections = document.querySelectorAll("section[id]");
+          const navLinks = document.querySelectorAll("nav a");
+          if (sections.length && navLinks.length) {
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    navLinks.forEach((link) =>
+                      link.classList.remove(
+                        "text-primary",
+                        "font-bold",
+                        "text-yellow-400"
+                      )
+                    );
+                    const active = document.querySelector(
+                      `nav a[href="#${entry.target.id}"]`
+                    );
+                    if (active)
+                      active.classList.add("text-primary", "font-bold");
+                  }
+                });
+              },
+              { threshold: 0.6 }
+            );
+            sections.forEach((s) => observer.observe(s));
+          }
+
+          // Reveal sections on scroll
+          const allSections = document.querySelectorAll("section");
+          const revealOnScroll = () => {
+            allSections.forEach((sec) => {
+              const rect = sec.getBoundingClientRect();
+              if (rect.top < window.innerHeight - 100)
+                sec.classList.add("visible");
+            });
+          };
+          window.addEventListener("scroll", revealOnScroll, { passive: true });
+          revealOnScroll();
+
+          // Progress bar
+          const progressBar = document.getElementById("progressBar");
+          const updateProgress = () => {
+            if (!progressBar) return;
+            const scrollTop =
+              window.scrollY || document.documentElement.scrollTop;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = pct + "%";
+          };
+          window.addEventListener("scroll", updateProgress, { passive: true });
+          updateProgress();
+
+          // CV download button visibility
+          const cvButton = document.querySelector("a[download]");
+          const setCvVisibility = () => {
+            if (!cvButton) return;
+            cvButton.style.display = window.innerWidth > 768 ? "none" : "block";
+          };
+          window.addEventListener("resize", setCvVisibility);
+          setCvVisibility();
         });
-      };
-      window.addEventListener('scroll', revealOnScroll, { passive: true });
-      revealOnScroll();
+      })();
+    </script>
 
-      // Progress bar
-      const progressBar = document.getElementById('progressBar');
-      const updateProgress = () => {
-        if (!progressBar) return;
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = pct + '%';
-      };
-      window.addEventListener('scroll', updateProgress, { passive: true });
-      updateProgress();
-
-      // CV download button visibility
-      const cvButton = document.querySelector('a[download]');
-      const setCvVisibility = () => {
-        if (!cvButton) return;
-        cvButton.style.display = window.innerWidth > 768 ? 'none' : 'block';
-      };
-      window.addEventListener('resize', setCvVisibility);
-      setCvVisibility();
-    });
-  })();
-  </script>
-
-  <div id="progressBar" class="fixed top-0 left-0 h-1 bg-primary z-50"></div>
-
-</body>
+    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-primary z-50"></div>
+  </body>
 </html>

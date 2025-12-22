@@ -19,9 +19,38 @@ automating infrastructure with Infrastructure as Code (IaC), and designing obser
 ## 🛠️ Technologies Used
 
 - **Frontend**: HTML5, CSS3, JavaScript, Tailwind CSS
+- **Interactive Features**: Particle system, typing effects, parallax scrolling
+- **Animations**: Glassmorphism, scroll-triggered animations, stagger effects
 - **Deployment**: GitHub Pages
 - **Tools**: VS Code, Git
-- **Design**: Responsive design, Mobile-first approach
+- **Design**: Responsive design, Mobile-first approach, WCAG 2.1 AA compliant
+
+---
+
+## ✨ Key Features
+
+### Interactive Elements
+
+- **Particle Background System**: Dynamic particle network with mouse interaction
+- **Typing Effect**: Animated hero section with rotating DevOps role titles
+- **Parallax Scrolling**: Multi-layer depth effect on hero section
+- **Glassmorphism UI**: Modern frosted glass effects on navigation and cards
+- **Project Filtering**: Category-based project filtering (Cloud Migration, Infrastructure, Observability)
+
+### Cloud Migration Projects
+
+- **Legacy to Microservices**: Detailed case study of monolith decomposition to EKS
+- **Multi-Cloud Strategy**: Active-active deployment across AWS and Azure
+- **Lift and Shift**: VMware to AWS migration with immediate optimization
+
+### Professional Features
+
+- Comprehensive DevOps metrics and KPIs
+- Interactive workflow timeline
+- Skill visualization with progress bars
+- Animated counters for key statistics
+- Responsive design for all devices
+- Accessibility-first approach (prefers-reduced-motion support)
 
 ---
 
