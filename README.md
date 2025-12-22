@@ -1,25 +1,43 @@
-# 🌐 Amogh Goswami — DevOps Portfolio  
+# 🌐 Amogh Goswami — DevOps Portfolio
 
-[![Portfolio](https://img.shields.io/badge/Website-Live-blue?style=for-the-badge&logo=google-chrome)](https://goswami800.github.io/portfolio)  
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github)](https://github.com/goswami800)  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/amogh-goswami-783801201)  
-
----
-
-## 🧑‍💻 About  
-This is my **personal portfolio website**, built to showcase my journey as a **DevOps Engineer**.  
-It highlights my **skills, hands-on experience, projects, and career goals** in Cloud & DevOps technologies.  
+[![Portfolio](https://img.shields.io/badge/Website-Live-blue?style=for-the-badge&logo=google-chrome)](https://goswami800.github.io/portfolio)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github)](https://github.com/goswami800)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/amogh-goswami-783801201)
 
 ---
 
-## 🚀 Quick Start (Run Locally)  
-1. Open the project in **VS Code**  
-2. Install the **Live Server** extension  
-3. Right-click on `index.html` → **Open with Live Server**  
+## 🧑‍💻 About
+
+This is my **personal portfolio website**, built to showcase my journey as a **DevOps Engineer**.
+It highlights my **skills, hands-on experience, projects, and career goals** in Cloud & DevOps technologies.
+
+As a DevOps professional with experience at HisanLab Pvt. Ltd., I specialize in building resilient CI/CD pipelines,
+automating infrastructure with Infrastructure as Code (IaC), and designing observability solutions that keep systems healthy.
 
 ---
 
-## 🌍 Publish on GitHub Pages  
+## 🛠️ Technologies Used
+
+- **Frontend**: HTML5, CSS3, JavaScript, Tailwind CSS
+- **Deployment**: GitHub Pages
+- **Tools**: VS Code, Git
+- **Design**: Responsive design, Mobile-first approach
+
+---
+
+## 🚀 Quick Start (Run Locally)
+
+1. Clone or download this repository
+2. Open the project in **VS Code**
+3. Install the **Live Server** extension
+4. Right-click on `index.html` → **Open with Live Server**
+
+Alternatively, you can open the `index.html` file directly in your browser.
+
+---
+
+## 🌍 Deploy to GitHub Pages
+
 ```bash
 git init
 git branch -M main
@@ -27,3 +45,43 @@ git remote add origin https://github.com/goswami800/portfolio.git
 git add .
 git commit -m "feat: portfolio website"
 git push -u origin main
+```
+
+Then, configure GitHub Pages in your repository settings to deploy from the `main` branch.
+
+---
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── images/
+│   └── js/
+│       └── main.js
+├── index.html
+└── README.md
+```
+
+---
+
+## 🤝 Contributing
+
+While this is a personal portfolio site, suggestions and feedback are always welcome!
+Feel free to open an issue or submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📞 Contact
+
+- **Email**: [goswamiamogh@outlook.com](mailto:goswamiamogh@outlook.com)
+- **LinkedIn**: [Amogh Goswami](https://www.linkedin.com/in/amogh-goswami-783801201)
+- **GitHub**: [goswami800](https://github.com/goswami800)
