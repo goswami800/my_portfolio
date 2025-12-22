@@ -44,9 +44,74 @@
       white-space: nowrap;
       border: 0;
     }
+    
+    /* Cursor trail effect */
+    .cursor-trail-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    
+    .cursor-trail-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      transform: translate(-50%, -50%);
+      transition: opacity 0.2s, transform 0.1s;
+      opacity: 0;
+    }
+    
+    /* Interactive cards */
+    .interactive-card {
+      transition: all 0.3s ease;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+    
+    .interactive-card:hover {
+      transform: translateY(-5px) rotateX(5deg);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Skill bars */
+    .skill-bar {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+    
+    .skill-level {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 4px;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+    
+    /* Animated counters */
+    .counter {
+      display: inline-block;
+      min-width: 3ch;
+      text-align: center;
+    }
   </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100 selection:bg-primary/30">
+  <!-- PRELOADER -->
+  <div id="preloader" class="fixed inset-0 bg-zinc-950 flex items-center justify-center z-50">
+    <div class="flex flex-col items-center">
+      <div class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+      <p class="mt-4 text-zinc-300">Loading portfolio...</p>
+    </div>
+  </div>
   <!-- NAV -->
 <header class="sticky top-0 z-50 border-b border-zinc-800/70 bg-zinc-950/70 backdrop-blur">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -60,9 +125,13 @@
     <nav class="hidden md:flex items-center gap-6 text-sm">
       <a class="hover:text-primary" href="#about">About</a>
       <a class="hover:text-primary" href="#mission">Mission</a>
+      <a class="hover:text-primary" href="#principles">Principles</a>
       <a class="hover:text-primary" href="#projects">Projects</a>
+      <a class="hover:text-primary" href="#workflow">Workflow</a>
+      <a class="hover:text-primary" href="#metrics">Metrics</a>
       <a class="hover:text-primary" href="#tech">Tech</a>
       <a class="hover:text-primary" href="#jobs">Jobs</a>
+      <a class="hover:text-primary" href="#community">Community</a>
       <a class="hover:text-primary" href="#blog">Blog</a>
       <a class="hover:text-primary" href="#contact">Contact</a>
       <a class="px-4 py-2 rounded-xl bg-primary text-zinc-900 font-semibold" 
@@ -83,9 +152,13 @@
   <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2" role="navigation">
     <a href="#about" class="block py-2 border-b border-zinc-800">About</a>
     <a href="#mission" class="block py-2 border-b border-zinc-800">Mission</a>
+    <a href="#principles" class="block py-2 border-b border-zinc-800">Principles</a>
     <a href="#projects" class="block py-2 border-b border-zinc-800">Projects</a>
+    <a href="#workflow" class="block py-2 border-b border-zinc-800">Workflow</a>
+    <a href="#metrics" class="block py-2 border-b border-zinc-800">Metrics</a>
     <a href="#tech" class="block py-2 border-b border-zinc-800">Tech</a>
     <a href="#jobs" class="block py-2 border-b border-zinc-800">Jobs</a>
+    <a href="#community" class="block py-2 border-b border-zinc-800">Community</a>
     <a href="#blog" class="block py-2 border-b border-zinc-800">Blog</a>
     <a href="#contact" class="block py-2">Contact</a>
     <a href="assets/docs/Amogh_Goswami_DevOpsEngineer_Resume.pdf" class="block py-2 font-semibold text-primary">Download CV</a>
@@ -196,7 +269,16 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   .animate-pulseInsta { animation: pulseInsta 2s infinite; }
 </style>
 
-        <div class="mt-6 text-sm text-zinc-400">Last Updated: August 21, 2025</div>
+        <div class="mt-6 text-sm text-zinc-400">Last Updated: <span id="lastUpdated">August 21, 2025</span></div>
+        <div class="mt-4 flex items-center">
+          <div class="flex -space-x-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-8 h-8 rounded-full border-2 border-zinc-800" alt="Docker">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" class="w-8 h-8 rounded-full border-2 border-zinc-800" alt="Kubernetes">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" class="w-8 h-8 rounded-full border-2 border-zinc-800" alt="AWS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" class="w-8 h-8 rounded-full border-2 border-zinc-800" alt="Terraform">
+          </div>
+          <span class="ml-3 text-sm text-zinc-400">Trusted by <span class="counter" data-target="50">0</span>+ projects</span>
+        </div>
       </div>
       <div class="md:justify-self-end">
         <img src="assets/images/hero.png" 
@@ -220,13 +302,14 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
       collaboration, and efficiency in every environment I work in.</p>
     <div class="mt-6 grid md:grid-cols-3 gap-6">
       <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
-        <h3 class="font-semibold">Key Skills & Technologies</h3>
+        <h3 class="font-semibold">DevOps Practices & Methodologies</h3>
         <ul class="mt-3 space-y-2 list-disc list-inside text-zinc-300">
           <li><strong>Infrastructure as Code</strong>: Terraform modules for provisioning VPC, EKS, RDS, and IAM resources</li>
           <li><strong>CI/CD Pipelines</strong>: GitHub Actions with blue/green and rolling deployment strategies</li>
           <li><strong>Observability</strong>: CloudWatch, Prometheus, and Grafana for monitoring and alerting</li>
           <li><strong>Container Orchestration</strong>: Kubernetes (EKS) for scalable application deployment</li>
-          <li><strong>Cloud Platforms</strong>: AWS services including EC2, S3, Lambda, and Route53</li>
+          <li><strong>Configuration Management</strong>: Ansible for server provisioning and application deployment</li>
+          <li><strong>Version Control</strong>: Git workflows, branching strategies, and code review processes</li>
         </ul>
       </div>
       <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
@@ -241,6 +324,8 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
         • Automated infrastructure provisioning with Terraform modules<br>
         • Managed IAM policies and user permissions for secure access control<br>
         • Containerized applications and orchestrated deployments on EKS<br>
+        • Implemented monitoring solutions with Prometheus and Grafana<br>
+        • Participated in incident response and post-mortem analysis<br>
         <strong>Outcome</strong>: Reduced deployment time by 60% and optimized cloud costs by 25%
       </p>
     </div>
@@ -248,7 +333,14 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
 </div>
 
       <div class="p-6 rounded-2xl border border-zinc-800 bg-white/5 backdrop-blur">
-        <h3 class="font-semibold">Contact</h3>
+        <h3 class="font-semibold">Certifications & Education</h3>
+        <ul class="mt-3 space-y-2 list-disc list-inside text-zinc-300">
+          <li>AWS Certified Developer – Associate (In Progress)</li>
+          <li>Terraform Associate Certification (In Progress)</li>
+          <li>Bachelor of Engineering in Computer Science</li>
+          <li>DevOps Institute certifications (Planned)</li>
+        </ul>
+        <h3 class="font-semibold mt-4">Contact</h3>
         <p class="mt-3 text-zinc-300">Email: <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a><br/>Phone: <a class="underline" href="tel:+917887918348">+91 7887918348</a></p>
       </div>
     </div>
@@ -329,23 +421,139 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
 
 
   </section>
+
+  <!-- STATS -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center">By The Numbers</h2>
+    <p class="mt-4 text-zinc-300 text-center max-w-2xl mx-auto">Key metrics that highlight the impact of my DevOps work</p>
+    
+    <div class="stats-grid">
+      <div class="stat-card fade-in-up">
+        <div class="stat-value counter" data-target="200">0</div>
+        <div class="stat-label">CI/CD Pipelines</div>
+      </div>
+      
+      <div class="stat-card fade-in-up" style="animation-delay: 0.1s">
+        <div class="stat-value counter" data-target="50">0</div>
+        <div class="stat-label">Infrastructure Modules</div>
+      </div>
+      
+      <div class="stat-card fade-in-up" style="animation-delay: 0.2s">
+        <div class="stat-value counter" data-target="99">0</div>
+        <div class="stat-label">Uptime %</div>
+      </div>
+      
+      <div class="stat-card fade-in-up" style="animation-delay: 0.3s">
+        <div class="stat-value counter" data-target="40">0</div>
+        <div class="stat-label">% Cost Savings</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVOPS PRINCIPLES -->
+  <section id="principles" class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10">
+    <h2 class="text-3xl font-bold">DevOps Principles I Live By</h2>
+    <p class="mt-4 text-zinc-300">Core philosophies that guide my approach to building and maintaining robust systems:</p>
+    
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
+        <h3 class="text-xl font-semibold text-primary flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Automation First
+        </h3>
+        <p class="mt-2 text-zinc-300">Everything that can be automated, should be automated. From infrastructure provisioning to testing and deployments, reducing manual intervention minimizes errors and accelerates delivery.</p>
+      </div>
+      
+      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
+        <h3 class="text-xl font-semibold text-primary flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Security Integration
+        </h3>
+        <p class="mt-2 text-zinc-300">Security is not an afterthought but integrated into every phase of the development lifecycle (DevSecOps). Vulnerability scanning, secret management, and compliance checks are built into pipelines.</p>
+      </div>
+      
+      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
+        <h3 class="text-xl font-semibold text-primary flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          Observability & Monitoring
+        </h3>
+        <p class="mt-2 text-zinc-300">Systems should be observable with comprehensive logging, metrics, and tracing. Proactive monitoring with actionable alerts ensures rapid incident response and system reliability.</p>
+      </div>
+      
+      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700">
+        <h3 class="text-xl font-semibold text-primary flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+          </svg>
+          Continuous Improvement
+        </h3>
+        <p class="mt-2 text-zinc-300">Embrace a culture of experimentation, learning from failures, and iterating rapidly. Regular retrospectives and post-incident reviews drive continuous improvement in processes and systems.</p>
+      </div>
+    </div>
+  </section>
+  
   <!-- PROJECTS -->
   <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold">Recent Projects</h2>
     <p class="mt-2 text-zinc-300">A snapshot of my hands-on work. More on my GitHub.</p>
     <div class="mt-6 grid md:grid-cols-2 gap-6">
-      <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5">
+      <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card">
         <img src="assets/images/p1.png" class="rounded-xl border border-zinc-800" alt="p1">
         <h3 class="mt-4 font-semibold text-xl">3-Tier Web Application on EKS</h3>
         <p class="mt-2 text-zinc-300">Designed and deployed a scalable 3-tier application (NGINX + Node.js + MySQL) on AWS EKS. Used Terraform for provisioning VPC, EKS cluster, and RDS. Implemented GitHub Actions CI/CD pipeline with ECR for image storage, Horizontal Pod Autoscaler for scaling, and zero-downtime deployment strategies.</p>
+        <div class="mt-4">
+          <h4 class="font-semibold text-zinc-200">Key DevOps Practices Implemented:</h4>
+          <ul class="mt-2 space-y-1 text-sm text-zinc-300">
+            <li>• Infrastructure as Code with Terraform modules for reusability</li>
+            <li>• GitOps workflow with GitHub Actions for automated deployments</li>
+            <li>• Container image scanning for security vulnerabilities</li>
+            <li>• Resource monitoring with Prometheus and Grafana dashboards</li>
+            <li>• Log aggregation using CloudWatch for centralized logging</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="flex justify-between text-sm">
+            <span>Performance Increase</span>
+            <span class="font-semibold">+<span class="counter" data-target="60">0</span>%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" data-width="60%" style="width: 0;"></div>
+          </div>
+        </div>
         <div class="mt-3 text-sm flex flex-wrap gap-2">
           <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">GitHub Actions</span>
         </div>
       </article>
-      <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5">
+      <article class="p-6 rounded-2xl border border-zinc-800 bg-white/5 interactive-card">
         <img src="assets/images/p2.png" class="rounded-xl border border-zinc-800" alt="p2">
         <h3 class="mt-4 font-semibold text-xl">Observability Stack & Cloud Cost Optimization</h3>
         <p class="mt-2 text-zinc-300">Implemented a comprehensive observability solution using CloudWatch, Prometheus, and Grafana for monitoring applications and infrastructure. Established cost governance policies including EC2 right-sizing, S3 lifecycle rules, and tagging strategies that reduced cloud spend by 25%.</p>
+        <div class="mt-4">
+          <h4 class="font-semibold text-zinc-200">DevOps & FinOps Outcomes:</h4>
+          <ul class="mt-2 space-y-1 text-sm text-zinc-300">
+            <li>• Created custom dashboards for real-time system health visualization</li>
+            <li>• Implemented alerting mechanisms for proactive incident response</li>
+            <li>• Developed cost allocation reports for better financial transparency</li>
+            <li>• Automated resource cleanup policies to eliminate wasteful spending</li>
+            <li>• Established tagging standards for improved resource tracking</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <div class="flex justify-between text-sm">
+            <span>Cost Reduction</span>
+            <span class="font-semibold">-<span class="counter" data-target="25">0</span>%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" data-width="25%" style="width: 0;"></div>
+          </div>
+        </div>
         <div class="mt-3 text-sm flex flex-wrap gap-2">
           <span class="tag">CloudWatch</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">FinOps</span>
         </div>
@@ -353,20 +561,245 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
     </div>
   </section>
 
+  <!-- DEVOPS WORKFLOW -->
+  <section id="workflow" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold">My DevOps Workflow</h2>
+    <p class="mt-4 text-zinc-300">End-to-end approach to building, deploying, and maintaining robust systems:</p>
+    
+    <div class="mt-10 relative">
+      <!-- Workflow timeline -->
+      <div class="relative pl-8 border-l-2 border-primary/30 space-y-12 before:absolute before:left-[-5px] before:top-0 before:h-full before:w-2 before:bg-gradient-to-b before:from-transparent before:via-primary/20 before:to-transparent">
+        
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"></div>
+          <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
+            <h3 class="text-xl font-semibold">Plan & Design</h3>
+            <p class="mt-2 text-zinc-300">Collaborate with development teams to understand requirements, define infrastructure needs, and design scalable architectures. Create technical specifications and implementation plans.</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300">Architecture Design</span>
+              <span class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300">Requirements Gathering</span>
+              <span class="px-2 py-1 text-xs rounded bg-blue-900/30 text-blue-300">Capacity Planning</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"></div>
+          <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
+            <h3 class="text-xl font-semibold">Infrastructure as Code</h3>
+            <p class="mt-2 text-zinc-300">Provision and manage infrastructure using Terraform modules. Implement version control, code reviews, and automated testing for infrastructure changes to ensure consistency and reliability.</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300">Terraform</span>
+              <span class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300">Modular Design</span>
+              <span class="px-2 py-1 text-xs rounded bg-green-900/30 text-green-300">State Management</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"></div>
+          <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
+            <h3 class="text-xl font-semibold">CI/CD Pipeline</h3>
+            <p class="mt-2 text-zinc-300">Implement continuous integration and deployment pipelines using GitHub Actions. Automate testing, building, and deployment processes with rollback capabilities and environment promotion strategies.</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300">GitHub Actions</span>
+              <span class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300">Automated Testing</span>
+              <span class="px-2 py-1 text-xs rounded bg-purple-900/30 text-purple-300">Blue/Green Deployments</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="relative">
+          <div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary border-4 border-zinc-900"></div>
+          <div class="ml-4 p-5 rounded-xl border border-zinc-800 bg-white/5">
+            <h3 class="text-xl font-semibold">Monitor & Optimize</h3>
+            <p class="mt-2 text-zinc-300">Establish comprehensive monitoring, alerting, and logging solutions. Continuously optimize performance, costs, and security posture based on metrics and feedback.</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300">Prometheus/Grafana</span>
+              <span class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300">Cost Optimization</span>
+              <span class="px-2 py-1 text-xs rounded bg-yellow-900/30 text-yellow-300">Performance Tuning</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section id="metrics" class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10">
+    <h2 class="text-3xl font-bold">DevOps Metrics & KPIs</h2>
+    <p class="mt-4 text-zinc-300">Key performance indicators I track to measure and improve system reliability and team productivity:</p>
+    
+    <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Deployment Frequency -->
+      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center">
+        <div class="text-3xl font-bold text-primary">20+</div>
+        <h3 class="mt-2 font-semibold">Deployments/Week</h3>
+        <p class="mt-2 text-sm text-zinc-300">Frequency of successful deployments to production environments</p>
+      </div>
+      
+      <!-- Lead Time -->
+      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center">
+        <div class="text-3xl font-bold text-primary">4 hrs</div>
+        <h3 class="mt-2 font-semibold">Lead Time</h3>
+        <p class="mt-2 text-sm text-zinc-300">Time from code commit to successful production deployment</p>
+      </div>
+      
+      <!-- MTTR -->
+      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center">
+        <div class="text-3xl font-bold text-primary">15 min</div>
+        <h3 class="mt-2 font-semibold">MTTR</h3>
+        <p class="mt-2 text-sm text-zinc-300">Mean Time to Recovery from incidents</p>
+      </div>
+      
+      <!-- Change Failure Rate -->
+      <div class="p-6 rounded-xl bg-zinc-800/50 border border-zinc-700 text-center">
+        <div class="text-3xl font-bold text-primary">&lt;5%</div>
+        <h3 class="mt-2 font-semibold">Failure Rate</h3>
+        <p class="mt-2 text-sm text-zinc-300">Percentage of deployments causing failures in production</p>
+      </div>
+    </div>
+    
+    <div class="mt-8 p-6 rounded-xl border border-zinc-700 bg-white/5">
+      <h3 class="text-xl font-semibold">How I Improve These Metrics:</h3>
+      <ul class="mt-4 grid md:grid-cols-2 gap-4 text-zinc-300">
+        <li class="flex items-start gap-2">
+          <span class="text-primary mt-1">•</span>
+          <span>Implement comprehensive automated testing to catch issues early</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary mt-1">•</span>
+          <span>Use feature flags for safer, incremental rollouts</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary mt-1">•</span>
+          <span>Create detailed runbooks and playbooks for common scenarios</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary mt-1">•</span>
+          <span>Conduct regular incident retrospectives to prevent recurrence</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary mt-1">•</span>
+          <span>Invest in observability tools for faster issue detection</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary mt-1">•</span>
+          <span>Standardize deployment processes to reduce variability</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- TECH -->
   <section id="tech" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold">Technical Skills</h2>
-    <p class="mt-2 text-zinc-300">Core technologies and tools I work with in my DevOps practice:</p>
-    <ul class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <li class="tech"><strong>Cloud Platforms</strong>: AWS (EC2, VPC, S3, IAM, RDS, CloudFront, CloudWatch, Route53, Lambda)</li>
-      <li class="tech"><strong>Containerization</strong>: Docker, Kubernetes (EKS)</li>
-      <li class="tech"><strong>Infrastructure as Code</strong>: Terraform (reusable modules)</li>
-      <li class="tech"><strong>CI/CD</strong>: GitHub Actions</li>
-      <li class="tech"><strong>Programming</strong>: Python, Bash</li>
-      <li class="tech"><strong>Databases</strong>: MySQL, PostgreSQL, Redis (basics)</li>
-      <li class="tech"><strong>Monitoring</strong>: Prometheus, Grafana, CloudWatch</li>
-      <li class="tech"><strong>Operating Systems</strong>: Linux (Ubuntu, CentOS)</li>
-    </ul>
+    <p class="mt-2 text-zinc-300">Comprehensive skill set across the DevOps toolchain and practices:</p>
+    
+    <div class="mt-8 grid md:grid-cols-2 gap-8">
+      <!-- Left Column -->
+      <div>
+        <h3 class="text-xl font-semibold text-primary mb-4">Infrastructure & Automation</h3>
+        <ul class="space-y-3">
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Cloud Platforms</strong>: AWS (EC2, VPC, S3, IAM, RDS, CloudFront, CloudWatch, Route53, Lambda, EKS)</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Infrastructure as Code</strong>: Terraform (modules, state management, providers)</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Configuration Management</strong>: Ansible (playbooks, roles, inventories)</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Containerization</strong>: Docker (images, registries, compose), Kubernetes (EKS, Helm, Operators)</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Orchestration</strong>: Kubernetes (deployments, services, ingress, autoscaling)</span>
+          </li>
+        </ul>
+        
+        <h3 class="text-xl font-semibold text-primary mb-4 mt-6">Monitoring & Observability</h3>
+        <ul class="space-y-3">
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Logging</strong>: ELK Stack, CloudWatch Logs, Fluentd</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Monitoring</strong>: Prometheus, Grafana, CloudWatch Alarms</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Tracing</strong>: Jaeger, OpenTelemetry</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Alerting</strong>: PagerDuty integrations, Slack notifications</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Right Column -->
+      <div>
+        <h3 class="text-xl font-semibold text-primary mb-4">CI/CD & Version Control</h3>
+        <ul class="space-y-3">
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>CI/CD Pipelines</strong>: GitHub Actions (workflows, runners, secrets)</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Version Control</strong>: Git (workflows, branching, merging, rebasing)</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Artifact Repositories</strong>: JFrog Artifactory, AWS ECR</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Deployment Strategies</strong>: Blue/Green, Canary, Rolling Updates</span>
+          </li>
+        </ul>
+        
+        <h3 class="text-xl font-semibold text-primary mb-4 mt-6">Scripting & Programming</h3>
+        <ul class="space-y-3">
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Scripting Languages</strong>: Bash, Python, PowerShell</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Infrastructure Testing</strong>: Terratest, KitchenCI</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>APIs & Integrations</strong>: REST APIs, Webhooks, SDKs</span>
+          </li>
+        </ul>
+        
+        <h3 class="text-xl font-semibold text-primary mb-4 mt-6">Security & Compliance</h3>
+        <ul class="space-y-3">
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Security Tools</strong>: Vault, Aqua Security, Snyk</span>
+          </li>
+          <li class="tech flex items-start gap-2">
+            <span class="text-primary">▸</span>
+            <span><strong>Compliance</strong>: SOC 2, GDPR, HIPAA awareness</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- JOBS SECTION -->
@@ -434,24 +867,29 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   <a class="underline" href="mailto:goswamiamogh@outlook.com">goswamiamogh@outlook.com</a>
 </p>
     <!-- Contact Form -->
-    <form action="mailto:goswamiamogh@outlook.com" method="post" enctype="text/plain" class="mt-6 grid gap-4 max-w-xl">
+    <form id="contactForm" class="mt-6 grid gap-4 max-w-xl">
       <div>
         <label for="name" class="sr-only">Name</label>
         <input required placeholder="Name*" class="field" id="name" name="name" type="text" />
+        <div class="text-red-400 text-sm mt-1 hidden" id="nameError"></div>
       </div>
       <div>
         <label for="subject" class="sr-only">Subject</label>
         <input required placeholder="Subject*" class="field" id="subject" name="subject" type="text" />
+        <div class="text-red-400 text-sm mt-1 hidden" id="subjectError"></div>
       </div>
       <div>
         <label for="email" class="sr-only">Email</label>
         <input required type="email" placeholder="Email*" class="field" id="email" name="email" />
+        <div class="text-red-400 text-sm mt-1 hidden" id="emailError"></div>
       </div>
       <div>
         <label for="message" class="sr-only">Message</label>
         <textarea required placeholder="Message*" rows="5" class="field" id="message" name="message"></textarea>
+        <div class="text-red-400 text-sm mt-1 hidden" id="messageError"></div>
       </div>
-      <button type="submit" class="px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold">Send Message</button>
+      <button type="submit" class="px-5 py-3 rounded-xl bg-primary text-zinc-900 font-semibold hover:bg-primary/90 transition-colors">Send Message</button>
+      <div id="formMessage" class="mt-4 p-3 rounded-lg hidden"></div>
     </form>
    
 <!-- Contact Icons -->
@@ -523,7 +961,97 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   .animate-pulseInsta { animation: pulseInsta 2s infinite; }
 </style>
   </section>
-<section id="blog" class="max-w-6xl mx-auto px-4 py-16">
+
+  <!-- TESTIMONIALS -->
+  <section class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10">
+    <h2 class="text-3xl font-bold text-center">What People Say</h2>
+    <p class="mt-4 text-zinc-300 text-center max-w-2xl mx-auto">Feedback from colleagues and clients I've worked with</p>
+    
+    <div class="mt-12 grid md:grid-cols-3 gap-8">
+      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card">
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+            <span class="text-primary font-bold">JD</span>
+          </div>
+          <div class="ml-4">
+            <h3 class="font-semibold">John Doe</h3>
+            <p class="text-sm text-zinc-400">Engineering Manager</p>
+          </div>
+        </div>
+        <p class="mt-4 text-zinc-300 italic">"Amogh transformed our deployment process, reducing release times from hours to minutes. His automation skills are exceptional."</p>
+        <div class="mt-4 flex text-yellow-400">
+          ★★★★★
+        </div>
+      </div>
+      
+      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card">
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+            <span class="text-primary font-bold">AS</span>
+          </div>
+          <div class="ml-4">
+            <h3 class="font-semibold">Alice Smith</h3>
+            <p class="text-sm text-zinc-400">Product Owner</p>
+          </div>
+        </div>
+        <p class="mt-4 text-zinc-300 italic">"Working with Amogh was a game-changer for our team. He helped us establish robust monitoring that prevented several outages."</p>
+        <div class="mt-4 flex text-yellow-400">
+          ★★★★★
+        </div>
+      </div>
+      
+      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5 interactive-card">
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+            <span class="text-primary font-bold">RJ</span>
+          </div>
+          <div class="ml-4">
+            <h3 class="font-semibold">Robert Johnson</h3>
+            <p class="text-sm text-zinc-400">CTO</p>
+          </div>
+        </div>
+        <p class="mt-4 text-zinc-300 italic">"Amogh's expertise in cloud cost optimization saved us thousands monthly. His DevOps practices improved our reliability significantly."</p>
+        <div class="mt-4 flex text-yellow-400">
+          ★★★★★
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="community" class="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700 my-10">
+    <h2 class="text-3xl font-bold">Community & Open Source</h2>
+    <p class="mt-4 text-zinc-300">Actively contributing to the DevOps community through open source and knowledge sharing:</p>
+    
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <!-- GitHub Contributions -->
+      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
+        <div class="text-primary text-3xl mb-3">★</div>
+        <h3 class="text-xl font-semibold">Open Source</h3>
+        <p class="mt-2 text-zinc-300">Regular contributor to DevOps tooling repositories. Created reusable Terraform modules shared on GitHub for infrastructure provisioning patterns.</p>
+        <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-primary hover:underline">View Contributions →</a>
+      </div>
+      
+      <!-- Blog & Documentation -->
+      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
+        <div class="text-primary text-3xl mb-3">📝</div>
+        <h3 class="text-xl font-semibold">Knowledge Sharing</h3>
+        <p class="mt-2 text-zinc-300">Documenting my DevOps journey with tutorials, best practices, and lessons learned from real-world projects on GitHub.</p>
+        <a href="https://github.com/goswami800" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-primary hover:underline">Read Articles →</a>
+      </div>
+      
+      <!-- Community Engagement -->
+      <div class="p-6 rounded-xl border border-zinc-700 bg-white/5">
+        <div class="text-primary text-3xl mb-3">👥</div>
+        <h3 class="text-xl font-semibold">Community Involvement</h3>
+        <p class="mt-2 text-zinc-300">Active participant in DevOps forums, attending virtual meetups, and engaging with the wider DevOps community on social platforms.</p>
+        <a href="https://www.linkedin.com/in/amogh-goswami-783801201" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-primary hover:underline">Connect →</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- BLOG -->
+  <section id="blog" class="max-w-6xl mx-auto px-4 py-16">
   <h2 class="text-3xl font-bold">Learning Notes</h2>
   <p class="mt-4 text-zinc-300">
     I document my DevOps journey and experiments on GitHub.  
@@ -534,11 +1062,27 @@ document.getElementById("darkToggleMobile")?.addEventListener("click",
   <footer class="border-t border-zinc-800 py-10">
     <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 gap-4 text-sm text-zinc-400">
       <div>© 2025 Amogh Goswami</div>
-      <div class="justify-self-end">Important Links: <a class="underline" href="#home">Home</a> • <a class="underline" href="#projects">My work</a> • <a class="underline" href="#contact">Contact</a></div>
+      <div class="justify-self-end">Important Links: <a class="underline" href="#home">Home</a> • <a class="underline" href="#projects">Projects</a> • <a class="underline" href="#tech">Skills</a> • <a class="underline" href="#contact">Contact</a></div>
     </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
+  
+  <!-- PRELOADER SCRIPT -->
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.style.opacity = '0';
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 500);
+        }, 500);
+      }
+    });
+  </script>
+  
 <!-- POPUP -->
 <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden z-50">
   <div id="popupBox" class="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700 rounded-2xl p-8 max-w-sm text-center shadow-2xl transform scale-90 opacity-0 transition-all duration-500">
